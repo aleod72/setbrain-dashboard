@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@setbrain-dashboard/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@setbrain-dashboard/api-interfaces": [
+        "libs/api-interfaces/src/index.ts"
+      ],
+      "@setbrain-dashboard/shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
