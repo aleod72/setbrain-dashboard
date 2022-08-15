@@ -1,0 +1,8 @@
+<button
+  class='btn gap-2 bg-lightgrey-100 rounded-xl border-4 border-grey-100 flex items-center normal-case font-bold text-white-100 p-3'
+  [ngClass]="{ 'btn-disabled': disabled }"
+  (click)='onClick($event)'
+>
+  <i [class]="'fi fi-rr-' + icon + ' text-xs h-3.5'"></i>
+  {{ label }}
+</button>
