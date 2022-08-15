@@ -8,7 +8,7 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "chromatic": "npx chromatic --project-token=e086a5a21616 -d=dist/storybook/shared-ui"
+    "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN -d=dist/storybook/shared-ui"
   },
   "private": true,
   "dependencies": {
