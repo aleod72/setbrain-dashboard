@@ -6,6 +6,7 @@
     "api-interfaces": "libs/api-interfaces",
     "frontend": "apps/frontend",
     "frontend-e2e": "apps/frontend-e2e",
+    "shared-assets": "libs/shared/assets",
     "shared-ui": "libs/shared/ui",
     "tailwind-preset": "libs/tailwind-preset"
   }
