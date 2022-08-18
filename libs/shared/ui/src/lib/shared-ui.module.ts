@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from './button/button.component';
 import { ButtonIconComponent } from './button-icon/button-icon.component';
+import { StrokebuttonComponent } from './strokebutton/strokebutton.component';
 import { CloseButtonComponent } from './close-button/close-button.component';
 import { ButtonwithoutfillComponent } from './buttonwithoutfill/buttonwithoutfill.component';
 import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
@@ -14,6 +15,7 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     CloseButtonComponent,
     ButtonwithoutfillComponent,
     GooglebuttonComponent,
+    StrokebuttonComponent
   ],
   exports: [
     ButtonComponent,
@@ -21,6 +23,7 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     CloseButtonComponent,
     ButtonwithoutfillComponent,
     GooglebuttonComponent,
+    StrokebuttonComponent
   ],
 })
 export class SharedUiModule {}
