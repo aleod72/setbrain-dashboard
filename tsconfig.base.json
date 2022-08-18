@@ -18,7 +18,12 @@
       "@setbrain-dashboard/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
-      "@setbrain-dashboard/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@setbrain-dashboard/shared/assets": [
+        "libs/shared/assets/src/index.ts"
+      ],
+      "@setbrain-dashboard/shared/ui": [
+        "libs/shared/ui/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
