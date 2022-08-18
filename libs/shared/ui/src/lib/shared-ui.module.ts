@@ -5,6 +5,7 @@ import { ButtonIconComponent } from './button-icon/button-icon.component';
 import { StrokebuttonComponent } from './strokebutton/strokebutton.component';
 import { CloseButtonComponent } from './close-button/close-button.component';
 import { ButtonwithoutfillComponent } from './buttonwithoutfill/buttonwithoutfill.component';
+import { BackbuttonComponent } from './backbutton/backbutton.component';
 import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     ButtonIconComponent,
     CloseButtonComponent,
     ButtonwithoutfillComponent,
+    BackbuttonComponent,
     GooglebuttonComponent,
     StrokebuttonComponent
   ],
@@ -22,6 +24,7 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     ButtonIconComponent,
     CloseButtonComponent,
     ButtonwithoutfillComponent,
+    BackbuttonComponent,
     GooglebuttonComponent,
     StrokebuttonComponent
   ],
