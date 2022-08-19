@@ -19,5 +19,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
   icon: 'square',
-  disabled: true
+  disabled: false
 };

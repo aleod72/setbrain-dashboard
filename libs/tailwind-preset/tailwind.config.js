@@ -108,6 +108,10 @@ module.exports = {
       'pretitle': '0.75rem',
       'pretitle-s': '0.625rem',
       'link': '0.875rem'
+    },
+    fontFamily: {
+      'body': ['"MADE Okine Sans PERSONAL USE"'],
+      'display': ['"Euclid Circular A"']
     }
   },
   plugins: [],
