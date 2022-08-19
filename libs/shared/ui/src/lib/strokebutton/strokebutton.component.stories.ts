@@ -18,4 +18,5 @@ const Template: Story<StrokebuttonComponent> = (args: StrokebuttonComponent) => 
 
 export const Primary = Template.bind({});
 Primary.args = {
-}
+  label: 'Button'
+};

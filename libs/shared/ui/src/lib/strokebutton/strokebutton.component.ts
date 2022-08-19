@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'setbrain-dashboard-strokebutton',
@@ -6,8 +6,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./strokebutton.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class StrokebuttonComponent implements OnInit {
-  constructor() {}
+export class StrokebuttonComponent {
+  @Input() label: string | undefined;
+  @Output() buttonClicked = new EventEmitter();
 
-  ngOnInit(): void {}
+  onClick(event: MouseEvent) {
+    this.buttonClicked.emit(event);
+  }
 }

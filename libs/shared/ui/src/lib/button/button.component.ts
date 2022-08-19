@@ -14,7 +14,6 @@ import {
 })
 export class ButtonComponent {
   @Input() label: string | undefined;
-  @Input() icon: string | undefined;
   @Output() buttonClicked = new EventEmitter();
 
   onClick(clickEvent: MouseEvent) {
