@@ -1,0 +1,6 @@
+<div class="form-control w-full max-w-xs">
+  <label class="label">
+    <span class="label-text text-body-m text-white-100"> {{label}} </span>
+  </label>
+  <input type="text" class="input input-bordered w-full max-w-xs text-body-s text-white-100 font-normal bg-grey-48 border-darkgrey-72 border-4 rounded-xl hover:bg-darkgrey-72 hover:border-darkgrey-72 focus:outline-lightgrey-24" (change)="change($event)" [value]="text" [placeholder]="placeholder" [ngStyle]="{'--content-text': '\'' + getFileExtension() + '\''} ">
+</div>
