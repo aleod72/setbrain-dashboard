@@ -7,9 +7,11 @@ import { CloseButtonComponent } from './close-button/close-button.component';
 import { ButtonwithoutfillComponent } from './buttonwithoutfill/buttonwithoutfill.component';
 import { BackbuttonComponent } from './backbutton/backbutton.component';
 import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
+import { LabelInputComponent } from './label-input/label-input.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   declarations: [
     ButtonComponent,
     ButtonIconComponent,
@@ -17,7 +19,8 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     ButtonwithoutfillComponent,
     BackbuttonComponent,
     GooglebuttonComponent,
-    StrokebuttonComponent
+    StrokebuttonComponent,
+    LabelInputComponent,
   ],
   exports: [
     ButtonComponent,
@@ -26,7 +29,8 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     ButtonwithoutfillComponent,
     BackbuttonComponent,
     GooglebuttonComponent,
-    StrokebuttonComponent
+    StrokebuttonComponent,
+    LabelInputComponent,
   ],
 })
 export class SharedUiModule {}

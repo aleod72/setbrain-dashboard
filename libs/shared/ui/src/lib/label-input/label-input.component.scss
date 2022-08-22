@@ -1,0 +1,14 @@
+root {
+  --content-text: '';
+}
+
+input {
+  position: relative;
+}
+
+input:before{
+  content: var(--content-text);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

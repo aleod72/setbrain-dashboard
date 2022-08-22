@@ -8,6 +8,7 @@
     "frontend-e2e": "apps/frontend-e2e",
     "shared-assets": "libs/shared/assets",
     "shared-ui": "libs/shared/ui",
+    "shared-utils": "libs/shared/utils",
     "tailwind-preset": "libs/tailwind-preset"
   }
 }
