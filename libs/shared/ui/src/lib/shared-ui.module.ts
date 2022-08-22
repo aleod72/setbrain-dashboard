@@ -7,6 +7,7 @@ import { CloseButtonComponent } from './close-button/close-button.component';
 import { ButtonwithoutfillComponent } from './buttonwithoutfill/buttonwithoutfill.component';
 import { BackbuttonComponent } from './backbutton/backbutton.component';
 import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
+import { ProgressbarComponent } from './progressbar/progressbar.component';
 
 @NgModule({
   imports: [CommonModule],
@@ -17,7 +18,8 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     ButtonwithoutfillComponent,
     BackbuttonComponent,
     GooglebuttonComponent,
-    StrokebuttonComponent
+    StrokebuttonComponent,
+    ProgressbarComponent,
   ],
   exports: [
     ButtonComponent,
@@ -26,7 +28,8 @@ import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
     ButtonwithoutfillComponent,
     BackbuttonComponent,
     GooglebuttonComponent,
-    StrokebuttonComponent
+    StrokebuttonComponent,
+    ProgressbarComponent,
   ],
 })
 export class SharedUiModule {}

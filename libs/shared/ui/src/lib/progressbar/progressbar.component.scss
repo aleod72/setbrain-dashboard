@@ -1,0 +1,25 @@
+* {
+    --background-size: 0;
+    --progress-color: transparent;
+    --progress-background: transparent;
+    --content-text: '0%';
+}
+
+.progress {
+    background: var(--progress-background);
+    position: relative;
+    border-radius: 8px;
+    height: 48px;
+
+    &:before {
+        content: var(--content-text);
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        position: absolute;
+        width: var(--background-size);
+        height: 100%;
+        background-color: var(--progress-color);
+        background-image: url('../../../assets/images/effects/Grain.svg');
+    }
+}
