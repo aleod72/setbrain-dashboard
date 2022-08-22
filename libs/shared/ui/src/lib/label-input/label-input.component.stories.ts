@@ -20,5 +20,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: "Label",
   placeholder: "Type text here",
-  text: "Lorem ipsum dolor.pdf",
+  filename: "test.pdf",
+  text: ''
 };
