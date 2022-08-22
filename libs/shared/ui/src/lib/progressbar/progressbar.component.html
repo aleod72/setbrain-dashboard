@@ -1,0 +1,1 @@
+<div class="progress" [ngStyle]="{'--background-size': (progress * 100) + '%', '--content-text': ( progress === 1 ? '\'Fini !\'' : '\'' + (progress*100) + '%\'' ), '--progress-background': getProgressColor().background, '--progress-color': getProgressColor().main}"></div>

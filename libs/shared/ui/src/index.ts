@@ -13,3 +13,4 @@ export * from './lib/buttonwithoutfill/buttonwithoutfill.component';
 export * from './lib/backbutton/backbutton.component';
 
 export * from './lib/googlebutton/googlebutton.component';
+export * from './lib/progressbar/progressbar.component';
