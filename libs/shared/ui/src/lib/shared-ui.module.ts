@@ -7,10 +7,13 @@ import { CloseButtonComponent } from './close-button/close-button.component';
 import { ButtonwithoutfillComponent } from './buttonwithoutfill/buttonwithoutfill.component';
 import { BackbuttonComponent } from './backbutton/backbutton.component';
 import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
+import { LabelInputComponent } from './label-input/label-input.component';
+import {FormsModule} from "@angular/forms";
 import { ProgressbarComponent } from './progressbar/progressbar.component';
 
+
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   declarations: [
     ButtonComponent,
     ButtonIconComponent,
@@ -19,6 +22,7 @@ import { ProgressbarComponent } from './progressbar/progressbar.component';
     BackbuttonComponent,
     GooglebuttonComponent,
     StrokebuttonComponent,
+    LabelInputComponent,
     ProgressbarComponent,
   ],
   exports: [
@@ -29,6 +33,7 @@ import { ProgressbarComponent } from './progressbar/progressbar.component';
     BackbuttonComponent,
     GooglebuttonComponent,
     StrokebuttonComponent,
+    LabelInputComponent,
     ProgressbarComponent,
   ],
 })
