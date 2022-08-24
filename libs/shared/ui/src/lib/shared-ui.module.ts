@@ -9,6 +9,8 @@ import { BackbuttonComponent } from './backbutton/backbutton.component';
 import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
 import { LabelInputComponent } from './label-input/label-input.component';
 import {FormsModule} from "@angular/forms";
+import { ProgressbarComponent } from './progressbar/progressbar.component';
+
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -21,6 +23,7 @@ import {FormsModule} from "@angular/forms";
     GooglebuttonComponent,
     StrokebuttonComponent,
     LabelInputComponent,
+    ProgressbarComponent,
   ],
   exports: [
     ButtonComponent,
@@ -31,6 +34,7 @@ import {FormsModule} from "@angular/forms";
     GooglebuttonComponent,
     StrokebuttonComponent,
     LabelInputComponent,
+    ProgressbarComponent,
   ],
 })
 export class SharedUiModule {}
