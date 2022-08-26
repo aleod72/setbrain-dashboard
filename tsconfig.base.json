@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@env/*": ["apps/frontend/src/environments/*"],
       "@setbrain-dashboard/api-interfaces": [
         "libs/api-interfaces/src/index.ts"
       ],
@@ -31,9 +32,11 @@
       "@setbrain-dashboard/shared/data-access/users": [
         "libs/shared/data-access/users/src/index.ts"
       ],
+      "@setbrain-dashboard/shared/environments": [
+        "libs/shared/environments/src/index.ts"
+      ],
       "@setbrain-dashboard/shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@setbrain-dashboard/shared/utils": ["libs/shared/utils/src/index.ts"],
-      "@env/*": ["apps/frontend/src/environments/*"],
+      "@setbrain-dashboard/shared/utils": ["libs/shared/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

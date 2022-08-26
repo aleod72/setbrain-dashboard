@@ -28,8 +28,11 @@ export class AuthService {
     });
   }
 
+  signUp(email: string, password: string) {
+    return this.supabase.auth.signUp({email, password});
+  }
+
   signOut() {
     return this.supabase.auth.signOut();
   }
-
 }
