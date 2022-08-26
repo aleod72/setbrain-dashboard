@@ -1,0 +1,41 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/shared/data-access/database/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/shared/data-access/database"],
+      "options": {
+        "project": "libs/shared/data-access/database/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/data-access/database/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/data-access/database/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/shared/data-access/database/src/test.ts",
+        "tsConfig": "libs/shared/data-access/database/tsconfig.spec.json",
+        "karmaConfig": "libs/shared/data-access/database/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/data-access/database/**/*.ts",
+          "libs/shared/data-access/database/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
