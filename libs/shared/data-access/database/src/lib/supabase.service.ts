@@ -7,7 +7,7 @@ import { environment } from "../../../../environments/src";
   providedIn: 'root'
 })
 export class SupabaseService {
-  private supabase: SupabaseClient;
+  public supabase: SupabaseClient;
   public auth: SupabaseAuthClient;
 
   constructor() {
