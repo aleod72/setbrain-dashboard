@@ -16,7 +16,7 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "nx/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": [
           "build",
@@ -24,13 +24,16 @@
           "test",
           "e2e",
           "build-storybook"
-        ]
+        ],
+        "accessToken": "NTAyMWRlZWYtNjg0OC00ODQ4LTk5YTEtMmFlZmU0M2VjNTFlfHJlYWQtd3JpdGU="
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "generators": {
@@ -42,11 +45,17 @@
     },
     "@nrwl/angular:library": {
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": false
     },
     "@nrwl/angular:component": {
       "style": "scss"
     }
   },
-  "defaultProject": "frontend"
+  "defaultProject": "frontend",
+  "pluginsConfig": {
+    "@nrwl/js": {
+      "analyzeSourceFiles": true
+    }
+  }
 }
