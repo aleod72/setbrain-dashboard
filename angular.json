@@ -10,7 +10,6 @@
     "shared-data-access-auth": "libs/shared/data-access/auth",
     "shared-data-access-database": "libs/shared/data-access/database",
     "shared-data-access-users": "libs/shared/data-access/users",
-    "shared-environments": "libs/shared/environments",
     "shared-ui": "libs/shared/ui",
     "shared-utils": "libs/shared/utils",
     "tailwind-preset": "libs/tailwind-preset"
