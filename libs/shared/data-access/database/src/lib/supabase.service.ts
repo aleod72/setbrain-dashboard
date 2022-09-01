@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {createClient, SupabaseClient} from "@supabase/supabase-js";
+import {createClient, SupabaseClient, SupabaseClientOptions} from "@supabase/supabase-js";
 import {SupabaseAuthClient} from "@supabase/supabase-js/dist/main/lib/SupabaseAuthClient";
 
 

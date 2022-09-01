@@ -15,9 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@setbrain-dashboard/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
-      ],
       "@setbrain-dashboard/shared/assets": ["libs/shared/assets/src/index.ts"],
       "@setbrain-dashboard/shared/data-acces/database": [
         "libs/shared/data-acces/database/src/index.ts"

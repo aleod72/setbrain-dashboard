@@ -40,4 +40,9 @@ export class ProfileService {
   uploadAvatar(filePath: string, file: File) {
     return this.supabaseService.supabase.storage.from('avatars').upload(filePath, file);
   }
+
+  async updateAuth() {
+    const {data, error} = await this.supabaseService.auth.update({});
+    return {data, error};
+  }
 }
