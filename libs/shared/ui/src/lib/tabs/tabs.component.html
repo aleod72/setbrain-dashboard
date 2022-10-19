@@ -1,0 +1,3 @@
+<div class="tabs border border-lightgrey-100 rounded-md w-fit">
+    <a class="tab px-[18px] font-body-r font-bold" *ngFor="let tab of tabs" (click)="setActiveTab(tab)" [ngClass]="{'tab-active bg-lightgrey-100 rounded-md': activeTab === tab.id}">{{tab.name}}</a>
+</div>

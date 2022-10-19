@@ -8,9 +8,9 @@ import { ButtonwithoutfillComponent } from './buttonwithoutfill/buttonwithoutfil
 import { BackbuttonComponent } from './backbutton/backbutton.component';
 import { GooglebuttonComponent } from './googlebutton/googlebutton.component';
 import { LabelInputComponent } from './label-input/label-input.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { ProgressbarComponent } from './progressbar/progressbar.component';
-
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -24,6 +24,7 @@ import { ProgressbarComponent } from './progressbar/progressbar.component';
     StrokebuttonComponent,
     LabelInputComponent,
     ProgressbarComponent,
+    TabsComponent,
   ],
   exports: [
     ButtonComponent,
@@ -35,6 +36,7 @@ import { ProgressbarComponent } from './progressbar/progressbar.component';
     StrokebuttonComponent,
     LabelInputComponent,
     ProgressbarComponent,
+    TabsComponent,
   ],
 })
 export class SharedUiModule {}
