@@ -15,5 +15,7 @@ export * from './lib/backbutton/backbutton.component';
 export * from './lib/googlebutton/googlebutton.component';
 
 export * from './lib/label-input/label-input.component';
-=======
+
 export * from './lib/progressbar/progressbar.component';
+
+export * from './lib/tabs/tabs.component';
