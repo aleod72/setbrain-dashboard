@@ -98,7 +98,7 @@ module.exports = {
       'body-l': '1rem',
       'body-mb': '0.875rem',
       'body-m': '0.875rem',
-      'body-b': '0.875',
+      'body-b': '0.875rem',
       'body-r': '0.875rem',
       'body-sb': '0.75rem',
       'body-sm': '0.75rem',
