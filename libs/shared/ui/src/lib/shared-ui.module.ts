@@ -11,6 +11,7 @@ import { LabelInputComponent } from './label-input/label-input.component';
 import { FormsModule } from '@angular/forms';
 import { ProgressbarComponent } from './progressbar/progressbar.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -25,6 +26,7 @@ import { TabsComponent } from './tabs/tabs.component';
     LabelInputComponent,
     ProgressbarComponent,
     TabsComponent,
+    UsersListComponent,
   ],
   exports: [
     ButtonComponent,
@@ -37,6 +39,7 @@ import { TabsComponent } from './tabs/tabs.component';
     LabelInputComponent,
     ProgressbarComponent,
     TabsComponent,
+    UsersListComponent,
   ],
 })
 export class SharedUiModule {}
