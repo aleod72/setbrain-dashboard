@@ -1,0 +1,13 @@
+<div class="flex">
+    <div class="avatar overflow-hidden border-2 rounded-full w-6 h-6 placeholder" *ngIf="users.length > 2">
+        <div class="w-6 bg-lightgrey-100 text-pretitle-s text-neutral-content">
+            <span>{{users.length - 2}}</span>
+        </div>
+    </div>
+    <div class="avatar overflow-hidden border-2 rounded-full w-6 h-6" *ngFor="let user of users.slice(0, 2)">
+            <img [src]="user.avatar_url" alt="profile picture"/>
+    </div>
+    <div class="overflow-hidden border-2 rounded-full avatar outline outline-2 outline-offset-[-2px] outline-blue-100 w-6 h-6">
+            <img [src]="connectedUser.avatar_url" alt="profile picture"/>
+    </div>
+</div>
