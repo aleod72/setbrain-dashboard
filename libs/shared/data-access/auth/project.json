@@ -1,11 +1,12 @@
 {
+  "name": "shared-data-access-auth",
   "projectType": "library",
   "sourceRoot": "libs/shared/data-access/auth/src",
   "prefix": "setbrain-dashboard",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/shared/data-access/auth"],
+      "outputs": ["{workspaceRoot}/dist/libs/shared/data-access/auth"],
       "options": {
         "project": "libs/shared/data-access/auth/ng-package.json"
       },
@@ -21,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/data-access/auth"],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/data-access/auth"],
       "options": {
         "jestConfig": "libs/shared/data-access/auth/jest.config.ts",
         "passWithNoTests": true

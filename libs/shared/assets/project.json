@@ -1,13 +1,12 @@
 {
+  "name": "shared-assets",
   "projectType": "library",
   "sourceRoot": "libs/shared/assets/src",
   "prefix": "setbrain-dashboard",
   "targets": {
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/shared/assets"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/assets"],
       "options": {
         "jestConfig": "libs/shared/assets/jest.config.ts",
         "passWithNoTests": true

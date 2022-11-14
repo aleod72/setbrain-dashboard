@@ -1,4 +1,5 @@
 {
+  "name": "frontend",
   "projectType": "application",
   "sourceRoot": "apps/frontend/src",
   "prefix": "setbrain-dashboard",
@@ -73,7 +74,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/frontend"],
+      "outputs": ["{workspaceRoot}/coverage/apps/frontend"],
       "options": {
         "jestConfig": "apps/frontend/jest.config.ts",
         "passWithNoTests": true

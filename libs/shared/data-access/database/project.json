@@ -1,11 +1,12 @@
 {
+  "name": "shared-data-access-database",
   "projectType": "library",
   "sourceRoot": "libs/shared/data-access/database/src",
   "prefix": "lib",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/shared/data-access/database"],
+      "outputs": ["{workspaceRoot}/dist/libs/shared/data-access/database"],
       "options": {
         "project": "libs/shared/data-access/database/ng-package.json"
       },

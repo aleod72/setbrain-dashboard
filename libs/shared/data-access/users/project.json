@@ -1,11 +1,12 @@
 {
+  "name": "shared-data-access-users",
   "projectType": "library",
   "sourceRoot": "libs/shared/data-access/users/src",
   "prefix": "setbrain-dashboard",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["dist/libs/shared/data-access/users"],
+      "outputs": ["{workspaceRoot}/dist/libs/shared/data-access/users"],
       "options": {
         "project": "libs/shared/data-access/users/ng-package.json"
       },
@@ -21,7 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/data-access/users"],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/data-access/users"],
       "options": {
         "jestConfig": "libs/shared/data-access/users/jest.config.ts",
         "passWithNoTests": true
