@@ -1,0 +1,4 @@
+<div class="flex rounded-xl py-1.5 px-2 gap-3.5 items-center border-2 border-lightgrey-24 w-fit">
+  <span class="rounded-full h-8 w-8 bg-center bg-cover bg-no-repeat" *ngIf="backgroundImg" [style.background-image]="backgroundImg"></span>
+  <span class="text-white-100">{{ profile.firstname + ' ' + profile.lastname }}</span>
+</div>

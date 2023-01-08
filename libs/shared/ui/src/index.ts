@@ -23,3 +23,5 @@ export * from './lib/tabs/tabs.component';
 export * from './lib/users-list/users-list.component';
 
 export * from './lib/user-profile/user-profile.component';
+
+export * from './lib/user-tag/user-tag.component';
