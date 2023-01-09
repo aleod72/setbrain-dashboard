@@ -13,6 +13,7 @@ import { ProgressbarComponent } from './progressbar/progressbar.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserTagComponent } from './user-tag/user-tag.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -29,6 +30,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     TabsComponent,
     UsersListComponent,
     UserProfileComponent,
+    UserTagComponent,
   ],
   exports: [
     ButtonComponent,
@@ -43,6 +45,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     TabsComponent,
     UsersListComponent,
     UserProfileComponent,
+    UserTagComponent,
   ],
 })
 export class SharedUiModule {}
