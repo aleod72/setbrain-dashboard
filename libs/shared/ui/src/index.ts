@@ -25,3 +25,7 @@ export * from './lib/users-list/users-list.component';
 export * from './lib/user-profile/user-profile.component';
 
 export * from './lib/user-tag/user-tag.component';
+
+export * from './lib/task-card/task-card.component';
+
+export * from './lib/tag/tag.component';
