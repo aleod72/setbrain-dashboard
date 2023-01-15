@@ -85,10 +85,14 @@ Primary.args = {
         avatar_url: 'https://placeimg.com/640/640/any',
       }
     ],
-    sub_tasks: {'test': 'deg'},
+    sub_tasks: {
+      id: '1',
+      title: 'some task',
+      finished: false
+    },
     title: 'Animation d’interaction avec les textes du footer',
     created_at: new Date(),
-    description: 'no description',
+    description: {'description': 'no description'},
     comments: ['1', '1']
   }
 };
