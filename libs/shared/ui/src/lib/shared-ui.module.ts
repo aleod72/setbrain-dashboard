@@ -14,6 +14,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserTagComponent } from './user-tag/user-tag.component';
+import { ProjectCardComponent } from './project-card/project-card.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
@@ -31,6 +32,7 @@ import { UserTagComponent } from './user-tag/user-tag.component';
     UsersListComponent,
     UserProfileComponent,
     UserTagComponent,
+    ProjectCardComponent,
   ],
   exports: [
     ButtonComponent,
@@ -46,6 +48,7 @@ import { UserTagComponent } from './user-tag/user-tag.component';
     UsersListComponent,
     UserProfileComponent,
     UserTagComponent,
+    ProjectCardComponent,
   ],
 })
 export class SharedUiModule {}

@@ -1,0 +1,16 @@
+<div class="flex items-center gap-2 cursor-pointer">
+  <span class="h-5 w-[3px] bg-white-100 rounded-full shadow-[0px_0px_8px_rgba(255,255,255,0.5)]" *ngIf="active"></span>
+  <div class="flex justify-between items-center w-full">
+    <div class="flex gap-4 items-center">
+      <span class="bg-center bg-cover h-[54px] w-[54px] rounded-xl" [ngStyle]="{backgroundImage: 'url(' + project.project_icon_url + ')'}"></span>
+      <div class="flex flex-col gap-px">
+        <h1 class="text-white-100 text-body-l font-normal">{{ project.name }}</h1>
+        <span class="text-white-48 text-pretitle-s font-medium">Crée le {{ project.created_at | date:'dd/MM/YY' }}</span>
+      </div>
+    </div>
+    <div class="notifications flex gap-2 items-center">
+      <i class="fi fi-rr-settings h-4.5 w-4 flex items-center" *ngIf="isAdmin === true"></i>
+      <span class="py-px px-2.5 bg-white-100 rounded-md text-black-100 text-body-sb font-bold" *ngIf="projectNotifications">{{ projectNotifications }}</span>
+    </div>
+  </div>
+</div>
