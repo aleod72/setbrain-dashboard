@@ -14,6 +14,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserTagComponent } from './user-tag/user-tag.component';
+import { ProjectCardComponent } from './project-card/project-card.component';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { TagComponent } from './tag/tag.component';
 
@@ -33,6 +34,7 @@ import { TagComponent } from './tag/tag.component';
     UsersListComponent,
     UserProfileComponent,
     UserTagComponent,
+    ProjectCardComponent,
     TaskCardComponent,
     TagComponent,
   ],
@@ -50,6 +52,7 @@ import { TagComponent } from './tag/tag.component';
     UsersListComponent,
     UserProfileComponent,
     UserTagComponent,
+    ProjectCardComponent,
     TaskCardComponent,
     TagComponent,
   ],
