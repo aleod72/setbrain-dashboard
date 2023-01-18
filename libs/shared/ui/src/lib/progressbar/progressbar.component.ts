@@ -22,10 +22,6 @@ export class ProgressbarComponent {
   }
 
   calcRemainingDays() {
-    const remainingDays = (this.endDate.getTime() - new Date().getTime()) / (1000*3600*24);
-    return remainingDays;
+    return (this.endDate.getTime() - new Date().getTime()) / (1000*3600*24);
   }
-
-
-
 }
