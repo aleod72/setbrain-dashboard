@@ -1,0 +1,20 @@
+<div class="flex flex-col border-2 border-darkgrey-48 rounded-3xl bg-darkgrey-100 py-3 px-4 w-80 cursor-pointer">
+  <div class="card-top flex justify-between items-end">
+    <setbrain-dashboard-tag [tagType]="task.type"></setbrain-dashboard-tag>
+    <setbrain-dashboard-users-list [users]="task.assigned_users" [connectedUser]="connectedUser"></setbrain-dashboard-users-list>
+  </div>
+  <div class="card-center flex flex-col gap-2 mt-2">
+    <div class="flex gap-1 flex-col">
+      <h1 class="font-bold text-body-lb text-white-100 w-60">{{task.title}}</h1>
+      <span class="text-body-s text-white-48">Pour le {{task.end_at | date:'dd/MM/YY'}}</span>
+    </div>
+    <setbrain-dashboard-progressbar [progress]="task.progess" [endDate]="task.end_at"></setbrain-dashboard-progressbar>
+  </div>
+  <div class="card-bottom flex justify-between mt-3">
+    <div class="flex gap-3">
+      <span *ngIf="task.comments.length > 0" class="text-pretitle flex items-center gap-1"><i class="fi fi-rr-comment-alt text-white-100 text-body-l"></i> {{task.comments.length}}</span>
+      <span *ngIf="task.joined_files.length > 0" class="text-pretitle flex items-center gap-1"><i class="fi fi-rr-clip text-white-100 text-body-l"></i> {{task.joined_files.length}}</span>
+    </div>
+    <a class="font-bold text-white-100 text-body-b">Voir plus</a>
+  </div>
+</div>
