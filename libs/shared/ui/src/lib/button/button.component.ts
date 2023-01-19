@@ -14,6 +14,7 @@ import {
 })
 export class ButtonComponent {
   @Input() label: string | undefined;
+  @Input() full? = false;
   @Output() buttonClicked = new EventEmitter();
 
   onClick(clickEvent: MouseEvent) {
