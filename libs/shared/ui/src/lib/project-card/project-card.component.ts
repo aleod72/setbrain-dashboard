@@ -1,14 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {JobService} from "@setbrain-dashboard/shared/data-access/users";
-
-interface Project {
-  id: string;
-  name: string;
-  created_at: Date;
-  end_date: Date;
-  project_icon_url: string;
-}
-
+import { Project } from "@setbrain-dashboard/shared/data-access/projects";
 @Component({
   selector: 'setbrain-dashboard-project-card',
   templateUrl: './project-card.component.html',
