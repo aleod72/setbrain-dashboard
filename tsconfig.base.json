@@ -25,6 +25,9 @@
       "@setbrain-dashboard/shared/data-access/database": [
         "libs/shared/data-access/database/src/index.ts"
       ],
+      "@setbrain-dashboard/shared/data-access/projects": [
+        "libs/shared/data-access/projects/src/index.ts"
+      ],
       "@setbrain-dashboard/shared/data-access/users": [
         "libs/shared/data-access/users/src/index.ts"
       ],

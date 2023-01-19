@@ -17,9 +17,9 @@ export class JobService {
   }
 
   authentifiedUserJobs() {
-    assertTruthy(this.profileService.user);
+    assertTruthy(this.profileService.session);
     this.profileService.updateAuth();
-    const { jobs } = this.profileService.user.app_metadata as Claim;
+    const { jobs } = this.profileService.session.user.app_metadata as Claim;
     return jobs;
   }
 
@@ -30,7 +30,7 @@ export class JobService {
   }
 
   async addJobToUser(id: string, job: string) {
-    assertTruthy(this.profileService.user);
+    assertTruthy(this.profileService.session?.user);
     const userJobs = await this.userJobs(id);
     if(userJobs instanceof Error) return userJobs.message;
     return await this.supabaseService.supabase.rpc('set_claim', { uid: id, claim: 'jobs', value: [...userJobs, job]});
@@ -40,7 +40,7 @@ export class JobService {
     const userJobs = await this.userJobs(id);
     if(!(userJobs instanceof Array)) return userJobs;
     const newJobs = userJobs.filter((job) => {
-      return job != jobName
+      return job != jobName;
     });
     return await this.supabaseService.supabase.rpc('set_claim', { uid: id, claim: 'jobs', value: newJobs});
   }
