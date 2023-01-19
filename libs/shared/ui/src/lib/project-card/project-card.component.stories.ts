@@ -24,5 +24,13 @@ Primary.args = {
     end_date: new Date(),
     project_icon_url: 'https://res.cloudinary.com/ddwjzushk/image/upload/v1673965906/stream-assistant/Logo_glyph_yqxcqh.png',
     id: '1'
-  }
+  },
+  pageLinks: [
+    {name: 'Général', link: '#', icon: 'apps',id: 1},
+    {name: 'Tâches', link: '#', icon: 'list-check',id: 2},
+    {name: 'Administration', link: '#', icon: 'edit',id: 3},
+    {name: 'Statistiques', link: '#', icon: 'stats',id: 4},
+    {name: 'Fichiers', link: '#', icon: 'folder',id: 4},
+  ],
+  active: false
 };

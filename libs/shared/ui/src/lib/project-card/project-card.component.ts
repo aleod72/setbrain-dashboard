@@ -19,6 +19,8 @@ export class ProjectCardComponent implements OnInit {
   @Input() project!: Project;
   @Input() projectNotifications: number | undefined;
   @Input() active = false;
+  @Input() pageLinks: Array<{name: string, link: string, icon: string, id: number}> | undefined;
+  @Input() activePage = 1;
   isAdmin= false;
 
   constructor(public job: JobService) {}

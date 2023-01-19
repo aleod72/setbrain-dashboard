@@ -17,9 +17,10 @@ import { UserTagComponent } from './user-tag/user-tag.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { TagComponent } from './tag/tag.component';
+import {RouterLinkWithHref} from "@angular/router";
 
 @NgModule({
-  imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, RouterLinkWithHref],
   declarations: [
     ButtonComponent,
     ButtonIconComponent,
