@@ -1,24 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Profile, ProfileService} from "@setbrain-dashboard/shared/data-access/users";
-
-interface Task {
-  id: string;
-  created_at: Date;
-  end_at: Date;
-  title: string;
-  assigned_users: Profile[];
-  assigned_check: Profile[];
-  description: object;
-  sub_tasks: {
-    id: string,
-    title: string,
-    finished: boolean
-  };
-  type: string;
-  comments: string[];
-  joined_files: string[];
-  progess: number;
-}
+import {Task} from '@setbrain-dashboard/shared/data-access/tasks';
 
 @Component({
   selector: 'setbrain-dashboard-task-card',
