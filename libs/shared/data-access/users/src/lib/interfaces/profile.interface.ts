@@ -1,5 +1,5 @@
 export interface Profile {
-  id: string;
+  id?: string;
   updated_at: string;
   firstname: string;
   lastname: string;
