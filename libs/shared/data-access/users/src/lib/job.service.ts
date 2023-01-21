@@ -16,10 +16,11 @@ export class JobService {
     return await this.supabaseService.supabase.rpc('is_claims_admin');
   }
 
-  authentifiedUserJobs() {
-    assertTruthy(this.profileService.session);
-    this.profileService.updateAuth();
-    const { jobs } = this.profileService.session.user.app_metadata as Claim;
+  async authentifiedUserJobs() {
+    const { session } = (await this.profileService.getSession()).data;
+    assertTruthy(session);
+    await this.profileService.updateAuth();
+    const { jobs } = session.user.app_metadata as Claim;
     return jobs;
   }
 
@@ -30,10 +31,9 @@ export class JobService {
   }
 
   async addJobToUser(id: string, job: string) {
-    assertTruthy(this.profileService.session?.user);
     const userJobs = await this.userJobs(id);
     if(userJobs instanceof Error) return userJobs.message;
-    return await this.supabaseService.supabase.rpc('set_claim', { uid: id, claim: 'jobs', value: [...userJobs, job]});
+    return this.supabaseService.supabase.rpc('set_claim', {uid: id, claim: 'jobs', value: [...userJobs, job]});
   }
 
   async removeJobToUser(id: string ,jobName: string) {
@@ -42,6 +42,6 @@ export class JobService {
     const newJobs = userJobs.filter((job) => {
       return job != jobName;
     });
-    return await this.supabaseService.supabase.rpc('set_claim', { uid: id, claim: 'jobs', value: newJobs});
+    return this.supabaseService.supabase.rpc('set_claim', {uid: id, claim: 'jobs', value: newJobs});
   }
 }
