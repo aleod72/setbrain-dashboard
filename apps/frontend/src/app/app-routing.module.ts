@@ -6,7 +6,7 @@ import {AuthGuard} from "@setbrain-dashboard/features/guards";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', },
+  { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: AppComponent, canActivate: [AuthGuard]},
 ];
 
