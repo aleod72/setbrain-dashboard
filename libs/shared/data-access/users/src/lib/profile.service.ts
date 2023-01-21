@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {SupabaseService} from "@setbrain-dashboard/shared/data-access/database";
 import { Profile } from './interfaces/profile.interface';
-import {AuthSession, Session} from "@supabase/supabase-js";
+import {AuthChangeEvent, AuthSession, Session} from "@supabase/supabase-js";
 
 @Injectable({
   providedIn: 'root'
@@ -11,27 +11,28 @@ export class ProfileService {
 
   constructor(private supabaseService: SupabaseService) {}
 
-  get session() {
-    this.supabaseService.auth.getSession().then(({ data }) => {
-      this._session = data.session;
-    });
-    return this._session;
+  async getSession() {
+    return await this.supabaseService.auth.getSession();
   }
 
-  get profile() {
-    const { user } = this._session as Session;
+  async getprofile() {
+    const { session } = (await this.getSession()).data;
     return this.supabaseService.supabase
       .from('profiles')
       .select(`lastname, firstname, email, avatar_url`)
-      .eq('id', user.id)
+      .eq('id', session?.user.id)
       .single();
   }
 
-  updateProfile(profile: Profile) {
-    const { user } = this._session as Session;
+  authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
+    return this.supabaseService.auth.onAuthStateChange(callback);
+  }
+
+  async updateProfile(profile: Profile) {
+    const { session } = (await this.getSession()).data;
     const update = {
       ...profile,
-      id: user?.id,
+      id: session?.user?.id,
       updated_at: new Date(),
     };
 
@@ -49,5 +50,9 @@ export class ProfileService {
   async updateAuth() {
     const {data, error} = await this.supabaseService.auth.refreshSession();
     return {data, error};
+  }
+
+  signOut() {
+    this.supabaseService.auth.signOut();
   }
 }

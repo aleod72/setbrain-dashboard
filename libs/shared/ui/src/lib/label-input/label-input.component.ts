@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 import {assertTruthy} from "@setbrain-dashboard/shared/utils";
 
 @Component({
-  selector: 'setbrain-dashboard-abel-input',
+  selector: 'setbrain-dashboard-label-input',
   templateUrl: './label-input.component.html',
   styleUrls: ['./label-input.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -12,6 +12,7 @@ export class LabelInputComponent implements OnInit{
   @Input()  placeholder!: string;
   @Input()  text?: string | undefined;
   @Input()  filename?: string | undefined;
+  @Input()  type? = 'text';
   @Output() textChange = new EventEmitter<string>();
 
   ngOnInit() {
@@ -21,7 +22,7 @@ export class LabelInputComponent implements OnInit{
   }
 
   change(e: Event) {
-    const textValue = (e.target as HTMLElement).innerHTML;
+    const textValue = (e.target as HTMLInputElement).value;
     this.textChange.emit(textValue);
     this.text = textValue;
   }

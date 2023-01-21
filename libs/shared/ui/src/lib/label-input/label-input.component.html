@@ -1,9 +1,9 @@
-<div class="form-control w-full max-w-xs">
+<div class="form-control w-full">
   <label class="label">
-    <span class="label-text text-body-m text-white-100"> {{label}} </span>
+    <span class="label-text text-body-lm font-white-78 font-medium"> {{label}} </span>
   </label>
   <div class="relative flex justify-end items-center">
-    <input type="text" class="input input-bordered w-full max-w-xs text-body-s text-white-100 font-normal bg-grey-48 border-darkgrey-72 border-4 rounded-xl hover:bg-darkgrey-72 hover:border-darkgrey-72 focus:outline-lightgrey-24" (change)="change($event)" [value]="text" [placeholder]="placeholder">
+    <input [type]="type" class="input input-bordered w-full text-body-s text-white-100 font-normal bg-grey-48 border-darkgrey-72 border-4 rounded-xl hover:bg-darkgrey-72 hover:border-darkgrey-72 focus:outline-lightgrey-24" (change)="change($event)" [value]="text || ''" [placeholder]="placeholder">
     <span *ngIf="filename" class="absolute mr-5 px-1 py-0.5 bg-white-48 rounded-md text-black-100 text-pretitle">{{ getFileExtension().toUpperCase() }}</span>
   </div>
 </div>

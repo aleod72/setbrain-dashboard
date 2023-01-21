@@ -22,7 +22,7 @@ Primary.args = {
   task: {
     id: '1',
     end_at: new Date(),
-    progess: 0.5,
+    progress: 0.5,
     type: 'FEAT.',
     joined_files: ['1', '2'],
     assigned_users: [

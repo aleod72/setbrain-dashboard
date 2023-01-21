@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('@flaticon/flaticon-uicons/css/regular/rounded.css');
+@import url('@flaticon/flaticon-uicons/css/bold/rounded.css');
+@import url('@flaticon/flaticon-uicons/css/solid/rounded.css');
+@import url('@flaticon/flaticon-uicons/css/brands/all.css');
+
 /* You can add global styles to this file, and also import other style files */
 
 @import url('../../../libs/shared/assets/src/lib/fonts.css');
+
+body {
+  height: 100vh;
+}

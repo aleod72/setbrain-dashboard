@@ -10,11 +10,13 @@ import {Task} from '@setbrain-dashboard/shared/data-access/tasks';
 })
 export class TaskCardComponent implements OnInit{
   @Input() task!: Task;
+  assignedUsers: Profile[] | undefined;
   connectedUser!: Profile;
 
   constructor(public profileService: ProfileService) {}
 
   async ngOnInit() {
-    this.profileService.profile.then(profile => this.connectedUser = profile as unknown as Profile);
+    this.assignedUsers = this.task.assigned_users as Profile[];
+    this.profileService.getprofile().then(profile => this.connectedUser = profile as unknown as Profile);
   }
 }

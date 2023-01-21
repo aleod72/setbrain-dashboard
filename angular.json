@@ -3,6 +3,8 @@
   "version": 2,
   "projects": {
     "api": "apps/api",
+    "features-guards": "libs/features/guards",
+    "features-login": "libs/features/login",
     "frontend": "apps/frontend",
     "frontend-e2e": "apps/frontend-e2e",
     "shared-assets": "libs/shared/assets",

@@ -1,5 +1,6 @@
 <button
-  class='btn bg-lightgrey-100 rounded-xl border-4 border-grey-100 text-white-100 normal-case p-3 font-body'
+  class='btn bg-lightgrey-100 rounded-xl border-4 border-grey-100 text-white-100 normal-case px-3 py-4 font-body h-full'
+  [ngClass]="{'w-full': full}"
   (click)='onClick($event)'
 >
   {{ label }}
