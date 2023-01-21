@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@setbrain-dashboard/features/guards": [
+        "libs/features/guards/src/index.ts"
+      ],
       "@setbrain-dashboard/features/login": [
         "libs/features/login/src/index.ts"
       ],
