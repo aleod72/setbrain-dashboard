@@ -17,6 +17,6 @@ export class TaskCardComponent implements OnInit{
 
   async ngOnInit() {
     this.assignedUsers = this.task.assigned_users as Profile[];
-    this.profileService.getprofile().then(profile => this.connectedUser = profile as unknown as Profile);
+    this.profileService.getprofile().then(profile => this.connectedUser = profile);
   }
 }

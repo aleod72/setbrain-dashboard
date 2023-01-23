@@ -1,7 +1,9 @@
-<div class="flex gap-2 font-display">
+<div class="flex gap-3 font-display">
     <img class="h-16 w-16 rounded-2xl" [src]="profile?.avatar_url" alt="user avatar">
     <div class="flex flex-col gap-1 justify-center">
-        <span class="text-body-lb font-bold color-white-100">{{profile?.firstname}} {{profile?.lastname}}</span>
-        <span class="text-body-r font-normal color-white-100" *ngIf="jobs">{{jobs[0]}}</span>
+        <span class="text-body-lb font-bold text-white-100">{{profile?.firstname}} {{profile?.lastname}}</span>
+        <span class="text-body-r font-normal text-white-100" *ngIf="jobs">
+          <span *ngFor="let job of jobs">{{job + (jobs.length > jobs.indexOf(job) +1 ? '&':'')}}</span>
+        </span>
     </div>
 </div>

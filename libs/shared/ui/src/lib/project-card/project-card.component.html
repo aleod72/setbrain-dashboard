@@ -1,5 +1,5 @@
-<div class="flex items-center gap-2 cursor-pointer">
-  <span class="h-5 w-[3px] bg-white-100 rounded-full shadow-[0px_0px_8px_rgba(255,255,255,0.5)]" *ngIf="active"></span>
+<div class="flex items-center gap-2 cursor-pointer relative">
+  <span class="h-5 w-[3px] bg-white-100 rounded-full shadow-[0px_0px_8px_rgba(255,255,255,0.5)] absolute left-[-8px]" *ngIf="active"></span>
   <div class="flex justify-between items-center w-full">
     <div class="flex gap-4 items-center">
       <span class="bg-center bg-cover h-[54px] w-[54px] rounded-xl" [ngStyle]="{backgroundImage: 'url(' + project.project_icon_url + ')'}"></span>
@@ -9,20 +9,20 @@
       </div>
     </div>
     <div class="notifications flex gap-2 items-center">
-      <i class="fi fi-rr-settings h-4.5 w-4 flex items-center" *ngIf="isAdmin === true"></i>
+      <i class="fi fi-rr-settings h-4.5 w-4 flex items-center" *ngIf="isAdmin"></i>
       <span class="py-px px-2.5 bg-white-100 rounded-md text-black-100 text-body-sb font-bold" *ngIf="projectNotifications">{{ projectNotifications }}</span>
     </div>
   </div>
 </div>
-<div class="flex flex-col pl-9" *ngIf="active">
+<div class="flex flex-col pl-9">
   <div class="flex items-end gap-2.5" *ngFor="let page of pageLinks">
     <span class="pb-2">
-      <svg class="mt-[-19px]" width="27" height="38" viewBox="0 0 27 38" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="page.id !== activePage">
+      <svg class="mt-[-19px]" width="27" height="38" viewBox="0 0 27 38" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="!active">
         <path d="M1.5 2C1.5 2 1.5 21.5185 1.5 26.5556C1.5 31.5926 4.5 36 9.3 36C14.1 36 25.5 36 25.5 36" stroke="#646771" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
 
 
-      <svg class="z-50 relative" width="27" height="38" viewBox="0 0 27 38" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="page.id === activePage">
+      <svg class="z-50 relative" width="27" height="38" viewBox="0 0 27 38" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="active">
         <path d="M1.5 2C1.5 2 1.5 21.5185 1.5 26.5556C1.5 31.5926 4.5 36 9.3 36C14.1 36 25.5 36 25.5 36" stroke="url(#paint0_linear_163_408)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         <defs>
           <linearGradient id="paint0_linear_163_408" x1="13.5" y1="5.51724" x2="13.5" y2="36" gradientUnits="userSpaceOnUse">
@@ -33,8 +33,8 @@
       </svg>
     </span>
     <div class="flex items-center h-fit gap-2">
-      <i [class]="'fi fi-sr-' + page.icon + ' h-3.5 flex items-center'" [ngClass]="{'text-white-100': page.id === activePage}"></i>
-      <a [routerLink]="page.link" class="h-fit font-bold font-body-b cursor-pointer" [ngClass]="{'text-white-100': page.id === activePage, 'text-white-48': page.id !== activePage}">{{page.name}}</a>
+      <i [class]="'fi fi-sr-' + page.icon + ' h-3.5 flex items-center'" [ngClass]="{'text-white-100': active}"></i>
+      <span [routerLink]="page.link" class="h-fit font-bold font-body-b cursor-pointer" [ngClass]="{'text-white-100': active, 'text-white-48': !active}">{{page.name}}</span>
     </div>
   </div>
 </div>

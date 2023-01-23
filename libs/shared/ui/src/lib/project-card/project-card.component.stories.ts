@@ -26,11 +26,10 @@ Primary.args = {
     id: '1'
   },
   pageLinks: [
-    {name: 'Général', link: '#', icon: 'apps',id: 1},
-    {name: 'Tâches', link: '#', icon: 'list-check',id: 2},
-    {name: 'Administration', link: '#', icon: 'edit',id: 3},
-    {name: 'Statistiques', link: '#', icon: 'stats',id: 4},
-    {name: 'Fichiers', link: '#', icon: 'folder',id: 4},
+    {name: 'Général', link: '#', icon: 'apps',id: '1'},
+    {name: 'Tâches', link: '#', icon: 'list-check',id: '2'},
+    {name: 'Administration', link: '#', icon: 'edit',id: '3'},
+    {name: 'Statistiques', link: '#', icon: 'stats',id: '4'},
+    {name: 'Fichiers', link: '#', icon: 'folder',id: '4'},
   ],
-  active: false
 };
