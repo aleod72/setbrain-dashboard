@@ -17,11 +17,12 @@ export class ProfileService {
 
   async getprofile() {
     const { session } = (await this.getSession()).data;
-    return this.supabaseService.supabase
+    const {data} = await this.supabaseService.supabase
       .from('profiles')
       .select(`lastname, firstname, email, avatar_url`)
       .eq('id', session?.user.id)
       .single();
+    return data as Profile;
   }
 
   authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {

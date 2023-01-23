@@ -13,7 +13,8 @@ export class JobService {
   constructor(private supabaseService: SupabaseService, private profileService: ProfileService) {}
 
   async isAdmin() {
-    return await this.supabaseService.supabase.rpc('is_claims_admin');
+    const {data} = await this.supabaseService.supabase.rpc('is_claims_admin');
+    return (data as unknown as {data: boolean}).data;
   }
 
   async authentifiedUserJobs() {
