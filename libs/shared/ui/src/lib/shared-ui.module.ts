@@ -17,10 +17,11 @@ import { UserTagComponent } from './user-tag/user-tag.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { TagComponent } from './tag/tag.component';
-import {RouterLinkWithHref} from "@angular/router";
+import { RouterLink } from "@angular/router";
+import { TabbarComponent } from './tabbar/tabbar.component';
 
 @NgModule({
-    imports: [CommonModule, FormsModule, RouterLinkWithHref],
+  imports: [CommonModule, FormsModule, RouterLink],
   declarations: [
     ButtonComponent,
     ButtonIconComponent,
@@ -38,6 +39,7 @@ import {RouterLinkWithHref} from "@angular/router";
     ProjectCardComponent,
     TaskCardComponent,
     TagComponent,
+    TabbarComponent,
   ],
   exports: [
     ButtonComponent,
@@ -56,6 +58,7 @@ import {RouterLinkWithHref} from "@angular/router";
     ProjectCardComponent,
     TaskCardComponent,
     TagComponent,
+    TabbarComponent,
   ],
 })
 export class SharedUiModule {}
