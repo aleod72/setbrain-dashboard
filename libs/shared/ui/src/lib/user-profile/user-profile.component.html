@@ -1,9 +1,10 @@
 <div class="flex gap-3 font-display">
     <img class="h-16 w-16 rounded-2xl" [src]="profile?.avatar_url" alt="user avatar">
-    <div class="flex flex-col gap-1 justify-center">
+    <div class="flex flex-col gap-1 justify-center" style="width:calc(100% - 76px)">
         <span class="text-body-lb font-bold text-white-100">{{profile?.firstname}} {{profile?.lastname}}</span>
-        <span class="text-body-r font-normal text-white-100" *ngIf="jobs">
-          <span *ngFor="let job of jobs">{{job + (jobs.length > jobs.indexOf(job) +1 ? '&':'')}}</span>
+        <span class="text-body-r font-normal text-white-100 whitespace-nowrap" *ngIf="jobs">
+          {{jobs[0] + (jobs.length > 1 ? ' & ':'')}}
+          <div class="text-ellipsis overflow-hidden" *ngIf="jobs.length > 1">{{jobs.slice(1, jobs.length).join(' & ')}}</div>
         </span>
     </div>
 </div>
