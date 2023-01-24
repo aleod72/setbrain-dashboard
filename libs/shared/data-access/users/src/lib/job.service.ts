@@ -14,7 +14,7 @@ export class JobService {
 
   async isAdmin() {
     const {data} = await this.supabaseService.supabase.rpc('is_claims_admin');
-    return (data as unknown as {data: boolean}).data;
+    return data as unknown as boolean;
   }
 
   async authentifiedUserJobs() {
@@ -23,6 +23,22 @@ export class JobService {
     await this.profileService.updateAuth();
     const { jobs } = session.user.app_metadata as Claim;
     return jobs;
+  }
+
+  async getJobNames(names: string[]) {
+    const { data } = await this.supabaseService.supabase
+      .from('jobs')
+      .select("display_name")
+      .in('name', names);
+    if(data) {
+      const resultedNames = [];
+      for (const element of data) {
+        resultedNames.push(element.display_name);
+      }
+      return resultedNames;
+    }
+
+    return [];
   }
 
   async userJobs(id: string) {
