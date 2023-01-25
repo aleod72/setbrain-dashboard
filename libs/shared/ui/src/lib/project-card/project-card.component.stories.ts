@@ -1,12 +1,13 @@
 import { moduleMetadata, Story, Meta } from '@storybook/angular';
 import { ProjectCardComponent } from './project-card.component';
+import {RouterTestingModule} from "@angular/router/testing";
 
 export default {
   title: 'ProjectCardComponent',
   component: ProjectCardComponent,
   decorators: [
     moduleMetadata({
-      imports: [],
+      imports: [RouterTestingModule],
     })
   ],
 } as Meta<ProjectCardComponent>;
