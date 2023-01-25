@@ -1,12 +1,2 @@
-<main class="flex h-full">
-  <setbrain-dashboard-tabbar
-    [projects]="projects"
-    [activeProject]="activeProject"
-    [connectedUser]="connectedUser"
-    [connectedUserJobs]="connectedUserJobs"
-    [isAdmin]="isAdmin"
-    [pageLinks]="pageLinks"
-    class="block"
-  ></setbrain-dashboard-tabbar>
-  <router-outlet></router-outlet>
-</main>
+<setbrain-dashboard-tabbar [projects]="projects" [activeProject]="activeProject" [connectedUser]="connectedUser" [connectedUserJobs]="connectedUserJobs" [isAdmin]="isAdmin"></setbrain-dashboard-tabbar>
+<router-outlet></router-outlet>
