@@ -3,17 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { featuresBaseRoutes } from './lib.routes';
 import { BaseComponent } from './base/base.component';
-import { SharedUiModule } from '@setbrain-dashboard/shared/ui';
-import { HomeComponent } from './home/home.component';
+import {SharedUiModule} from "@setbrain-dashboard/shared/ui";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    RouterModule.forChild(featuresBaseRoutes),
-    SharedUiModule,
-  ],
-  declarations: [BaseComponent, HomeComponent],
-  exports: [BaseComponent, HomeComponent],
+  imports: [CommonModule, RouterModule, RouterModule.forChild(featuresBaseRoutes), SharedUiModule],
+  declarations: [BaseComponent],
+  exports: [BaseComponent],
 })
 export class FeaturesBaseModule {}
