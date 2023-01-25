@@ -18,6 +18,7 @@
       "@setbrain-dashboard/features/guards": [
         "libs/features/guards/src/index.ts"
       ],
+      "@setbrain-dashboard/features/base": ["libs/features/base/src/index.ts"],
       "@setbrain-dashboard/features/login": [
         "libs/features/login/src/index.ts"
       ],

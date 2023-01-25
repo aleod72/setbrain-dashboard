@@ -1,5 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {JobService} from "@setbrain-dashboard/shared/data-access/users";
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import { Project } from "@setbrain-dashboard/shared/data-access/projects";
 @Component({
   selector: 'setbrain-dashboard-project-card',
@@ -7,17 +6,10 @@ import { Project } from "@setbrain-dashboard/shared/data-access/projects";
   styleUrls: ['./project-card.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ProjectCardComponent implements OnInit {
+export class ProjectCardComponent {
   @Input() project!: Project;
   @Input() projectNotifications: number | undefined;
-  @Input() active = false;
-  @Input() pageLinks: Array<{name: string, link: string, icon: string, id: number}> | undefined;
-  @Input() activePage = 1;
-  isAdmin= false;
-
-  constructor(public job: JobService) {}
-
-  ngOnInit() {
-    this.job.isAdmin().then(admin => this.isAdmin = admin as unknown as boolean);
-  }
+  @Input() pageLinks: Array<{name: string, link: string, icon: string, id: string}> | undefined;
+  @Input() active: boolean | undefined;
+  @Input() isAdmin= false;
 }

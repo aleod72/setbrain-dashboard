@@ -1,0 +1,15 @@
+<div class="flex flex-col bg-darkgrey-100 px-7 py-10 h-full w-80 items-center justify-between">
+  <div class="flex flex-col gap-6 w-full">
+    <setbrain-dashboard-user-profile [profile]="connectedUser" [jobs]="connectedUserJobs"></setbrain-dashboard-user-profile>
+    <div class="flex flex-col gap-5">
+      <h1 class="text-subtitle-sb text-white-100 font-bold">Projets</h1>
+      <div class="flex flex-col gap-6">
+      <span *ngFor="let project of projects">
+        <setbrain-dashboard-project-card [project]="project" [pageLinks]="pageLinks" [active]="activeProject === project.id" [isAdmin]="isAdmin"></setbrain-dashboard-project-card>
+      </span>
+      </div>
+    </div>
+  </div>
+
+  <setbrain-dashboard-button-icon icon="plus" label="Créer un nouveau projet" *ngIf="isAdmin"></setbrain-dashboard-button-icon>
+</div>
