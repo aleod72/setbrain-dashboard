@@ -4,8 +4,8 @@
     <div class="flex gap-4 items-center">
       <span class="bg-center bg-cover h-[54px] w-[54px] rounded-xl" [ngStyle]="{backgroundImage: 'url(' + project.project_icon_url + ')'}"></span>
       <div class="flex flex-col gap-px">
-        <h1 class="text-white-100 text-body-l font-normal">{{ project.name }}</h1>
-        <span class="text-white-48 text-pretitle-s font-medium">Crée le {{ project.created_at | date:'dd/MM/YY' }}</span>
+        <h1 class="text-white-100 text-body-l font-normal font-display">{{ project.name }}</h1>
+        <span class="text-white-48 text-pretitle-s font-medium font-display">Crée le {{ project.created_at | date:'dd/MM/YY' }}</span>
       </div>
     </div>
     <div class="notifications flex gap-2 items-center">
@@ -21,7 +21,7 @@
     </span>
     <div class="flex items-center h-fit gap-2">
       <i [class]="'fi fi-sr-' + page.icon + ' h-3.5 flex items-center'" [ngClass]="{'text-white-100': rla.isActive}"></i>
-      <span class="h-fit font-bold font-body-b cursor-pointer" [ngClass]="{'text-white-100': rla.isActive, 'text-white-48': !rla.isActive}">{{page.name}}</span>
+      <span class="h-fit font-bold font-body-b cursor-pointer font-display" [ngClass]="{'text-white-100': rla.isActive, 'text-white-48': !rla.isActive}">{{page.name}}</span>
     </div>
   </div>
 </div>
