@@ -45,11 +45,11 @@ Primary.args = {
     },
   ],
   pageLinks: [
-    {name: 'Général', link: '#', icon: 'apps',id: '1'},
-    {name: 'Tâches', link: '#', icon: 'list-check',id: '2'},
-    {name: 'Administration', link: '#', icon: 'edit',id: '3'},
-    {name: 'Statistiques', link: '#', icon: 'stats',id: '4'},
-    {name: 'Fichiers', link: '#', icon: 'folder',id: '4'},
+    {name: 'Général', link: '#', icon: 'apps'},
+    {name: 'Tâches', link: '#', icon: 'list-check'},
+    {name: 'Administration', link: '#', icon: 'edit'},
+    {name: 'Statistiques', link: '#', icon: 'stats'},
+    {name: 'Fichiers', link: '#', icon: 'folder'},
   ],
   activeProject: '1'
 };
