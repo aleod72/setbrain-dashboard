@@ -15,7 +15,7 @@
   </div>
 </div>
 <div class="flex flex-col pl-[1.45rem]" *ngIf="active">
-  <div class="flex items-end gap-2.5" *ngFor="let page of pageLinks" [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/' + project.id, page.link]" routerLinkActive="active" #rla="routerLinkActive">
+  <div class="flex items-end gap-2.5" *ngFor="let page of pageLinks" [routerLinkActiveOptions]="{exact: true}" [routerLink]="page.link === 'home' ? ['/' + project.id]:['/' + project.id, page.link]" routerLinkActive="active" #rla="routerLinkActive">
     <span class="pb-2">
       <span class="mt-[-19px] vector" [ngClass]="{'first': pageLinks?.indexOf(page) === 0}"></span>
     </span>
