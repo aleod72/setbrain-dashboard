@@ -12,7 +12,7 @@ export class TabbarComponent {
   @Input() connectedUser: Profile | undefined;
   @Input() connectedUserJobs: string[] | undefined;
   @Input() projects: Project[] | null = null;
-  @Input() pageLinks: Array<{name: string, link: string, icon: string, id: string}> | undefined;
+  @Input() pageLinks: Array<{name: string, link: string, icon: string}> | undefined;
   @Input() activeProject: string | undefined;
   @Input() isAdmin= false;
 }
