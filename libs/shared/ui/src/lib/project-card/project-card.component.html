@@ -19,9 +19,9 @@
     <span class="pb-2">
       <span class="mt-[-19px] vector" [ngClass]="{'first': pageLinks?.indexOf(page) === 0}"></span>
     </span>
-    <div class="flex items-center h-fit gap-2">
-      <i [class]="'fi fi-sr-' + page.icon + ' h-3.5 flex items-center'" [ngClass]="{'text-white-100': rla.isActive}"></i>
-      <span class="h-fit font-bold font-body-b cursor-pointer font-display" [ngClass]="{'text-white-100': rla.isActive, 'text-white-48': !rla.isActive}">{{page.name}}</span>
+    <div class="flex items-center h-fit gap-2 hover:text-white-24" [ngClass]="{'text-white-100 hover:text-white-72': rla.isActive}">
+      <i [class]="'fi fi-sr-' + page.icon + ' h-3.5 flex items-center'"></i>
+      <span class="h-fit font-bold font-body-b cursor-pointer font-display hover:text-white-24" [ngClass]="{'text-white-100 hover:text-white-72': rla.isActive, 'text-white-48': !rla.isActive}">{{page.name}}</span>
     </div>
   </div>
 </div>
