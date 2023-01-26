@@ -1,1 +1,18 @@
-<p>home works!</p>
+<main class="px-7 py-6 flex flex-col gap-4 w-full h-full" *ngIf="project">
+  <div class="flex">
+    <div class="flex w-full flex-col gap-3">
+      <h1 class="text-subtitle-m text-white-100 font-bold leading-none">{{project.name}}</h1>
+      <p class="text-body-l text-white-48">😄 Bonjour {{profileService.profile?.firstname}}, ravie de vous revoir !</p>
+    </div>
+  </div>
+  <section class="flex flex-col gap-2 w-full">
+    <div class="flex justify-between items-end w-full">
+      <h2 class="text-white-100 text-subtitle-sb font-bold">Vos dernières tâches</h2>
+      <span *ngIf="assignedTasks !== undefined && assignedTasks.length > 0" class="font-bold text-white-100 text-body-b cursor-pointer hover:text-white-72" routerLink="tasks">Voir plus</span>
+    </div>
+    <div class="flex gap-3" *ngIf="assignedTasks !== undefined && assignedTasks.length > 0">
+      <setbrain-dashboard-task-card *ngFor="let task of assignedTasks" [task]="task"></setbrain-dashboard-task-card>
+    </div>
+    <span class="py-4" *ngIf="!(assignedTasks !== undefined && assignedTasks.length > 0)">Aucune tâche récente pour le moment</span>
+  </section>
+</main>
