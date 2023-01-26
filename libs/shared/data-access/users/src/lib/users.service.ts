@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {SupabaseService} from "@setbrain-dashboard/shared/data-access/database";
-import {BannerProfile, Profile} from "@setbrain-dashboard/shared/data-access/users";
+import {BannerProfile, Profile} from "./interfaces/profile.interface";
 
 @Injectable({
   providedIn: 'root'
