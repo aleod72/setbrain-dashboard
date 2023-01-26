@@ -17,4 +17,5 @@ export interface Task {
   comments: string[];
   joined_files: string[];
   progress: number;
+  project: string
 }
