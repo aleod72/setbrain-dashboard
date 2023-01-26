@@ -15,6 +15,12 @@ export class ProjectsService {
     return data as Project[];
   }
 
+  async getProjectById(id: string) {
+    const { data, error } = await this.supabaseService.supabase.from('projects').select('*').eq('id', id);
+    if(error) throw error;
+    return data as unknown as Project[];
+  }
+
   async updateProject(projectId: string, values: object) {
     const {error} = await this.supabaseService.supabase
       .from('projects')
