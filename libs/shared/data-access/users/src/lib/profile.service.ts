@@ -8,6 +8,7 @@ import {AuthChangeEvent, AuthSession, Session} from "@supabase/supabase-js";
 })
 export class ProfileService {
   _session: AuthSession | null = null;
+  profile: Profile | undefined;
 
   constructor(private supabaseService: SupabaseService) {}
 
@@ -19,9 +20,12 @@ export class ProfileService {
     const { session } = (await this.getSession()).data;
     const {data} = await this.supabaseService.supabase
       .from('profiles')
-      .select(`lastname, firstname, email, avatar_url`)
+      .select(`id, lastname, firstname, email, avatar_url`)
       .eq('id', session?.user.id)
       .single();
+    if(data != null) {
+      this.profile = data as Profile;
+    }
     return data as Profile;
   }
 
