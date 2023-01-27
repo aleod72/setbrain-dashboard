@@ -15,6 +15,15 @@ export class TasksService {
     return data as Task[];
   }
 
+  async getAssignedTasks(udserId: string, projetId: string) {
+    const { error, data } = await this.supabaseService.supabase.from('tasks')
+      .select('*')
+      .eq('project', projetId)
+      .contains('assigned_users', '{' + udserId + '}');
+    if (error) throw error;
+    return data;
+  }
+
   async updateTask(projectId: string, values: object) {
     const {error} = await this.supabaseService.supabase
       .from('tasks')

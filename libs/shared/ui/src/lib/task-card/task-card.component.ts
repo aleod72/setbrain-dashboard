@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {Profile, ProfileService} from "@setbrain-dashboard/shared/data-access/users";
+import {BannerProfile, Profile, ProfileService, UsersService} from "@setbrain-dashboard/shared/data-access/users";
 import {Task} from '@setbrain-dashboard/shared/data-access/tasks';
 
 @Component({
@@ -10,13 +10,15 @@ import {Task} from '@setbrain-dashboard/shared/data-access/tasks';
 })
 export class TaskCardComponent implements OnInit{
   @Input() task!: Task;
-  assignedUsers: Profile[] | undefined;
+  assignedUsers: BannerProfile[] | undefined;
   connectedUser!: Profile;
 
-  constructor(public profileService: ProfileService) {}
+  constructor(public profileService: ProfileService, private usersService: UsersService) {}
 
   async ngOnInit() {
-    this.assignedUsers = this.task.assigned_users as Profile[];
+    this.usersService.getBannerOfUsers( this.task.assigned_users as string[]).then(profiles => {
+      this.assignedUsers = profiles;
+    });
     this.profileService.getprofile().then(profile => this.connectedUser = profile);
   }
 }

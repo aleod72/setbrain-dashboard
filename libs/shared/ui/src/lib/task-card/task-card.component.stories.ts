@@ -93,6 +93,7 @@ Primary.args = {
     title: 'Animation d’interaction avec les textes du footer',
     created_at: new Date(),
     description: {'description': 'no description'},
-    comments: ['1', '1']
+    comments: ['1', '1'],
+    project: 'Wiclass'
   }
 };

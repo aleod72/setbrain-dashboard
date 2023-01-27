@@ -6,3 +6,10 @@ export interface Profile {
   email: string;
   avatar_url: string;
 }
+
+export interface BannerProfile {
+  id?: string;
+  firstname: string;
+  lastname: string;
+  avatar_url: string;
+}

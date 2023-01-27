@@ -1,5 +1,5 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {Profile} from '@setbrain-dashboard/shared/data-access/users';
+import {Component, Input, OnChanges, ViewEncapsulation} from '@angular/core';
+import {BannerProfile, Profile} from '@setbrain-dashboard/shared/data-access/users';
 
 @Component({
   selector: 'setbrain-dashboard-users-list',
@@ -7,12 +7,12 @@ import {Profile} from '@setbrain-dashboard/shared/data-access/users';
   styleUrls: ['./users-list.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class UsersListComponent implements OnInit {
-  @Input() users: Profile[] | undefined;
+export class UsersListComponent implements OnChanges {
+  @Input() users: BannerProfile[] | Profile[] | undefined;
   @Input() connectedUser: Profile | undefined;
   @Input() connectedUserColor = 'blue-100';
 
-  ngOnInit() {
+  ngOnChanges() {
     if (this.connectedUser && this.users) {
       this.users.splice(this.users?.findIndex(element => this.connectedUser?.id === element.id), 1);
     }
