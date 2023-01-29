@@ -11,6 +11,7 @@ export class UsersListComponent implements OnChanges {
   @Input() users: BannerProfile[] | Profile[] | undefined;
   @Input() connectedUser: Profile | undefined;
   @Input() connectedUserColor = 'blue-100';
+  @Input() height = '6';
 
   ngOnChanges() {
     if (this.connectedUser && this.users) {
