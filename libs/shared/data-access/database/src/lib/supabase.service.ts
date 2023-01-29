@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {createClient, SupabaseClient, SupabaseClientOptions} from "@supabase/supabase-js";
+import {createClient, SupabaseClient} from "@supabase/supabase-js";
 import {SupabaseAuthClient} from "@supabase/supabase-js/dist/main/lib/SupabaseAuthClient";
 
 
@@ -15,7 +15,14 @@ export class SupabaseService {
   constructor() {
     this.supabase = createClient(
       this.SUPABASE_URL,
-      this.SUPABASE_KEY
+      this.SUPABASE_KEY,
+      {
+        realtime: {
+          params: {
+            eventsPerSecond: 10,
+          }
+        }
+      }
     );
 
     this.auth = this.supabase.auth;
