@@ -17,11 +17,13 @@ import { UserTagComponent } from './user-tag/user-tag.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { TaskCardComponent } from './task-card/task-card.component';
 import { TagComponent } from './tag/tag.component';
-import {RouterLink, RouterLinkActive} from "@angular/router";
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TabbarComponent } from './tabbar/tabbar.component';
+import { ActivityComponent } from './activity/activity.component';
+import {SharedUtilsModule} from "@setbrain-dashboard/shared/utils";
 
 @NgModule({
-    imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, SharedUtilsModule],
   declarations: [
     ButtonComponent,
     ButtonIconComponent,
@@ -40,6 +42,7 @@ import { TabbarComponent } from './tabbar/tabbar.component';
     TaskCardComponent,
     TagComponent,
     TabbarComponent,
+    ActivityComponent,
   ],
   exports: [
     ButtonComponent,
@@ -59,6 +62,7 @@ import { TabbarComponent } from './tabbar/tabbar.component';
     TaskCardComponent,
     TagComponent,
     TabbarComponent,
+    ActivityComponent,
   ],
 })
 export class SharedUiModule {}
