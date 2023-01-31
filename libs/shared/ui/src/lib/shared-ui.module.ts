@@ -21,9 +21,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TabbarComponent } from './tabbar/tabbar.component';
 import { ActivityComponent } from './activity/activity.component';
 import {SharedUtilsModule} from "@setbrain-dashboard/shared/utils";
+import {PopoverModule} from "ngx-smart-popover";
 
 @NgModule({
-  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, SharedUtilsModule],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive, SharedUtilsModule, PopoverModule],
   declarations: [
     ButtonComponent,
     ButtonIconComponent,

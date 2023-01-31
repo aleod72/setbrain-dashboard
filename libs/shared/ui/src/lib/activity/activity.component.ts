@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Activity, sofwares} from "@setbrain-dashboard/shared/data-access/tasks";
-import {BannerProfile, UsersService} from "@setbrain-dashboard/shared/data-access/users";
+import {BannerProfile, Profile, UsersService} from "@setbrain-dashboard/shared/data-access/users";
 
 @Component({
   selector: 'setbrain-dashboard-activity',
@@ -12,6 +12,7 @@ export class ActivityComponent  implements OnInit{
   @Input() activity: Activity | undefined;
   @Input() share = false;
   users: BannerProfile[] = [];
+  taskUsers: BannerProfile[] | Profile[] | undefined;
   softwares = sofwares;
 
   constructor(private usersService: UsersService) {}
@@ -21,6 +22,7 @@ export class ActivityComponent  implements OnInit{
       this.usersService.getBannerOfUsers(this.activity?.users_id).then(response => {
         this.users = response;
       });
+      this.taskUsers = this.activity.task.assigned_users as BannerProfile[] | Profile[];
     }
   }
 }

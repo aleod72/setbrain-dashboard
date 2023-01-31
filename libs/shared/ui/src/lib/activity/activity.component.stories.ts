@@ -27,6 +27,82 @@ Primary.args = {
     software: 'FIGMA',
     created_at: '2023-01-27 13:56:06+01',
     share_links: ["google"],
-    task: 'e78e2774-c9b6-4d6c-8649-1fb771f4e561'
+    task: {
+      id: '1',
+      end_at: new Date(),
+      progress: 0.5,
+      type: 'FEAT.',
+      joined_files: ['1', '2'],
+      assigned_users: [
+        {
+          id: '0',
+          updated_at: 'updated_at',
+          firstname: 'firstname',
+          lastname: 'lastname',
+          email: 'email',
+          avatar_url: 'https://placeimg.com/640/640/any',
+        },
+        {
+          id: '1',
+          updated_at: 'updated_at',
+          firstname: 'firstname',
+          lastname: 'lastname',
+          email: 'email',
+          avatar_url: 'https://placeimg.com/640/640/people',
+        },
+        {
+          id: '2',
+          updated_at: 'updated_at',
+          firstname: 'firstname',
+          lastname: 'lastname',
+          email: 'email',
+          avatar_url: 'https://placeimg.com/640/640/people',
+        },
+        {
+          id: '3',
+          updated_at: 'updated_at',
+          firstname: 'firstname',
+          lastname: 'lastname',
+          email: 'email',
+          avatar_url: 'https://placeimg.com/640/640/people',
+        },
+        {
+          id: '4',
+          updated_at: 'updated_at',
+          firstname: 'firstname',
+          lastname: 'lastname',
+          email: 'email',
+          avatar_url: 'https://placeimg.com/640/640/people',
+        },
+        {
+          id: '5',
+          updated_at: 'updated_at',
+          firstname: 'firstname',
+          lastname: 'lastname',
+          email: 'email',
+          avatar_url: 'https://placeimg.com/640/640/people',
+        },
+      ],
+      assigned_check: [
+        {
+          id: '0',
+          updated_at: 'updated_at',
+          firstname: 'firstname',
+          lastname: 'lastname',
+          email: 'email',
+          avatar_url: 'https://placeimg.com/640/640/any',
+        }
+      ],
+      sub_tasks: {
+        id: '1',
+        title: 'some task',
+        finished: false
+      },
+      title: 'Animation d’interaction avec les textes du footer',
+      created_at: new Date(),
+      description: {'description': 'no description'},
+      comments: ['1', '1'],
+      project: 'Wiclass'
+    }
   }
 };
