@@ -4,10 +4,10 @@
             <span>{{users.length - 2}}</span>
         </div>
     </div>
-    <div class="avatar overflow-hidden border-2 rounded-full w-6 h-6" *ngFor="let user of users.slice(0, 2)">
+    <div [class]="'avatar overflow-hidden border-2 rounded-full w-' + height +' h-'+ height" *ngFor="let user of users.slice(0, 2)">
             <img *ngIf="user" [src]="user.avatar_url" alt="profile picture"/>
     </div>
-    <div class="overflow-hidden border-2 rounded-full avatar outline outline-2 outline-offset-[-2px] outline-blue-100 w-6 h-6">
+    <div *ngIf="connectedUser!== undefined" class="overflow-hidden border-2 rounded-full avatar outline outline-2 outline-offset-[-2px] outline-blue-100 w-6 h-6">
             <img *ngIf="connectedUser" [src]="connectedUser.avatar_url" alt="profile picture"/>
     </div>
 </div>

@@ -1,0 +1,24 @@
+<popover-content #taskPopover
+                 [animation]="true"
+                 [closeOnClickOutside]="true">
+  <div class="flex flex-col bg-black-100 border-darkgrey-100 rounded-xl py-5 px-4 w-[268px] border-2 gap-4" *ngIf="activity !== undefined">
+    <h1 class="text-body-lb font-bold text-white-100">{{activity.task.title}}</h1>
+    <div class="flex justify-between items-center">
+      <setbrain-dashboard-users-list [users]="taskUsers"></setbrain-dashboard-users-list>
+      <span class="text-body-s text-white-48">Pour le {{activity.task.end_at | date:'dd/MM/YYY'}}</span>
+    </div>
+  </div>
+</popover-content>
+<div class="flex items-center justify-between" *ngIf="activity">
+  <div class="flex gap-2" [popover]="taskPopover" [popoverOnHover]="false" [popoverDismissTimeout]="5000">
+    <span class="h-9 w-9 bg-no-repeat bg-cover bg-center" [ngStyle]="{backgroundImage: 'url(' + softwares[activity.software].toString() + ')'}"></span>
+    <div class="flex flex-col">
+      <span class="text-body-s text-white-100">{{activity.title}} <span class="text-body-vs text-white-48 font-medium">{{activity.created_at | dateAgo}}</span></span>
+      <setbrain-dashboard-users-list [users]="users" height="4"></setbrain-dashboard-users-list>
+    </div>
+  </div>
+  <div class="flex gap-[6px]">
+    <button *ngIf="share" class="bg-lightgrey-100 rounded-xl border-4 border-grey-100 text-white-100 normal-case text-pretitle-s px-2 py-1 font-body h-fit"><i class="fi fi-rr-share"></i></button>
+    <button class="bg-lightgrey-100 rounded-xl border-4 border-grey-100 text-white-100 normal-case text-pretitle-s px-2 py-1 font-body h-fit">Ouvrir</button>
+  </div>
+</div>

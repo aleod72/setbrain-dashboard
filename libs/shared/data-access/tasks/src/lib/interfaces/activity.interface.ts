@@ -1,3 +1,5 @@
+import {Task} from "./task.interface";
+
 export interface Activity {
   id?: number;
   title: string;
@@ -6,5 +8,5 @@ export interface Activity {
   software: string;
   created_at: string;
   share_links: string[];
-  task: string;
+  task: Task;
 }
