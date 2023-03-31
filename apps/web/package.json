@@ -23,6 +23,7 @@
     "ui": "workspace:*",
     "auth": "workspace:*",
     "utils": "workspace:*",
+    "config": "workspace:*",
     "assets": "workspace:*"
   },
   "devDependencies": {
