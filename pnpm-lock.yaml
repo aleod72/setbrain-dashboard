@@ -51,6 +51,8 @@ importers:
       '@types/node': ^17.0.12
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
+      assets: workspace:*
+      auth: workspace:*
       autoprefixer: ^10.4.14
       dayjs: ^1.11.7
       encoding: ^0.1.13
@@ -65,11 +67,14 @@ importers:
       tsconfig: workspace:*
       typescript: ^4.5.3
       ui: workspace:*
+      utils: workspace:*
     dependencies:
       '@flaticon/flaticon-uicons': 2.0.1
       '@radix-ui/react-tooltip': 1.0.5_zula6vjvt3wdocc4mwcxqa6nzi
       '@supabase/auth-helpers-nextjs': 0.5.6_b2inm4ni2pv5tie2fs43temlva
       '@supabase/supabase-js': 2.13.1_encoding@0.1.13
+      assets: link:../../packages/assets
+      auth: link:../../packages/auth
       dayjs: 1.11.7
       encoding: 0.1.13
       next: 13.2.4_hrdbe576m4w26u2yfpqpvbxyky
@@ -78,6 +83,7 @@ importers:
       react-loading-skeleton: 3.2.0_react@18.2.0
       server-only: 0.0.1
       ui: link:../../packages/ui
+      utils: link:../../packages/utils
     devDependencies:
       '@babel/core': 7.21.3
       '@types/node': 17.0.45
