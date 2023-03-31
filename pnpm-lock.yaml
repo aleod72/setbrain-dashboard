@@ -54,6 +54,7 @@ importers:
       assets: workspace:*
       auth: workspace:*
       autoprefixer: ^10.4.14
+      config: workspace:*
       dayjs: ^1.11.7
       encoding: ^0.1.13
       eslint: 7.32.0
@@ -75,6 +76,7 @@ importers:
       '@supabase/supabase-js': 2.13.1_encoding@0.1.13
       assets: link:../../packages/assets
       auth: link:../../packages/auth
+      config: link:../../packages/config
       dayjs: 1.11.7
       encoding: 0.1.13
       next: 13.2.4_hrdbe576m4w26u2yfpqpvbxyky
