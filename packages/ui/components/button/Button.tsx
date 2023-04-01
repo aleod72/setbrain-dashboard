@@ -1,6 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
 import React, { ComponentPropsWithoutRef } from 'react';
-import { tw } from 'typewind';
 
 //convert to tailwind classes
 export const button = cva(
