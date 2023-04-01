@@ -2,6 +2,7 @@ module.exports = {
   reactStrictMode: true,
   transpilePackages: ["ui"],
   experimental: {
-	appDir: true 
+	  appDir: true,
+    swcMinify: false
   }
 };
