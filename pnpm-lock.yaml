@@ -70,6 +70,7 @@ importers:
       react-loading-skeleton: ^3.2.0
       server-only: ^0.0.1
       tailwindcss: ^3.3.1
+      tasks: workspace:*
       tsconfig: workspace:*
       types: workspace:*
       typescript: ^4.5.3
@@ -95,6 +96,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-loading-skeleton: 3.2.0_react@18.2.0
       server-only: 0.0.1
+      tasks: link:../../packages/tasks
       types: link:../../packages/types
       ui: link:../../packages/ui
       utils: link:../../packages/utils
@@ -216,6 +218,22 @@ importers:
       utils: workspace:*
     dependencies:
       config: link:../config
+      types: link:../types
+      ui: link:../ui
+      utils: link:../utils
+
+  packages/tasks:
+    specifiers:
+      auth: workspace:*
+      config: workspace:*
+      projects: workspace:*
+      types: workspace:*
+      ui: workspace:*
+      utils: workspace:*
+    dependencies:
+      auth: link:../auth
+      config: link:../config
+      projects: link:../projects
       types: link:../types
       ui: link:../ui
       utils: link:../utils

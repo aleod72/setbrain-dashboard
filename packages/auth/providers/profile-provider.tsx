@@ -1,6 +1,6 @@
 'use client';
 
-import React, { use } from "react";
+import React from "react";
 import { Profile } from "types/database";
 import { useSupabase } from './supabase-provider';
 import { getProfileById } from "utils/profiles";

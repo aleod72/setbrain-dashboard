@@ -15,5 +15,5 @@ export const Primary = Template.bind({});
 Primary.args = {
     progress: 50,
     max: 100,
-    intents: 'green'
+    intent: 'green'
 };

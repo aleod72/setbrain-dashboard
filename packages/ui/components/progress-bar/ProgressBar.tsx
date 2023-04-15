@@ -6,7 +6,7 @@ import React from 'react';
 
 export const progressBar = cva('w-full h-12 rounded-xl overflow-hidden border-lightgrey-100 border', {
     variants: {
-        intents: {
+        intent: {
             red: 'bg-red-24',
             yellow: 'bg-yellow-24',
             green: 'bg-green-24',
@@ -14,13 +14,13 @@ export const progressBar = cva('w-full h-12 rounded-xl overflow-hidden border-li
         }
     },
     defaultVariants: {
-        intents: 'green'
+        intent: 'green'
     }
 });
 
 export const progressBarIndicator = cva('w-full h-full rounded-lg grid place-items-center duration-500 bg-[url("/Grain.svg")]', {
     variants: {
-        intents: {
+        intent: {
             red: 'bg-red-100',
             yellow: 'bg-yellow-100',
             green: 'bg-green-100',
@@ -28,7 +28,7 @@ export const progressBarIndicator = cva('w-full h-full rounded-lg grid place-ite
         }
     },
     defaultVariants: {
-        intents: 'green'
+        intent: 'green'
     }
 });
 

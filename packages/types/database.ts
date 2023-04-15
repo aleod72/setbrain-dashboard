@@ -217,3 +217,22 @@ export interface Profile {
   lastname: string;
   updated_at: string | null;
 }
+
+export interface Task {
+  assigned_check: string[] | null;
+  assigned_users: string[] | null;
+  comments: string[] | null;
+  created_at: string | null;
+  description: Json | null;
+  end_at: string | null;
+  id: string;
+  joined_files: string[] | null;
+  progress: number;
+  project: string;
+  sub_tasks: {
+    name: string;
+    finished: boolean;
+  };
+  title: string;
+  type: string | null;
+}
