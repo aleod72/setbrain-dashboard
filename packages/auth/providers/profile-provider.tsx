@@ -33,5 +33,7 @@ export default function ProfileProvider({
         return <profileContext.Provider value={profile}>
             {children}
         </profileContext.Provider>;
+    } else {
+        return <>{children}</>
     }
 }

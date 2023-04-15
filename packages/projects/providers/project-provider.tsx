@@ -30,6 +30,8 @@ export function ProjectProvider({
         return <projectContext.Provider value={project}>
             {children}
         </projectContext.Provider>;
+    }else {
+        return <>{children}</>
     }
 
 }
