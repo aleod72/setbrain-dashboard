@@ -21,12 +21,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className='bg-black-100 text-white-100 h-screen flex'>
+      <body className='bg-black-100 text-white-100 h-screen w-screen flex'>
         <SupabaseProvider >
           <SupabaseListener serverAccessToken={session?.access_token} />
           <ProfileProvider>
             <SkeletonTheme baseColor="#5b5b5b" highlightColor="#6a6a6a">
-              <Tabbar />
               {children}
             </SkeletonTheme>
           </ProfileProvider>

@@ -1,5 +1,6 @@
 import React from "react";
 import { ProjectProvider } from "projects/providers/project-provider";
+import { Tabbar } from "auth";
 
 export default async function ProjectLayout({
     children,
@@ -9,6 +10,7 @@ export default async function ProjectLayout({
     params: { id: string }
   }) {
     return <ProjectProvider id={params.id}>
-        {children}
+      <Tabbar />
+      {children}
     </ProjectProvider>
   }
