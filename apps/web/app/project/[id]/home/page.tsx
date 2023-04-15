@@ -1,16 +1,9 @@
-function HomeProjectPage({
-    params,
-  }: {
-    params: { id: string };
-  }) {
-    
+import { HomeHead } from "./home-head";
 
-    return (
-      <main>
-
-        {params.id}
-      </main>
-    );
+function HomeProjectPage() {
+    return <section className='py-6 px-7'>
+      <HomeHead></HomeHead>
+    </section>
   }
   
   export default HomeProjectPage;

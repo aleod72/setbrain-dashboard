@@ -1,5 +1,5 @@
-import { createClient } from "./supabase-browser";
+import { SupabaseClient } from '@supabase/supabase-js';
 
-export async function getProfileById(id: string, supabase: ReturnType<typeof createClient>) {
+export async function getProfileById(id: string, supabase: SupabaseClient) {
   return await supabase.from('profiles').select('*').eq('id', id).single();
 }

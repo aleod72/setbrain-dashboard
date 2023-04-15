@@ -29,6 +29,7 @@
     "server-only": "^0.0.1",
     "ui": "workspace:*",
     "types": "workspace:*",
+    "projects": "workspace:*",
     "utils": "workspace:*"
   },
   "devDependencies": {

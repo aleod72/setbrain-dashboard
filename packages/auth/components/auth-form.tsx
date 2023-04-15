@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Button, Input } from 'ui';
-import { useSupabase } from './supabase-provider';
+import { useSupabase } from '../providers/supabase-provider';
 
 interface IAuthFormProps {
 }

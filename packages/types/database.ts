@@ -199,3 +199,21 @@ export interface Database {
     };
   };
 }
+
+
+export interface Project {
+  created_at: string | null;
+  end_date: string | null;
+  id: string;
+  name: string;
+  project_icon_url: string | null;
+}
+
+export interface Profile {
+  avatar_url: string | null;
+  email: string;
+  firstname: string;
+  id: string;
+  lastname: string;
+  updated_at: string | null;
+}
