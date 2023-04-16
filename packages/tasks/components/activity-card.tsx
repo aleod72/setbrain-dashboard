@@ -21,7 +21,7 @@ export const ActivityCard = ({activityId}: ActivityCardProps) => {
             setDuration(Math.round(dayjs().diff(dayjs(activity.created_at).locale('fr'), 'minutes')));
         }
         fetchActivity();
-    }, [activity, setActivity, activityId, setDuration]);
+    }, []);
     
     if(!activity) return null;
     
