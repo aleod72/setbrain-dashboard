@@ -27,7 +27,7 @@ export const ActivityCard = ({activityId}: ActivityCardProps) => {
     
     return <div className='flex justify-between'>      
         <div className='flex gap-2'>
-            <span className='w-9 h-9 block rounded-lg' style={{backgroundImage: 'url(' + SoftwaresIcons[activity.software as keyof typeof SoftwaresIcons] + ')'}}></span>
+            <span className='w-9 h-9 block rounded-lg bg-center bg-contain' style={{backgroundImage: 'url(' + SoftwaresIcons[activity.software as keyof typeof SoftwaresIcons] + ')'}}></span>
             <div className='flex flex-col'>
                 <div className='flex gap-1 items-center'>
                     <span className='text-body-s truncate w-fit max-w-[45px] overflow-hidden'>{activity.title}</span> 
