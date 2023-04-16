@@ -9,11 +9,9 @@ interface ProfilePictureListProps {
 }
 
 export const ProfilePictureList = ({ids}: ProfilePictureListProps) => {
-    
     const profile = React.useContext(profileContext);
-    if(!profile) return null;
-    const [viewedIds, setViewedIds] = React.useState<string[]>([]);
-    const loggedUserIdIndex = ids.indexOf(profile.id);
+    const [viewedIds, setViewedIds] = React.useState<string[]>([])
+    const loggedUserIdIndex = profile ? ids.indexOf(profile.id) : 0;
 
     React.useEffect(() => {
         const listId = [...ids];
@@ -32,7 +30,7 @@ export const ProfilePictureList = ({ids}: ProfilePictureListProps) => {
                 <ProfilePicture id={id}></ProfilePicture>
             </span>
         })}
-        {loggedUserIdIndex == 0 && <span className="ml-[-10px] h-full aspect-square">
+        {loggedUserIdIndex == 0 && profile && <span className="ml-[-10px] h-full aspect-square">
             <ProfilePicture id={profile.id} isLogged={true}></ProfilePicture>
         </span>}
     </div>
