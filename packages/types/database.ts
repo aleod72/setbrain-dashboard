@@ -11,7 +11,7 @@ export interface Database {
     Tables: {
       activities: {
         Row: {
-          created_at: string | null;
+          created_at: string;
           id: number;
           project_id: string | null;
           share_links: string[] | null;
@@ -235,4 +235,15 @@ export interface Task {
   };
   title: string;
   type: string | null;
+}
+
+export interface Activity {
+  created_at: string;
+  id: number;
+  project_id: string | null;
+  share_links: string[] | null;
+  software: string | null;
+  task: string;
+  title: string;
+  users_id: string[] ;
 }

@@ -3,3 +3,4 @@ export {createClient} from './supabase-server';
 export * from './jobs';
 export * from './profiles';
 export * from './projects';
+export * from './activities';
