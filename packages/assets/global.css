@@ -7,3 +7,29 @@
 * {
     font-family: 'Euclid Circular A', sans-serif; 
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #18181800;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #181818;
+    opacity: 0;
+    transition: 0.5s;
+    border-radius: 10px;
+    visibility: hidden;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #181818;
+    opacity: 1;
+    visibility: visible;
+  }
