@@ -3,7 +3,7 @@ import React, { ComponentPropsWithoutRef } from 'react';
 
 //convert to tailwind classes
 export const button = cva(
-  "flex items-center rounded-xl text-white-100 font-bold font-body py-3 px-4 gap-2",
+  "flex items-center rounded-xl text-white-100 gap-2",
   {
     variants: {
       intent: {
@@ -15,6 +15,10 @@ export const button = cva(
       fullWidth: {
         true: "w-full justify-center",
       },
+      small: {
+        true: 'py-1 px-2 text-pretitle-s',
+        false: 'py-3 px-4 font-bold text-body'
+      },
       disabled: {
         true:"bg-black-72 border-black-72 cursor-not-allowed text-white-48 hover:bg-black-72 hover:border-black-72 focus:bg-black-72 focus:border-black-72",
       },
@@ -23,6 +27,7 @@ export const button = cva(
       intent: 'primary',
       fullWidth: false,
       disabled: false,
+      small: false
     },
   }
 );
@@ -34,6 +39,8 @@ export interface ButtonProps extends VariantProps<typeof button> {
   iconLeft?: string;
   iconRight?: string;
   onClick?: Partial<ComponentPropsWithoutRef<'button'>>['onClick'];
+  width?: string;
+  height?: string;
 }
 
 export function Button(props: ButtonProps) {
