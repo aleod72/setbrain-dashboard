@@ -4,24 +4,30 @@ import { SoftwaresIcons } from 'types/softwares';
 import dayjs from 'dayjs';
 import { ProfilePictureList } from 'auth/components/profile-picture-list';
 import { Button } from 'ui';
+import { Activity } from 'types/database';
 
 interface ActivityCardProps {
     activityId: number;
 }
 
+const isActivity = (activity: any): activity is Activity => {
+    return activity && activity.id && activity.title && activity.software && activity.created_at && activity.users_id;
+}
+
 export const ActivityCard = ({activityId}: ActivityCardProps) => {
-    const [activity, setActivity] = React.useState<any>(null);
+    const [activity, setActivity] = React.useState<Activity | undefined>(undefined);
     const [duration, setDuration] = React.useState<number>(0);
 
     React.useEffect(() => {
         const fetchActivity = async () => {
             const {data} = await getActiviyById(activityId);
-            if(!data) return null;
-            setActivity(data);
-            setDuration(Math.round(dayjs().diff(dayjs(activity.created_at).locale('fr'), 'minutes')));
+            
+            if(!isActivity(data)) return null;
+            setActivity(data);    
+            setDuration(Math.round(dayjs().diff(dayjs(data.created_at).locale('fr'), 'minutes')));
         }
         fetchActivity();
-    }, []);
+    }, [activityId]);
     
     if(!activity) return null;
     
