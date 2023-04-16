@@ -35,7 +35,7 @@ export const TaskCarousel = () => {
         </div>
         <div className="flex w-full gap-6">
             {tasks.map(task => {
-                return <TaskCard task={task} key={task.id}></TaskCard>
+                return <TaskCard task={task} key={'task-' + task.id}></TaskCard>
             })}
         </div>
     </div>

@@ -26,7 +26,7 @@ export const ProfilePictureList = ({ids}: ProfilePictureListProps) => {
             {ids.length - 4}
         </span>}
         {viewedIds.map(id => {
-            return <span className="ml-[-10px] h-full aspect-square" key={id}>
+            return <span className="ml-[-10px] h-full aspect-square" key={'picture-' + id}>
                 <ProfilePicture id={id}></ProfilePicture>
             </span>
         })}
