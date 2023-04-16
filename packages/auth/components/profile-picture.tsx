@@ -17,7 +17,7 @@ export const ProfilePicture = ({id, isLogged = false}: ProfilePictureProps) => {
         getProfilePictureLinkById(id, supabase).then(res => setProfilePictureLink(res));
     });
     
-    return <div className={`h-6 w-6 rounded-full overflow-hidden border-2 ${isLogged ? 'border-blue-100': 'border-black-24'}`}>
+    return <div className={`h-full aspect-square rounded-full overflow-hidden border-2 ${isLogged ? 'border-blue-100': 'border-black-24'}`}>
         <img src={profilePictureLink} />
     </div>
 }

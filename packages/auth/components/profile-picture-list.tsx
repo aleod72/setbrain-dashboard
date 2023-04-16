@@ -13,25 +13,27 @@ export const ProfilePictureList = ({ids}: ProfilePictureListProps) => {
     const profile = React.useContext(profileContext);
     if(!profile) return null;
     const [viewedIds, setViewedIds] = React.useState<string[]>([]);
+    const loggedUserIdIndex = ids.indexOf(profile.id);
 
     React.useEffect(() => {
         const listId = [...ids];
-        const loggedUserIdIndex = listId.indexOf(profile.id);
+        if(loggedUserIdIndex === 0) {
+            setViewedIds(listId.slice(0, 4));
+        }
         setViewedIds(listId.splice(loggedUserIdIndex +1, listId.length).slice(0, 3));
-        console.log(ids);
     }, [ids, profile])
     
-    return <div className="flex">
-        {ids.length > 4 && <span className="mr-[1px] bg-lightgrey-100 border-2 border-black-24 h-6 w-6 rounded-full grid place-items-center text-pretitle-s">
+    return <div className="flex w-full h-full">
+        {ids.length > 4 && <span className="mr-[1px] bg-lightgrey-100 border-2 border-black-24 h-full rounded-full grid place-items-center text-pretitle-s aspect-square">
             {ids.length - 4}
         </span>}
         {viewedIds.map(id => {
-            return <span className="ml-[-10px]" key={id}>
+            return <span className="ml-[-10px] h-full aspect-square" key={id}>
                 <ProfilePicture id={id}></ProfilePicture>
             </span>
         })}
-        <span className="ml-[-10px]">
+        {loggedUserIdIndex == 0 && <span className="ml-[-10px] h-full aspect-square">
             <ProfilePicture id={profile.id} isLogged={true}></ProfilePicture>
-        </span>
+        </span>}
     </div>
 }
