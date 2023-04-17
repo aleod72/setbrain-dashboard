@@ -34,9 +34,13 @@ export const TaskCarousel = () => {
             <Link href="tasks" className="text-body-b text-white-100 font-bold">Voir plus</Link>
         </div>
         <div className="flex w-full gap-6">
-            {tasks.map(task => {
+            {tasks.length > 0 ? tasks.map(task => {
                 return <TaskCard task={task} key={'task-' + task.id}></TaskCard>
-            })}
+            })
+            : <span className='grid w-full place-items-center text-body-s text-white-48 h-52'>
+                Vous n'avez pas de tâches pour le moment  
+            </span>
+            }
         </div>
     </div>
     
