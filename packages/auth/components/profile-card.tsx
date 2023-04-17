@@ -4,6 +4,7 @@ import { createClient } from 'utils/supabase-server';
 import { getJobNames } from 'utils/jobs';
 import Skeleton from 'react-loading-skeleton';
 import { Tooltip } from 'ui/components/tooltip/Tooltip';
+import Image from 'next/image';
 
 export const ProfileCard = (async () => {
     const supabase = createClient();
@@ -15,8 +16,10 @@ export const ProfileCard = (async () => {
 
     if (data) {
         return <div className='flex gap-2 w-full items-center'>
-            {data.avatar_url && <img className='rounded-2xl h-14 w-14' src={data.avatar_url}/>}
-            <div className='grid gap-1 max-w-full'>
+            {data.avatar_url && <span className='rounded-2xl h-14 w-14 flex-[1] overflow-hidden aspect-square relative'>
+                <Image src={data.avatar_url} alt={`${data.firstname} profile-picture`} fill={true}></Image>
+            </span>}
+            <div className='grid gap-1 flex-[3.5] max-w-full'>
                 <h1 className='text-body-b font-bold'>{data.firstname} {data.lastname}</h1>
                 <Tooltip side='bottom' content={jobsContent}>
                     <span className='text-ellipsis overflow-hidden whitespace-nowrap w-full box-border text-body-r cursor-default'>
