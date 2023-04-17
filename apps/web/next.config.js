@@ -4,5 +4,8 @@ module.exports = {
   experimental: {
 	  appDir: true,
     swcMinify: false
+  },
+  images: {
+    domains: ['lh3.googleusercontent.com'],
   }
 };

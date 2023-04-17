@@ -3,6 +3,8 @@
 import React from "react"
 import { getProfilePictureLinkById } from "utils/profiles";
 import { useSupabase } from "../providers/supabase-provider";
+import Image from 'next/image';
+import Skeleton from 'react-loading-skeleton';
 
 interface ProfilePictureProps {
     id: string
@@ -16,9 +18,16 @@ export const ProfilePicture = ({id, isLogged = false}: ProfilePictureProps) => {
     React.useEffect(() => {
         getProfilePictureLinkById(id, supabase).then(res => setProfilePictureLink(res));
     });
+
+    if(!profilePictureLink) return <ProfilePictureSkeleton></ProfilePictureSkeleton>;
     
-    return <div className={`h-full aspect-square rounded-full overflow-hidden border-2 ${isLogged ? 'border-blue-100': 'border-black-24'}`}>
-        <img src={profilePictureLink} />
+    return <div className={`h-full relative aspect-square rounded-full overflow-hidden border-2 ${isLogged ? 'border-blue-100': 'border-black-24'}`}>
+        <Image src={profilePictureLink} alt={profilePictureLink} fill={true} loading="lazy"></Image>
     </div>
 }
 
+export const ProfilePictureSkeleton = () => {
+    return <div className="h-full relative aspect-square rounded-full overflow-hidden border-2 border-black-24">
+        <Skeleton width={"100%"} height={"100%"}></Skeleton>
+    </div>
+};
