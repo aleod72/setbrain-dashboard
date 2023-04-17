@@ -38,14 +38,14 @@ export const ProfilePictureList = ({ids}: ProfilePictureListProps) => {
 }
 
 export const ProfilePictureListSkeleton = () => {
-    return <div className="flex h-full w-14">
-            <span className="ml-[-10px] relative w-full">
+    return <div className="flex h-full w-full">
+            <span className="ml-[-10px] relative h-full aspect-square">
                 <Skeleton width={"100%"} height={"100%"} circle={true} className="aspect-square border-2 border-black-24"></Skeleton>
             </span>
-            <span className="ml-[-10px] relative w-full">
+            <span className="ml-[-10px] relative h-full aspect-square">
                 <Skeleton width={"100%"} height={"100%"} circle={true} className="aspect-square border-2 border-black-24"></Skeleton>
             </span>
-            <span className="ml-[-10px] relative w-full">
+            <span className="ml-[-10px] relative h-full aspect-square">
                 <Skeleton width={"100%"} height={"100%"} circle={true} className="aspect-square border-2 border-black-24"></Skeleton>
             </span>
     </div>

@@ -39,7 +39,9 @@ export const TaskCardSkeleton = () => {
     return <div className="flex flex-col justify-between border-2 rounded-2xl border-darkgrey-48 bg-darkgrey-100 py-3 px-4 w-full min-w-[300px] max-w-[345px] h-[13.5rem] cursor-pointer hover:border-darkgrey-86">
         <div className="flex justify-between items-end w-full">
             <Skeleton height={25} width={50}></Skeleton>
-            <ProfilePictureListSkeleton />
+            <span className='w-16'>
+                <ProfilePictureListSkeleton />
+            </span>
         </div>
         <div className="flex flex-col gap-2">
             <div className="flex gap-1 flex-col">

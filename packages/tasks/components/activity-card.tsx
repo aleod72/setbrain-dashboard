@@ -5,6 +5,8 @@ import dayjs from 'dayjs';
 import { ProfilePictureList } from 'auth/components/profile-picture-list';
 import { Button } from 'ui';
 import { Activity } from 'types/database';
+import Skeleton from 'react-loading-skeleton';
+import { ProfilePictureListSkeleton } from 'auth/components/profile-picture-list';
 
 interface ActivityCardProps {
     activityId: number;
@@ -29,7 +31,7 @@ export const ActivityCard = ({activityId}: ActivityCardProps) => {
         fetchActivity();
     }, [activityId]);
     
-    if(!activity) return null;
+    if(!activity) return <ActivityCardSkeleton />;
     
     return <div className='flex justify-between'>      
         <div className='flex gap-2'>
@@ -48,3 +50,25 @@ export const ActivityCard = ({activityId}: ActivityCardProps) => {
         <Button small={true}>Ouvrir</Button>
     </div>
 };
+
+export const ActivityCardSkeleton = () => {
+    return <div className='flex justify-between'>      
+    <div className='flex gap-2'>
+        <span className='w-9 h-9 block'>
+            <Skeleton width={"100%"} height={"100%"} borderRadius={12}></Skeleton>
+        </span>
+        <div className='flex flex-col'>
+            <div className='flex gap-1 items-center'>
+                <span className='w-full'>
+                    <Skeleton width={100}></Skeleton>    
+                </span> 
+            </div>
+            <span className='h-4 w-full ml-3'>
+                <ProfilePictureListSkeleton></ProfilePictureListSkeleton>
+            </span>
+        </div>
+    </div>
+    
+    <Skeleton width={50} height={"80%"} borderRadius={12}></Skeleton>
+</div>
+}
