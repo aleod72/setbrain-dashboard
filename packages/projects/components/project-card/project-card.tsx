@@ -2,6 +2,7 @@ import React from 'react';
 import { getProjectById } from 'utils/projects';
 import dayjs from 'dayjs';
 import Link from 'next/link';
+import Image from 'next/image';
 import Skeleton from 'react-loading-skeleton';
 import { ProjectActiveCapsule, ProjectActiveLinkTree } from './project-active';
 
@@ -19,7 +20,9 @@ export const ProjectCard = (async (props: ProjectCardProps) => {
             <ProjectActiveCapsule projectId={props.projectId} />
             <div className="flex justify-between items-center w-full">
               <div className="flex gap-4 items-center">
-                <span className="bg-center bg-cover h-[54px] w-[54px] rounded-xl" style={{backgroundImage: 'url('+ data.project_icon_url +')'}}></span>
+                <span className="bg-center bg-cover h-[54px] w-[54px] rounded-xl relative overflow-hidden">
+                  <Image src={data.project_icon_url ?? ''} alt={`${data.name} icon`} fill={true}></Image>
+                </span>
                 <div className="flex flex-col gap-px">
                   <h1 className="text-white-100 text-body-l font-normal font-display">{ data.name }</h1>
                   <span className="text-white-48 text-pretitle-s font-medium font-display">Crée le { dayjs(data.created_at).format('DD/MM/YY') }</span>

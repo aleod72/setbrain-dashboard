@@ -6,6 +6,6 @@ module.exports = {
     swcMinify: false
   },
   images: {
-    domains: ['lh3.googleusercontent.com'],
+    domains: ['lh3.googleusercontent.com', 'res.cloudinary.com'],
   }
 };
