@@ -21,6 +21,11 @@ export async function middleware(req: NextRequest) {
   } else if(session && url.pathname === '/login') {
     url.pathname = '/';
     return NextResponse.redirect(url);
+  }  else if(session && url.pathname === '/') {
+      const {data} = await supabase.from('projects').select('id');
+      if(!data) return NextResponse.redirect('/');
+      url.pathname = `/project/${data[0].id}/home`;
+    return NextResponse.redirect(url);
   } else if(url.pathname.startsWith('/project')) {
     const projectId= url.pathname.slice(9, url.pathname.lastIndexOf('/'));
     const { error } = await supabase.from('projects').select('id').eq('id', projectId);
