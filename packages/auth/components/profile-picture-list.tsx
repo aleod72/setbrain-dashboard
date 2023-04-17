@@ -3,6 +3,7 @@
 import React from "react"
 import { ProfilePicture } from "./profile-picture";
 import { profileContext } from '../providers/profile-provider';
+import Skeleton from 'react-loading-skeleton';
 
 interface ProfilePictureListProps {
     ids: string[]
@@ -20,7 +21,7 @@ export const ProfilePictureList = ({ids}: ProfilePictureListProps) => {
         }
         setViewedIds(listId.splice(loggedUserIdIndex +1, listId.length).slice(0, 3));
     }, [ids, profile])
-    
+
     return <div className="flex w-full h-full">
         {ids.length > 4 && <span className="mr-[1px] bg-lightgrey-100 border-2 border-black-24 h-full rounded-full grid place-items-center text-pretitle-s aspect-square">
             {ids.length - 4}
@@ -33,5 +34,19 @@ export const ProfilePictureList = ({ids}: ProfilePictureListProps) => {
         {loggedUserIdIndex == 0 && profile && <span className="ml-[-10px] h-full aspect-square">
             <ProfilePicture id={profile.id} isLogged={true}></ProfilePicture>
         </span>}
+    </div>
+}
+
+export const ProfilePictureListSkeleton = () => {
+    return <div className="flex h-full w-14">
+            <span className="ml-[-10px] relative w-full">
+                <Skeleton width={"100%"} height={"100%"} circle={true} className="aspect-square border-2 border-black-24"></Skeleton>
+            </span>
+            <span className="ml-[-10px] relative w-full">
+                <Skeleton width={"100%"} height={"100%"} circle={true} className="aspect-square border-2 border-black-24"></Skeleton>
+            </span>
+            <span className="ml-[-10px] relative w-full">
+                <Skeleton width={"100%"} height={"100%"} circle={true} className="aspect-square border-2 border-black-24"></Skeleton>
+            </span>
     </div>
 }

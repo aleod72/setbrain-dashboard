@@ -4,7 +4,7 @@ import { ProgressBar } from 'ui';
 import { getColorByUrgency } from 'utils/tasks';
 import dayjs from 'dayjs';
 import Skeleton from 'react-loading-skeleton';
-import { ProfilePictureList } from '../../auth/components/profile-picture-list';
+import { ProfilePictureList, ProfilePictureListSkeleton } from '../../auth/components/profile-picture-list';
 
 interface TaskCardProps {
     task: Task;
@@ -36,9 +36,10 @@ export const TaskCard = ({task}: TaskCardProps) => {
 }
 
 export const TaskCardSkeleton = () => {
-    return <div className="flex flex-col justify-between border-2 rounded-2xl border-darkgrey-48 bg-darkgrey-100 py-3 px-4 min-w-[325px] max-w-[345px] h-[13.5rem] cursor-pointer hover:border-darkgrey-86">
-        <div className="flex justify-between items-end">
+    return <div className="flex flex-col justify-between border-2 rounded-2xl border-darkgrey-48 bg-darkgrey-100 py-3 px-4 w-full min-w-[300px] max-w-[345px] h-[13.5rem] cursor-pointer hover:border-darkgrey-86">
+        <div className="flex justify-between items-end w-full">
             <Skeleton height={25} width={50}></Skeleton>
+            <ProfilePictureListSkeleton />
         </div>
         <div className="flex flex-col gap-2">
             <div className="flex gap-1 flex-col">
@@ -46,7 +47,7 @@ export const TaskCardSkeleton = () => {
                 <Skeleton height={25} width={150}></Skeleton>
                 <Skeleton height={10} width={100}></Skeleton>
             </div>
-            <Skeleton height={40} width={300}></Skeleton>
+            <Skeleton height={40} width={'100%'}></Skeleton>
         </div>
     </div>;
 }
