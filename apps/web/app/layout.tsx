@@ -21,6 +21,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
+      
       <body className='bg-black-100 text-white-100 h-screen w-screen flex overflow-hidden'>
         <SupabaseProvider >
           <SupabaseListener serverAccessToken={session?.access_token} />
