@@ -15,6 +15,13 @@ const AuthForm: React.FunctionComponent<IAuthFormProps> = (props) => {
   const handleGoogleLogin = async () => {
     await supabase.auth.signInWithOAuth({
       provider: 'google',
+      options: {
+        redirectTo: `${
+          process.env.NEXT_PUBLIC_VERCEL_URL
+            ? 'https://' + process.env.NEXT_PUBLIC_VERCEL_URL
+            : 'http://localhost:3000'
+        }`
+      }
     })
   }
 
