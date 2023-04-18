@@ -16,7 +16,7 @@ export const ProfilePicture = ({id, isLogged = false}: ProfilePictureProps) => {
     const [profilePictureLink, setProfilePictureLink] = React.useState<string>('');
     
     React.useEffect(() => {
-        getProfilePictureLinkById(id, supabase).then(res => setProfilePictureLink(res));
+        getProfilePictureLinkById(id, supabase).then(res => setProfilePictureLink(res || ''));
     });
 
     if(!profilePictureLink) return <ProfilePictureSkeleton></ProfilePictureSkeleton>;
