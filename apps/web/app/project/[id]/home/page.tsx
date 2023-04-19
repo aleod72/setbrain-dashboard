@@ -1,6 +1,6 @@
 import { HomeHead } from "./home-head";
 import React from "react";
-import { ActivitiesCarousel } from "tasks";
+import { ActivitiesCarousel } from "tasks/components/activities-carousel";
 import { TaskCarousel } from 'tasks/components/task-carousel';
 
 function HomeProjectPage() {

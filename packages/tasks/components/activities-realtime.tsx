@@ -40,7 +40,7 @@ export const ActivitiesRealtime = ({ids}: ActivitiesRealtimeProps) => {
         return () => {
            supabase.removeChannel(channel);
         }
-    }, [supabase, activities, setActivities]);
+    }, [supabase, activities, setActivities, ids]);
 
     return <div className='grid grid-flow-col grid-rows-4 grid-cols-3 gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 w-[676px]'>
         {
