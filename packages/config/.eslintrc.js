@@ -19,6 +19,6 @@ module.exports = {
     "no-empty-function": "error",
     "no-duplicate-imports": "error",
     "newline-after-var": "error",
-    camelcase: "error",
+    camelcase: "error"
   },
 };

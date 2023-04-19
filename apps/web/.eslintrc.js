@@ -1,4 +1,6 @@
+const base = require('config/.eslintrc.js')
+
 module.exports = {
   root: true,
-  extends: ["custom"],
+  ...base,
 };
