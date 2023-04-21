@@ -257,15 +257,7 @@ importers:
     specifiers: {}
 
   packages/types:
-    specifiers:
-      config: workspace:*
-      eslint: ^7.32.0
-      eslint-config-custom: workspace:*
-    dependencies:
-      config: link:../config
-    devDependencies:
-      eslint: 7.32.0
-      eslint-config-custom: link:../eslint-config-custom
+    specifiers: {}
 
   packages/ui:
     specifiers:
