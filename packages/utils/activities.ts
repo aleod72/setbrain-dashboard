@@ -1,4 +1,4 @@
-import { createClient } from "./supabase-browser";
+import { createClient } from './supabase-browser';
 
 const supabase = createClient();
 
@@ -11,5 +11,8 @@ export async function getAllActivitiesIds() {
 }
 
 export async function getAllActivitiesIdsByProject(projectId: string) {
-    return await supabase.from('activities').select('id').eq('project_id', projectId);
+    return await supabase
+        .from('activities')
+        .select('id')
+        .eq('project_id', projectId);
 }

@@ -1,26 +1,31 @@
-'use client'
+'use client';
 
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
-import { useSupabase } from '../providers/supabase-provider'
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
-export default function SupabaseListener({ serverAccessToken }: { serverAccessToken?: string }) {
-  const { supabase } = useSupabase()
-  const router = useRouter()
+import { useSupabase } from '../providers/supabase-provider';
 
-  useEffect(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session?.access_token !== serverAccessToken) {
-        router.refresh()
-      }
-    })
+export default function SupabaseListener({
+    serverAccessToken,
+}: {
+    serverAccessToken?: string;
+}) {
+    const { supabase } = useSupabase();
+    const router = useRouter();
 
-    return () => {
-      subscription.unsubscribe()
-    }
-  }, [serverAccessToken, router, supabase])
+    useEffect(() => {
+        const {
+            data: { subscription },
+        } = supabase.auth.onAuthStateChange((event, session) => {
+            if (session?.access_token !== serverAccessToken) {
+                router.refresh();
+            }
+        });
 
-  return null
+        return () => {
+            subscription.unsubscribe();
+        };
+    }, [serverAccessToken, router, supabase]);
+
+    return null;
 }

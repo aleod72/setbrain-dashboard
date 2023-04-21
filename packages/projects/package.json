@@ -1,12 +1,19 @@
 {
   "name": "projects",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "./index.ts",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx,.spec.ts,.spec.tsx . --config ../config/.eslintrc.js"
+  },
   "dependencies": {
     "types": "workspace:*",
     "ui": "workspace:*",
     "utils": "workspace:*",
     "config": "workspace:*"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*"
   }
 }

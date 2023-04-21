@@ -5,7 +5,7 @@
   "types": "./index.tsx",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint *.ts*"
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx,.spec.ts,.spec.tsx . --config ../config/.eslintrc.js"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
@@ -17,6 +17,7 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
-    "@radix-ui/react-progress": "^1.0.2"
+    "@radix-ui/react-progress": "^1.0.2",
+    "config": "workspace:*"
   }
 }

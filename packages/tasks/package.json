@@ -10,5 +10,12 @@
     "utils": "workspace:*",
     "projects": "workspace:*",
     "config": "workspace:*"
+  },
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx,.spec.ts,.spec.tsx . --config ../config/.eslintrc.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "workspace:*"
   }
 }

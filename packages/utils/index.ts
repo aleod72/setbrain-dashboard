@@ -1,6 +1,6 @@
-export * from './supabase-browser';
-export {createClient} from './supabase-server';
+export * from './activities';
 export * from './jobs';
 export * from './profiles';
 export * from './projects';
-export * from './activities';
+export * from './supabase-browser';
+export { createClient } from './supabase-server';

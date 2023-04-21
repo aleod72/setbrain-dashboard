@@ -1,6 +1,11 @@
 module.exports = {
   extends: ["next", "prettier", "next/core-web-vitals"],
   plugins: ["simple-import-sort", "prettier"],
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx", "*.js", "*.jsx"],
+    }
+  ],
   settings: {
     next: {
       rootDir: ["apps/*/", "packages/*/"],
