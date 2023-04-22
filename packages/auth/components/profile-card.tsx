@@ -10,7 +10,7 @@ export const ProfileCard = (async () => {
     const supabase = createClient();
     const authenticathedUser = (await supabase.auth.getUser()).data.user;
 
-    if (!authenticathedUser) return null;
+    if (!authenticathedUser) return ProfileCardSkeleton;
     const { data } = await getProfileById(authenticathedUser.id, supabase);
     const jobs = await getJobNames(authenticathedUser.app_metadata.jobs);
     const jobsContent =
@@ -45,7 +45,7 @@ export const ProfileCard = (async () => {
             </div>
         );
     } else {
-        return null;
+        return ProfileCardSkeleton;
     }
 }) as unknown as () => JSX.Element;
 

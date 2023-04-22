@@ -22,6 +22,13 @@ export default function SupabaseListener({
             }
         });
 
+        supabase.auth.getSession().then((session) => {
+            if (!session.data.session) {
+                console.log('disconnected');
+                router.push('login');
+            }
+        });
+
         return () => {
             subscription.unsubscribe();
         };
