@@ -1,0 +1,5 @@
+*.stories.tsx
+*.config.ts
+*.config.js
+*.config.cjs
+*.md

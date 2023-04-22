@@ -12,7 +12,8 @@
     "react-dom": "^18.2.0",
     "ui": "workspace:*",
     "webpack": "^5.76.2",
-    "assets": "workspace:*"
+    "assets": "workspace:*",
+    "config": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",

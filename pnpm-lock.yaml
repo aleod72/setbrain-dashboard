@@ -18,6 +18,7 @@ importers:
       '@types/node': ^17.0.12
       '@types/react': ^18.0.22
       '@types/react-dom': ^18.0.7
+      config: workspace:*
       eslint: 7.32.0
       eslint-config-custom: workspace:*
       next: ^13.1.1
@@ -27,6 +28,7 @@ importers:
       typescript: ^4.5.3
       ui: workspace:*
     dependencies:
+      config: link:../../packages/config
       next: 13.2.4_hrdbe576m4w26u2yfpqpvbxyky
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -138,6 +140,7 @@ importers:
       webpack: ^5.76.2
     dependencies:
       assets: link:../../packages/assets
+      config: link:../../packages/config
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       ui: link:../../packages/ui
@@ -156,7 +159,6 @@ importers:
       '@types/react-dom': 18.0.11
       '@vitejs/plugin-react': 3.1.0_vite@4.2.1
       babel-loader: 8.3.0_qrnkonb34kkdrxlmibxkyhtqlq
-      config: link:../../packages/config
       storybook: 7.0.4
       typescript: 4.9.5
       vite: 4.2.1
