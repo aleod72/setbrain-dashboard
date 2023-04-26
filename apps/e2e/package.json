@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
-    "@playwright/test": "^1.32.3"
+    "@playwright/test": "^1.32.3",
+    "start-server-and-test": "^2.0.0"
   },
   "scripts": {
-    "test": "playwright test"
+    "test": "start-server-and-test \"(cd ../web && pnpm run dev)\" http://localhost:3000 \"playwright test\""
   }
 }
