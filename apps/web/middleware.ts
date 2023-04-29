@@ -15,11 +15,11 @@ export async function middleware(req: NextRequest) {
 
     const url = req.nextUrl.clone();
 
-    if (session && url.pathname === '/login') {
-        url.pathname = '/';
-        return NextResponse.redirect(url);
-    } else if (!session && url.pathname === '/') {
+    if (!session && url.pathname !== '/login') {
         url.pathname = '/login';
+        return NextResponse.redirect(url);
+    } else if (session && url.pathname === '/login') {
+        url.pathname = '/';
         return NextResponse.redirect(url);
     } else if (session && url.pathname === '/') {
         const { data } = await supabase.from('projects').select('id');
