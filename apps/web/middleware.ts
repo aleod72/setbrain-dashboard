@@ -18,10 +18,10 @@ export async function middleware(req: NextRequest) {
     if (!session && url.pathname !== '/login') {
         url.pathname = '/login';
         return NextResponse.redirect(url);
-    } else if (session && url.pathname === '/login') {
-        url.pathname = '/';
-        return NextResponse.redirect(url);
-    } else if (session && url.pathname === '/') {
+    } else if (
+        (session && url.pathname === '/') ||
+        (session && url.pathname === '/login')
+    ) {
         const { data } = await supabase.from('projects').select('id');
 
         if (!data) return NextResponse.redirect('/');
