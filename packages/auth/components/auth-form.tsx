@@ -24,7 +24,7 @@ const AuthForm = () => {
     };
 
     return (
-        <section className="md:bg-darkgrey-100 min-w-max max-w-md w-2/4 md:rounded-[32px] md:py-8 md:px-10 md:border-2 md:border-lightgrey-100 gap-6 flex flex-col">
+        <section className="md:bg-darkgrey-100 min-w-max max-w-md w-full md:rounded-[32px] md:py-8 md:px-10 md:border-2 md:border-lightgrey-100 gap-6 flex flex-col">
             <div className="flex flex-col gap-4">
                 <h1 className="text-white-100 text-subtitle-m font-bold">
                     Connexion

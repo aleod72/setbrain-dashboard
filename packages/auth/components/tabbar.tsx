@@ -13,9 +13,9 @@ export const Tabbar = (async () => {
     return (
         <section className="max-w-xs bg-darkgrey-100 py-10 px-7">
             <div className="flex flex-col gap-6 w-full">
-                <Suspense fallback={<ProfileCardSkeleton />}>
+            
                     <ProfileCard />
-                </Suspense>
+        
 
                 <div className="flex flex-col gap-5">
                     <h1 className="text-subtitle-sb text-white-100 font-bold">

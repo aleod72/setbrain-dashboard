@@ -8,5 +8,6 @@
 , "../../packages/projects/ProjectProvider.tsx"  ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "plugins": [{ "name": "next" }]
 }
