@@ -28,6 +28,7 @@ export const ProjectCard = (async (props: ProjectCardProps) => {
                                         src={data.project_icon_url ?? ''}
                                         alt={`${data.name} icon`}
                                         fill={true}
+                                        sizes='54px'
                                     ></Image>
                                 </span>
                                 <div className="flex flex-col gap-px">

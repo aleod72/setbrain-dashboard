@@ -40,6 +40,7 @@ export const ProfilePicture = ({
                 alt={profilePictureLink}
                 fill={true}
                 loading="lazy"
+                sizes="100%"
             ></Image>
         </div>
     );
