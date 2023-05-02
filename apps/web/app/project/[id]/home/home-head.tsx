@@ -3,7 +3,7 @@
 import { profileContext } from 'auth/providers/profile-provider';
 import { projectContext } from 'projects/providers/project-provider';
 import { useContext } from 'react';
-import Skeleton from 'react-loading-skeleton';
+import {Skeleton} from 'ui';
 
 export function HomeHead() {
     const project = useContext(projectContext);
