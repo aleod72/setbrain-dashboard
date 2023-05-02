@@ -15,7 +15,6 @@ module.exports = {
     "@next/next/no-html-link-for-pages": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "prettier/prettier": ["error"],
     "no-unused-vars": "error",
     "prefer-const": "error",
     "no-irregular-whitespace": "error",

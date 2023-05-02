@@ -9,6 +9,7 @@ import { ProjectActiveCapsule, ProjectActiveLinkTree } from './project-active';
 
 interface ProjectCardProps {
     projectId: string;
+    isMobile?: boolean;
 }
 
 export const ProjectCard = (async (props: ProjectCardProps) => {
@@ -19,7 +20,7 @@ export const ProjectCard = (async (props: ProjectCardProps) => {
             <div>
                 <Link href={'/project/' + props.projectId + '/home'}>
                     <div className="flex items-center gap-2 cursor-pointer relative">
-                        <ProjectActiveCapsule projectId={props.projectId} />
+                        {!props.isMobile && <ProjectActiveCapsule projectId={props.projectId} />}
                         <div className="flex justify-between items-center w-full">
                             <div className="flex gap-4 items-center">
                                 <span className="bg-center bg-cover h-[54px] w-[54px] rounded-xl relative overflow-hidden">
@@ -47,7 +48,7 @@ export const ProjectCard = (async (props: ProjectCardProps) => {
                         </div>
                     </div>
                 </Link>
-                <ProjectActiveLinkTree projectId={props.projectId} />
+                {!props.isMobile && <ProjectActiveLinkTree projectId={props.projectId} />}
             </div>
         );
     }
@@ -55,6 +56,7 @@ export const ProjectCard = (async (props: ProjectCardProps) => {
     return false;
     // eslint-disable-next-line no-unused-vars
 }) as unknown as (props: ProjectCardProps) => JSX.Element;
+
 
 export const ProjectCardSkeleton = () => {
     return (

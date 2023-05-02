@@ -6,7 +6,7 @@ import { HomeHead } from './home-head';
 
 function HomeProjectPage() {
     return (
-        <section className="py-6 px-7 w-full gap-3.5 flex flex-col overflow-y-auto">
+        <section className="md:py-6 pb-40 md:px-7 w-full gap-3.5 flex flex-col">
             <HomeHead></HomeHead>
             <TaskCarousel></TaskCarousel>
             <ActivitiesCarousel></ActivitiesCarousel>

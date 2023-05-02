@@ -92,11 +92,11 @@ export interface Database {
             };
             projects: {
                 Row: {
-                    created_at: string | null;
-                    end_date: string | null;
+                    created_at: string;
+                    end_date: string;
                     id: string;
                     name: string;
-                    project_icon_url: string | null;
+                    project_icon_url: string;
                 };
                 Insert: {
                     created_at?: string | null;
@@ -201,11 +201,11 @@ export interface Database {
 }
 
 export interface Project {
-    created_at: string | null;
-    end_date: string | null;
+    created_at: string;
+    end_date: string;
     id: string;
     name: string;
-    project_icon_url: string | null;
+    project_icon_url: string;
 }
 
 export interface Profile {

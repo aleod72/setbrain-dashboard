@@ -1,4 +1,4 @@
-import { Tabbar } from 'auth';
+import { MobileMenu, Tabbar } from 'auth';
 import { ProjectProvider } from 'projects/providers/project-provider';
 import React from 'react';
 
@@ -12,6 +12,7 @@ export default async function ProjectLayout({
     return (
         <ProjectProvider id={params.id}>
             <Tabbar />
+            <MobileMenu />
             {children}
         </ProjectProvider>
     );

@@ -18,6 +18,10 @@ export default function Head() {
                 rel="stylesheet"
                 href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css"
             ></link>
+                        <link
+                rel="stylesheet"
+                href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+            ></link>
         </>
     );
 }

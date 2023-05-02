@@ -1,5 +1,6 @@
 export * from './activities';
 export * from './jobs';
+export * from './mobile';
 export * from './profiles';
 export * from './projects';
 export * from './supabase-browser';

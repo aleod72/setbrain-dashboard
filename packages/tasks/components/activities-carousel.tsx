@@ -24,14 +24,14 @@ export const ActivitiesCarousel = () => {
     }, [id]);
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 px-5 md:px-0">
             <h1 className="text-subtitle-sb text-white-100 font-bold">
                 Travail en cours
             </h1>
             {ids.length > 0 ? (
                 <ActivitiesRealtime ids={ids}></ActivitiesRealtime>
             ) : (
-                <div className="grid place-items-center bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 w-[676px]">
+                <div className="w-full grid place-items-center bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 md:w-[676px]">
                     <span className="text-body-s text-white-48">
                         Il n&apos;y a pas de travaux pour l&apos;instant
                     </span>

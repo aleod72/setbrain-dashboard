@@ -28,8 +28,8 @@ export const TaskCarousel = () => {
     if (!tasks) return <TaskCarouselSkeleton></TaskCarouselSkeleton>;
 
     return (
-        <div className="flex flex-col gap-1">
-            <div className="flex justify-between">
+        <div className="flex flex-col gap-1 w-full">
+            <div className="flex justify-between items-center px-5 md:px-0">
                 <h1 className="font-bold text-subtitle-sb text-white-100">
                     Vos dernières tâches
                 </h1>
@@ -40,7 +40,7 @@ export const TaskCarousel = () => {
                     Voir plus
                 </Link>
             </div>
-            <div className="flex w-full gap-6">
+            <div className="flex w-full gap-6 overflow-x-scroll px-5 md:px-0 md:overflow-x-visible">
                 {tasks.length > 0 ? (
                     tasks.map((task) => {
                         return (
@@ -63,7 +63,7 @@ export const TaskCarousel = () => {
 export const TaskCarouselSkeleton = () => {
     return (
         <div className="flex flex-col gap-1">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center px-5 md:px-0">
                 <h1 className="font-bold text-subtitle-sb text-white-100">
                     Vos dernières tâches
                 </h1>
@@ -74,7 +74,7 @@ export const TaskCarouselSkeleton = () => {
                     Voir plus
                 </Link>
             </div>
-            <div className="flex w-full gap-6">
+            <div className="flex w-full gap-6 px-5 md:px-0 md:overflow-x-visible">
                 <TaskCardSkeleton></TaskCardSkeleton>
                 <TaskCardSkeleton></TaskCardSkeleton>
                 <TaskCardSkeleton></TaskCardSkeleton>

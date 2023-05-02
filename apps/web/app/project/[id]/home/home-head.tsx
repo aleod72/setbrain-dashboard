@@ -12,7 +12,7 @@ export function HomeHead() {
     if (!profile && !project) return <HomeHeadSkeleton />;
 
     return (
-        <div>
+        <div className='px-5 md:px-0'>
             <h1 className="text-subtitle-mb font-bold text-white-100">
                 {project && project.name}
             </h1>

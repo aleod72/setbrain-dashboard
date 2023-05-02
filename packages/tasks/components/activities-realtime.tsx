@@ -63,7 +63,7 @@ export const ActivitiesRealtime = ({ ids }: ActivitiesRealtimeProps) => {
     }, [supabase, activities, setActivities, ids]);
 
     return (
-        <div className="grid grid-flow-col grid-rows-4 grid-cols-3 gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 w-[676px]">
+        <div className="flex flex-col w-full md:grid md:grid-flow-col md:grid-rows-4 md:grid-cols-3 gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 md:w-[676px]">
             {activities.map((activity, index) => {
                 return (
                     <ActivityCard
@@ -73,7 +73,7 @@ export const ActivitiesRealtime = ({ ids }: ActivitiesRealtimeProps) => {
                 );
             })}
             {true && (
-                <span className="col-start-3 col-end-3 row-start-2 text-body-s text-white-48 translate-y-5">
+                <span className="col-start-3 col-end-3 row-start-2 text-body-s text-white-48 text-center translate-y-5 p-5 md:p-0">
                     Il n’y a pas d’autres travaux en cours pour le moment
                 </span>
             )}

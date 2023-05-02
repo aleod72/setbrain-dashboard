@@ -24,7 +24,7 @@ export default async function RootLayout({
 
     return (
         <html lang="en">
-            <body className="bg-black-100 text-white-100 h-screen w-screen flex overflow-hidden">
+            <body className="bg-black-100 text-white-100 h-full md:h-screen w-screen md:flex overflow-x-hidden">
                 <SupabaseProvider>
                     <SupabaseListener
                         serverAccessToken={session?.access_token}

@@ -75,11 +75,13 @@ importers:
       encoding: ^0.1.13
       eslint: 7.32.0
       eslint-config-custom: workspace:*
+      mobile-detect: ^1.4.5
       next: ^13.1.1
       projects: workspace:*
       react: 18.2.0
       react-dom: 18.2.0
       react-loading-skeleton: ^3.2.0
+      react-swipeable: ^7.0.0
       server-only: ^0.0.1
       tailwindcss: ^3.3.1
       tasks: workspace:*
@@ -102,11 +104,13 @@ importers:
       config: link:../../packages/config
       dayjs: 1.11.7
       encoding: 0.1.13
+      mobile-detect: 1.4.5
       next: 13.2.4_hrdbe576m4w26u2yfpqpvbxyky
       projects: link:../../packages/projects
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-loading-skeleton: 3.2.0_react@18.2.0
+      react-swipeable: 7.0.0_react@18.2.0
       server-only: 0.0.1
       tasks: link:../../packages/tasks
       types: link:../../packages/types
@@ -7502,6 +7506,10 @@ packages:
     hasBin: true
     dev: true
 
+  /mobile-detect/1.4.5:
+    resolution: {integrity: sha512-yc0LhH6tItlvfLBugVUEtgawwFU2sIe+cSdmRJJCTMZ5GEJyLxNyC/NIOAOGk67Fa8GNpOttO3Xz/1bHpXFD/g==}
+    dev: false
+
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -8386,6 +8394,14 @@ packages:
       invariant: 2.2.4
       react: 18.2.0
       tslib: 2.5.0
+    dev: false
+
+  /react-swipeable/7.0.0_react@18.2.0:
+    resolution: {integrity: sha512-NI7KGfQ6gwNFN0Hor3vytYW3iRfMMaivGEuxcADOOfBCx/kqwXE8IfHFxEcxSUkxCYf38COLKYd9EMYZghqaUA==}
+    peerDependencies:
+      react: ^16.8.3 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:
