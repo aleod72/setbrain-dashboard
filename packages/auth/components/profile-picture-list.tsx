@@ -33,11 +33,11 @@ export const ProfilePictureList = ({ ids }: ProfilePictureListProps) => {
                     {ids.length - 4}
                 </span>
             )}
-            {viewedIds.map((id) => {
+            {viewedIds.map((id, index) => {
                 return (
                     <span
                         className="ml-[-10px] h-full aspect-square"
-                        key={'picture-' + id}
+                        key={'picture-' + id + '-' + index}
                     >
                         <ProfilePicture id={id}></ProfilePicture>
                     </span>
