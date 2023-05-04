@@ -63,7 +63,7 @@ export const ActivitiesRealtime = ({ ids }: ActivitiesRealtimeProps) => {
     }, [supabase, activities, setActivities, ids]);
 
     return (
-        <div className="flex flex-col w-full md:grid md:grid-flow-col md:grid-rows-4 md:grid-cols-3 gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 md:w-[676px]">
+        <div className="flex flex-col w-full md:grid md:grid-flow-col md:grid-rows-4 md:grid-cols-3 gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 md:max-w-[676px]">
             {activities.map((activity, index) => {
                 return (
                     <ActivityCard

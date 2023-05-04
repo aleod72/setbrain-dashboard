@@ -25,9 +25,9 @@ export function HomeHead() {
 
 export function HomeHeadSkeleton() {
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 px-5 md:px-0">
             <Skeleton height={40} width={200} />
-            <Skeleton height={20} width={400} />
+            <Skeleton height={20} width={350} />
         </div>
     );
 }

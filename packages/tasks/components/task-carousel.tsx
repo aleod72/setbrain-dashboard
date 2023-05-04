@@ -40,7 +40,7 @@ export const TaskCarousel = () => {
                     Voir plus
                 </Link>
             </div>
-            <div className="flex w-full gap-6 overflow-x-scroll px-5 md:px-0 md:overflow-x-visible">
+            <div className="flex w-full flex-wrap gap-6 overflow-x-scroll px-5 md:px-0 md:overflow-x-visible">
                 {tasks.length > 0 ? (
                     tasks.map((task) => {
                         return (

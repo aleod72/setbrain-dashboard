@@ -13,7 +13,9 @@ export default async function ProjectLayout({
         <ProjectProvider id={params.id}>
             <Tabbar />
             <MobileMenu />
-            {children}
+            <section className="md:py-6 pb-40 md:px-7 w-full gap-3.5 flex flex-col h-screen overflow-x-hidden overflow-y-scroll">
+                {children}
+            </section>
         </ProjectProvider>
     );
 }
