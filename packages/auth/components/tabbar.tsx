@@ -10,7 +10,9 @@ import { getAllProjectsIds } from 'utils/projects';
 import { ProfileCard } from './profile-card';
 
 export const TabbarDesktop = (async () => {
-    const { data } = await getAllProjectsIds();
+    const { data, error } = await getAllProjectsIds();
+
+    if (error) return null;
 
     return (
         <section className="max-w-xs bg-darkgrey-100 py-10 px-7">
