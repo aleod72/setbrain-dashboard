@@ -12,7 +12,6 @@ module.exports = {
     },
   },
   rules: {
-    "@next/next/no-html-link-for-pages": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "no-unused-vars": "error",

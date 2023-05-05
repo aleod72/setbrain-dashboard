@@ -1,4 +1,5 @@
-import { MobileMenu, Tabbar } from 'auth';
+import { Tabbar } from 'auth/components/tabbar';
+import { MobileMenu } from 'auth/components/mobile-menu';
 import { ProjectProvider } from 'projects/providers/project-provider';
 import React from 'react';
 
