@@ -8,11 +8,18 @@ import { useSupabase } from '../providers/supabase-provider';
 const AuthForm = () => {
     const { supabase } = useSupabase();
     const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('');
+    const [password, setPassword] = React.useState('')
 
     const handleGoogleLogin = async () => {
         await supabase.auth.signInWithOAuth({
             provider: 'google',
+            options: {
+                queryParams: {
+                  access_type: 'offline',
+                  prompt: 'consent',
+                },
+                scopes: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file'
+              },
         });
     };
 
