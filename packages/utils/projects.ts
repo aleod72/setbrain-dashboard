@@ -1,11 +1,12 @@
 import { createClient } from './supabase-browser';
+import { cache } from 'react';
 
 const supabase = createClient();
 
-export async function getProjectById(id: string) {
+export const getProjectById = cache(async (id: string) => {
     return await supabase.from('projects').select('*').eq('id', id).single();
-}
+})
 
-export async function getAllProjectsIds() {
+export const getAllProjectsIds = cache(async () => {
     return await supabase.from('projects').select('id');
-}
+});

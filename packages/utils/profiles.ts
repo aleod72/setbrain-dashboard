@@ -1,17 +1,18 @@
 import { SupabaseClient } from '@supabase/supabase-js';
 import { Database } from 'types/database';
+import { cache } from 'react';
 
-export async function getProfileById(
+export const getProfileById = cache(async (
     id: string,
     supabase: SupabaseClient<Database>
-) {
+) => {
     return await supabase.from('profiles').select('*').eq('id', id).single();
-}
+});
 
-export async function getProfilePictureLinkById(
+export const getProfilePictureLinkById = cache(async (
     id: string,
     supabase: SupabaseClient<Database>
-) {
+) => {
     const { data } = await supabase
         .from('profiles')
         .select('avatar_url')
@@ -20,4 +21,4 @@ export async function getProfilePictureLinkById(
 
     if (!data) throw new Error('No profile found for this user.');
     return data.avatar_url;
-}
+});

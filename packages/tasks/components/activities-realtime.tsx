@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import { useSupabase } from '../../auth/providers/supabase-provider';
+import { useSupabase } from 'auth/providers/supabase-provider';
 import { ActivityCard } from './activity-card';
 
 interface ActivitiesRealtimeProps {

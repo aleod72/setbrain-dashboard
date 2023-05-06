@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Skeleton } from 'ui';
+import { Skeleton } from 'ui/components/skeleton/Skeleton';
 
 import { profileContext } from '../providers/profile-provider';
 import { ProfilePicture } from './profile-picture';

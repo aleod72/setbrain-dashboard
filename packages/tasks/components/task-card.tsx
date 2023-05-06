@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import React from 'react';
-import { Skeleton } from 'ui';
+import { Skeleton } from 'ui/components/skeleton/Skeleton';
 import { Task } from 'types/database';
-import { ProgressBar } from 'ui';
+import { ProgressBar } from 'ui/components/progress-bar/ProgressBar';
 import { getColorByUrgency } from 'utils/tasks';
 
 import {

@@ -3,7 +3,7 @@
 import { profileContext } from 'auth/providers/profile-provider';
 import Link from 'next/link';
 import { projectContext } from 'projects/providers/project-provider';
-import React, { useContext } from 'react';
+import React, { useContext, use } from 'react';
 import { Task } from 'types/database';
 import { getTasksByProjectIdAndUserId } from 'utils/tasks';
 
@@ -14,21 +14,16 @@ function isTaskList(arg: any): arg is Task[] {
 }
 
 export const TaskCarousel = () => {
-    const [tasks, setTasks] = React.useState<Task[] | undefined>(undefined);
     const project = useContext(projectContext);
     const user = useContext(profileContext);
 
-    React.useEffect(() => {
-        if (!user || !project) return;
-        getTasksByProjectIdAndUserId(project.id, user.id).then((res) => {
-            if (isTaskList(res.data)) setTasks(res.data);
-        });
-    }, [project, user]);
+    if (!user || !project) return <TaskCarouselSkeleton></TaskCarouselSkeleton>;
+
+    const tasks = use(getTasksByProjectIdAndUserId(project.id, user.id)).data;
 
     if (!tasks) return <TaskCarouselSkeleton></TaskCarouselSkeleton>;
 
-    return (
-        <div className="flex flex-col gap-1 w-full">
+    return isTaskList(tasks) ? (<div className="flex flex-col gap-1 w-full">
             <div className="flex justify-between items-center px-5 md:px-0">
                 <h1 className="font-bold text-subtitle-sb text-white-100">
                     Vos dernières tâches
@@ -57,7 +52,7 @@ export const TaskCarousel = () => {
                 )}
             </div>
         </div>
-    );
+    ) : <TaskCarouselSkeleton></TaskCarouselSkeleton>;
 };
 
 export const TaskCarouselSkeleton = () => {

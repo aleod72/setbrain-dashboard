@@ -1,8 +1,9 @@
 import { createClient } from './supabase-browser';
+import { cache } from 'react';
 
 const supabase = createClient();
 
-export async function getJobNames(names: string[]): Promise<string[]> {
+export const getJobNames = cache(async (names: string[]): Promise<string[]> => {
     const { data } = await supabase
         .from('jobs')
         .select('display_name')
@@ -15,4 +16,4 @@ export async function getJobNames(names: string[]): Promise<string[]> {
     }
 
     return [];
-}
+});

@@ -7,8 +7,8 @@ import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { Activity } from 'types/database';
 import { SoftwaresIcons } from 'types/softwares';
-import { Button } from 'ui';
-import { getActiviyById } from 'utils/activities';
+import { Button } from 'ui/components/button/Button';
+import { getActivityById } from 'utils/activities';
 
 interface ActivityCardProps {
     activityId: number;
@@ -33,7 +33,7 @@ export const ActivityCard = ({ activityId }: ActivityCardProps) => {
 
     React.useEffect(() => {
         const fetchActivity = async () => {
-            const { data } = await getActiviyById(activityId);
+            const { data } = await getActivityById(activityId);
 
             if (!isActivity(data)) return null;
             setActivity(data);

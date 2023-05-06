@@ -1,25 +1,27 @@
 import { createClient } from './supabase-browser';
+import { cache } from 'react';
 
 const supabase = createClient();
 
-export async function getTasksByProjectIdAndUserId(
+export const getTasksByProjectIdAndUserId = cache(async (
     projectId: string,
     userId: string
-) {
+) => {
     return await supabase
         .from('tasks')
         .select('*')
         .eq('project', projectId)
         .contains('assigned_users', '{' + userId + '}');
-}
+});
 
-export async function getAllTasksIds() {
+export const getAllTasksIds = cache(async () => {
     return await supabase.from('tasks').select('id');
-}
-export function getColorByUrgency(
+});
+
+export const getColorByUrgency =(
     dueDate: string,
     progress: number
-): 'blue' | 'red' | 'yellow' | 'green' {
+): 'blue' | 'red' | 'yellow' | 'green' => {
     const todayTimestamp = new Date().getTime();
     const dueDateTimestamp = new Date(dueDate).getTime();
 
