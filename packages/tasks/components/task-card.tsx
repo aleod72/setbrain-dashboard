@@ -8,7 +8,7 @@ import { getColorByUrgency } from 'utils/tasks';
 import {
     ProfilePictureList,
     ProfilePictureListSkeleton,
-} from '../../auth/components/profile-picture-list';
+} from 'auth/components/profile-picture-list';
 
 interface TaskCardProps {
     task: Task;
