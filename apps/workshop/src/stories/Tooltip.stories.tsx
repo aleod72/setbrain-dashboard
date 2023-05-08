@@ -1,4 +1,4 @@
-import { TooltipProps, Tooltip } from 'ui';
+import { TooltipProps, Tooltip } from 'ui/components/tooltip/Tooltip';
 import type { Meta, StoryFn } from '@storybook/react';
 
 const Story: Meta<typeof Tooltip> = {

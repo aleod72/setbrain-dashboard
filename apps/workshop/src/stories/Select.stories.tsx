@@ -1,5 +1,5 @@
 import type { Meta, StoryFn } from '@storybook/react';
-import { Select, SelectGroup, SelectItem } from 'ui';
+import { Select, SelectGroup, SelectItem } from 'ui/components/select/Select';
 
 const Story: Meta<typeof Select> = {
   component: Select,

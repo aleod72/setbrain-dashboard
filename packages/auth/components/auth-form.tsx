@@ -1,7 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { Button, Input } from 'ui';
+import { Button } from 'ui/components/button/Button';
+import { Input } from 'ui/components/input/Input';
 
 import { useSupabase } from '../providers/supabase-provider';
 
