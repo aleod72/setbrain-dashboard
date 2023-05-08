@@ -163,11 +163,14 @@ importers:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.23)
       eslint:
-        specifier: 7.32.0
-        version: 7.32.0
+        specifier: ^8.8.0
+        version: 8.37.0
       eslint-config-custom:
         specifier: workspace:*
         version: link:../../packages/eslint-config-custom
+      eslint-plugin-prettier:
+        specifier: ^4.0.0
+        version: 4.2.1(eslint@8.37.0)(prettier@2.8.8)
       tailwindcss:
         specifier: ^3.3.1
         version: 3.3.1(postcss@8.4.23)
@@ -332,11 +335,14 @@ importers:
         version: link:../utils
     devDependencies:
       eslint:
-        specifier: ^7.32.0
-        version: 7.32.0
+        specifier: ^8.8.0
+        version: 8.37.0
       eslint-config-custom:
         specifier: workspace:*
         version: link:../eslint-config-custom
+      eslint-plugin-prettier:
+        specifier: ^4.0.0
+        version: 4.2.1(eslint@8.37.0)(prettier@2.8.8)
 
   packages/tasks:
     dependencies:
@@ -5878,6 +5884,22 @@ packages:
     dependencies:
       eslint: 8.37.0
       eslint-config-prettier: 8.7.0(eslint@8.37.0)
+      prettier: 2.8.8
+      prettier-linter-helpers: 1.0.0
+    dev: true
+
+  /eslint-plugin-prettier@4.2.1(eslint@8.37.0)(prettier@2.8.8):
+    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      eslint: '>=7.28.0'
+      eslint-config-prettier: '*'
+      prettier: '>=2.0.0'
+    peerDependenciesMeta:
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.37.0
       prettier: 2.8.8
       prettier-linter-helpers: 1.0.0
     dev: true
