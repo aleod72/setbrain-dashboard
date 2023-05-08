@@ -24,7 +24,7 @@ export function ProjectProvider({
     useEffect(() => {
         getProjectById(id).then(async (res) => {
             setProject(res.data);
-        }).catch((err) => {console.log(err)});
+        }).catch((err) => {console.log(err);});
     }, [id]);
 
     if (isProject(project)) {

@@ -1,9 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import React from 'react';
+import React, { use } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import { use } from 'react';
 import { getProfilePictureLinkById } from 'utils/profiles';
 import { useSupabase } from '../providers/supabase-provider';
 
@@ -17,7 +16,7 @@ export const ProfilePicture = ({
     isLogged = false,
 }: ProfilePictureProps) => {
     const supabase = useSupabase().supabase;
-    const profilePictureLink = use(getProfilePictureLinkById(id, supabase))
+    const profilePictureLink = use(getProfilePictureLinkById(id, supabase));
 
     if (!profilePictureLink)
         return <ProfilePictureSkeleton></ProfilePictureSkeleton>;

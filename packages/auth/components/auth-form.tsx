@@ -9,7 +9,7 @@ import { useSupabase } from '../providers/supabase-provider';
 const AuthForm = () => {
     const { supabase } = useSupabase();
     const [email, setEmail] = React.useState('');
-    const [password, setPassword] = React.useState('')
+    const [password, setPassword] = React.useState('');
 
     const handleGoogleLogin = async () => {
         await supabase.auth.signInWithOAuth({
