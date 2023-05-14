@@ -4,6 +4,7 @@ module.exports = {
     "../../packages/auth/components/**/*.{js,ts,jsx,tsx}",
     "../../packages/projects/components/**/*.{js,ts,jsx,tsx}",
     "../../packages/tasks/components/**/*.{js,ts,jsx,tsx}",
+    "../../packages/files/components/**/*.{js,ts,jsx,tsx}",
     "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
