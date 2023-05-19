@@ -55,7 +55,7 @@ export const FileItem = ({ file, onDoubleClick }: FileItemProps) => {
             <div className="flex gap-4 items-center">
                 <i className={iconName + ' text-white-72'}></i>
                 <div className="flex flex-col gap-[2px]">
-                    <span className="text-sm">{file.name}</span>
+                    <span className="text-sm text-ellipsis w-40 overflow-hidden whitespace-nowrap">{file.name}</span>
                     <span className="text-xs mr-2 text-white-48">modifié le {dayjs(file.modifiedTime).format('DD/MM/YY')}</span>
                 </div>
             </div>
