@@ -6,6 +6,7 @@ import { getAllProjectsIds } from 'utils/projects';
 import { createClient } from 'utils/supabase-server';
 
 import { ProfilePicture } from './profile-picture';
+import { Skeleton } from 'ui/components/skeleton/Skeleton';
 
 export const MobileMenu = (async () => {
     const { data } = await getAllProjectsIds();
@@ -34,3 +35,11 @@ export const MobileMenu = (async () => {
             <span className='w-11 h-11 relative block'><ProfilePicture id={user.id}/></span>
         </div>);
 }) as unknown as () => JSX.Element;
+
+export const MobileMenuSkeleton = () => {
+    return (
+        <div className='w-full p-5 flex justify-between'>
+            <Skeleton width={56} height={56} className='rounded-xl relative overflow-hidden' />
+            <Skeleton circle={true} height={44} width={44} />
+        </div>);
+};
