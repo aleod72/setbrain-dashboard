@@ -1,54 +1,59 @@
-import React from 'react';
-import { drive_v3 } from 'types/drive';
+import React, { use } from 'react';
+import { File } from 'types/database';
 import dayjs from 'dayjs';
 import prettyBytes from 'pretty-bytes';
 import { Skeleton } from 'ui/components/skeleton/Skeleton';
+import { getFileSharedUsers } from 'utils/files';
+import { useSupabase } from 'auth/providers/supabase-provider';
+import { ProfilePictureList } from 'auth/components/profile-picture-list';
 
 interface FileItemProps {
-    file: drive_v3.Schema$File;
+    file: File;
     onDoubleClick?: (fileId: string) => void;
 }
 
 const FileExtensionToIcon = {
-    'docx': 'fi-sr-file-word',
-    'doc': 'fi-sr-poll-h',
-    'xlsx': 'fi-sr-file-excel',
-    'xls': 'fi-sr-file-excel',
-    'pptx': 'fi-sr-file-powerpoint',
-    'ppt': 'fi-sr-file-powerpoint',
-    'pdf': 'fi-sr-file-pdf',
-    'zip': 'fi-sr-file-zip',
-    'rar': 'fi-sr-file-zip',
-    '7z': 'fi-sr-file-zip',
-    'mp3': 'fi-sr-file-audio',
-    'mp4': 'fi-sr-file-video',
-    'png': 'fi-sr-picture',
-    'jpg': 'fi-sr-picture',
-    'jpeg': 'fi-sr-picture',
-    'gif': 'fi-sr-gif',
-    'svg': 'fi-sr-svg',
-    'txt': 'fi-sr-document',
-    '': 'fi-sr-file'
+    'docx': 'fi-rr-file-word',
+    'doc': 'fi-rr-poll-h',
+    'xlsx': 'fi-rr-file-excel',
+    'xls': 'fi-rr-file-excel',
+    'pptx': 'fi-rr-file-powerpoint',
+    'ppt': 'fi-rr-file-powerpoint',
+    'pdf': 'fi-rr-file-pdf',
+    'zip': 'fi-rr-file-zip',
+    'rar': 'fi-rr-file-zip',
+    '7z': 'fi-rr-file-zip',
+    'mp3': 'fi-rr-file-audio',
+    'mp4': 'fi-rr-file-video',
+    'png': 'fi-rr-picture',
+    'jpg': 'fi-rr-picture',
+    'jpeg': 'fi-rr-picture',
+    'gif': 'fi-rr-gif',
+    'svg': 'fi-rr-svg',
+    'txt': 'fi-rr-document',
+    '': 'fi-rr-file'
 };
 
 const GoogleAppsToIcon = {
-    'application/vnd.google-apps.document': 'fi-sr-poll-h',
-    'application/vnd.google-apps.spreadsheet': 'fi-sr-file-spreadsheet',
-    'application/vnd.google-apps.presentation': 'fi-sr-file-powerpoint',
-    'application/vnd.google-apps.form': 'fi-sr-file-form',
-    'application/vnd.google-apps.script': 'fi-sr-file-script',
-    '': 'fi-sr-file'
+    'application/vnd.google-apps.document': 'fi-rr-poll-h',
+    'application/vnd.google-apps.spreadsheet': 'fi-rr-file-spreadsheet',
+    'application/vnd.google-apps.presentation': 'fi-rr-file-powerpoint',
+    'application/vnd.google-apps.form': 'fi-rr-file-form',
+    'application/vnd.google-apps.script': 'fi-rr-file-script',
+    '': 'fi-rr-file'
 };
 
 export const FileItem = ({ file, onDoubleClick }: FileItemProps) => {
+    const supabase = useSupabase().supabase;
     const isFolder = file.mimeType?.includes('folder');
     const iconName = isFolder ? 'fi-sr-folder' : file.mimeType?.includes('google-apps') ? GoogleAppsToIcon[file.mimeType] || 'fi-sr-file' : FileExtensionToIcon[file.fileExtension || ''] || 'fi-sr-file';
     const backgroundColor = isFolder ? 'bg-black-72' : 'border-2 border-darkgrey-100';
+    const shared_users = use(getFileSharedUsers(file.id || '', supabase));
 
     return (
         <div className={`flex justify-between rounded-xl py-2 px-4 items-center ${backgroundColor}`} onDoubleClick={() => isFolder && onDoubleClick && onDoubleClick(file.id || '')}>
             <div className="flex gap-4 items-center">
-                <i className={iconName}></i>
+                <i className={iconName + ' text-white-72'}></i>
                 <div className="flex flex-col gap-[2px]">
                     <span className="text-sm">{file.name}</span>
                     <span className="text-xs mr-2 text-white-48">modifié le {dayjs(file.modifiedTime).format('DD/MM/YY')}</span>
@@ -56,6 +61,9 @@ export const FileItem = ({ file, onDoubleClick }: FileItemProps) => {
             </div>
             <div className="flex items-center gap-4">
                 <span className="text-xs mr-2">{file.size && !isFolder && !Number.isNaN(file.size) && prettyBytes(Number.parseInt(file.size))}</span>
+                <div className='h-6'>
+                    <ProfilePictureList ids={shared_users}></ProfilePictureList>
+                </div>
                 <i className="fi fi-sr-menu-dots h-5 "></i>
             </div>
         </div>

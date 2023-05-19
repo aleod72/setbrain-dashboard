@@ -1,3 +1,5 @@
+import { drive_v3 } from "./drive";
+
 export type Json =
     | string
     | number
@@ -39,6 +41,26 @@ export interface Database {
                     task?: string | null;
                     title?: string | null;
                     users_id?: string[] | null;
+                };
+            };
+            files: {
+                Row: {
+                    id: string;
+                    drive_id: string;
+                    creator: string;
+                    shared_users: string[];
+                };
+                Insert: {
+                    id: string | null;
+                    drive_id: string;
+                    creator: string;
+                    shared_users: string[];
+                };
+                Update: {
+                    id: string | null;
+                    drive_id: string;
+                    creator: string;
+                    shared_users: string[];
                 };
             };
             jobs: {
@@ -245,4 +267,8 @@ export interface Activity {
     task: string;
     title: string;
     users_id: string[];
+}
+
+export interface File extends drive_v3.Schema$File {
+    shared_users: string[];
 }

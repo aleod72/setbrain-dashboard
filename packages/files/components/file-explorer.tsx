@@ -3,15 +3,14 @@
 import React, { useContext, useEffect, use } from "react";
 import { googleDriveContext } from "../providers/google-drive-provider";
 import { getFileId, getFileParrent, getFilesIn } from 'utils/files';
-import { drive_v3 } from "types/drive";
+import { File } from "types/database";
 import { FileItem, FileItemSkeleton } from "./file-item";
-import { Skeleton } from "ui/components/skeleton/Skeleton";
 
 export const FileExplorer = () => {
     const token = useContext(googleDriveContext);
     const [currentParent, setCurrentParent] = React.useState<string>('');
     const [currentFolder, setCurrentFolder] = React.useState<string>('root');
-    const [files, setFiles] = React.useState<drive_v3.Schema$File[]>([]);
+    const [files, setFiles] = React.useState<File[]>([]);
     const rootFolder = use(getFileId('root', token || ''));
 
 
