@@ -1,5 +1,4 @@
 import { Tabbar } from 'auth/components/tabbar';
-import { MobileMenu } from 'auth/components/mobile-menu';
 import { ProjectProvider } from 'projects/providers/project-provider';
 import { GoogleDriveProvider } from 'files/providers/google-drive-provider';
 import React from 'react';

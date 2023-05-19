@@ -10,9 +10,9 @@ export const googleDriveContext = React.createContext<string | undefined>(
 
 const getSession = cache(async () => {
     const supabase = useSupabase().supabase;
-    const {data, error} = await supabase.auth.getSession();
+    const { data, error } = await supabase.auth.getSession();
 
-    if(error) throw error;
+    if (error) throw error;
 
     return data.session;
 });
@@ -23,8 +23,12 @@ export function GoogleDriveProvider({
     children: React.ReactNode;
 }) {
     const session = use(getSession());
-    const [accessToken, setAccessToken] = useState(session?.provider_token || '');
-    const [refreshToken, setRefreshToken] = useState(session?.provider_refresh_token || '');
+    const [accessToken, setAccessToken] = useState(
+        session?.provider_token || ''
+    );
+    const [refreshToken, setRefreshToken] = useState(
+        session?.provider_refresh_token || ''
+    );
 
     useEffect(() => {
         const refreshAccessToken = async () => {
@@ -33,18 +37,23 @@ export function GoogleDriveProvider({
 
                 if (savedRefreshToken) {
                     setRefreshToken(savedRefreshToken);
-                    const response = await fetch('https://accounts.google.com/o/oauth2/token', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            client_id: '418440986398-1m3bansqhk26j38iboribm0q5ojd8mr9.apps.googleusercontent.com',
-                            client_secret: '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',
-                            refresh_token: savedRefreshToken,
-                            grant_type: 'refresh_token',
-                        }),
-                    });
+                    const response = await fetch(
+                        'https://accounts.google.com/o/oauth2/token',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                client_id:
+                                    '418440986398-1m3bansqhk26j38iboribm0q5ojd8mr9.apps.googleusercontent.com',
+                                client_secret:
+                                    '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',
+                                refresh_token: savedRefreshToken,
+                                grant_type: 'refresh_token',
+                            }),
+                        }
+                    );
 
                     const data = await response.json();
 
@@ -65,12 +74,14 @@ export function GoogleDriveProvider({
     }, [accessToken]);
 
     useEffect(() => {
-        if(refreshToken !== '') {
+        if (refreshToken !== '') {
             Cookies.set('refreshToken', refreshToken, { expires: 30 });
         }
     }, [refreshToken]);
 
-    return <googleDriveContext.Provider value={accessToken}>
-        {children}
-    </googleDriveContext.Provider>;
+    return (
+        <googleDriveContext.Provider value={accessToken}>
+            {children}
+        </googleDriveContext.Provider>
+    );
 }

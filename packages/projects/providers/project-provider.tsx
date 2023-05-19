@@ -22,9 +22,13 @@ export function ProjectProvider({
     const [project, setProject] = React.useState<Project | null>(null);
 
     useEffect(() => {
-        getProjectById(id).then(async (res) => {
-            setProject(res.data);
-        }).catch((err) => {console.log(err);});
+        getProjectById(id)
+            .then(async (res) => {
+                setProject(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }, [id]);
 
     if (isProject(project)) {

@@ -3,22 +3,21 @@ import { cache } from 'react';
 
 const supabase = createClient();
 
-export const getTasksByProjectIdAndUserId = cache(async (
-    projectId: string,
-    userId: string
-) => {
-    return await supabase
-        .from('tasks')
-        .select('*')
-        .eq('project', projectId)
-        .contains('assigned_users', '{' + userId + '}');
-});
+export const getTasksByProjectIdAndUserId = cache(
+    async (projectId: string, userId: string) => {
+        return await supabase
+            .from('tasks')
+            .select('*')
+            .eq('project', projectId)
+            .contains('assigned_users', '{' + userId + '}');
+    }
+);
 
 export const getAllTasksIds = cache(async () => {
     return await supabase.from('tasks').select('id');
 });
 
-export const getColorByUrgency =(
+export const getColorByUrgency = (
     dueDate: string,
     progress: number
 ): 'blue' | 'red' | 'yellow' | 'green' => {

@@ -24,6 +24,7 @@ export default async function RootLayout({
 
     return (
         <html lang="en">
+            {/* eslint-disable-next-line @next/next/no-head-element*/}
             <head>
                 <link
                     rel="stylesheet"
@@ -41,7 +42,7 @@ export default async function RootLayout({
                     rel="stylesheet"
                     href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css"
                 ></link>
-                            <link
+                <link
                     rel="stylesheet"
                     href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
                 ></link>

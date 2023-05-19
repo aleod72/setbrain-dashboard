@@ -1,5 +1,5 @@
 import MobileDetect from 'mobile-detect';
-import {headers} from 'next/headers';
+import { headers } from 'next/headers';
 
 export function isMobile() {
     const userAgent = headers().get('user-agent');

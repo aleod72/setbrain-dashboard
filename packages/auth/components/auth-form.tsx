@@ -16,11 +16,11 @@ const AuthForm = () => {
             provider: 'google',
             options: {
                 queryParams: {
-                  access_type: 'offline',
-                  prompt: 'consent',
+                    access_type: 'offline',
+                    prompt: 'consent',
                 },
-                scopes: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file'
-              },
+                scopes: 'https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.metadata https://www.googleapis.com/auth/drive.appdata https://www.googleapis.com/auth/drive.file',
+            },
         });
     };
 

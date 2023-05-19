@@ -10,7 +10,11 @@ interface DynamicLinkProps {
     activeClass?: string;
 }
 
-export const DynamicLink = function ({href, children, activeClass = 'lik-active'}: DynamicLinkProps) {
+export const DynamicLink = function ({
+    href,
+    children,
+    activeClass = 'lik-active',
+}: DynamicLinkProps) {
     const pathname = usePathname();
     const [active, setActive] = React.useState(false);
     const projectContextLink = pathname.slice(0, pathname.lastIndexOf('/'));
@@ -20,6 +24,11 @@ export const DynamicLink = function ({href, children, activeClass = 'lik-active'
     }, [pathname, href]);
 
     return (
-        <Link href={projectContextLink + href} className={active ? activeClass :''}>{children}</Link>
+        <Link
+            href={projectContextLink + href}
+            className={active ? activeClass : ''}
+        >
+            {children}
+        </Link>
     );
 };

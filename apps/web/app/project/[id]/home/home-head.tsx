@@ -3,7 +3,7 @@
 import { profileContext } from 'auth/providers/profile-provider';
 import { projectContext } from 'projects/providers/project-provider';
 import { useContext } from 'react';
-import {Skeleton} from 'ui/components/skeleton/Skeleton';
+import { Skeleton } from 'ui/components/skeleton/Skeleton';
 
 export function HomeHead() {
     const project = useContext(projectContext);
@@ -12,7 +12,7 @@ export function HomeHead() {
     if (!profile && !project) return <HomeHeadSkeleton />;
 
     return (
-        <div className='px-5 md:px-0'>
+        <div className="px-5 md:px-0">
             <h1 className="text-subtitle-mb font-bold text-white-100">
                 {project && project.name}
             </h1>

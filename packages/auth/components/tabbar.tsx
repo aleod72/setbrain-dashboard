@@ -3,7 +3,7 @@ import {
     ProjectCardSkeleton,
 } from 'projects/components/project-card/project-card';
 import React, { Suspense } from 'react';
-import {DynamicLink} from 'ui/components/dynamic-link/DynamicLink';
+import { DynamicLink } from 'ui/components/dynamic-link/DynamicLink';
 import { isMobile } from 'utils/mobile';
 import { getAllProjectsIds } from 'utils/projects';
 
@@ -42,20 +42,20 @@ export const TabbarDesktop = (async () => {
 
 export const TabbarMobile = () => {
     return (
-        <div className='fixed w-full bottom-0 py-7 px-9 flex gap-8 justify-between bg-darkgrey-100 text-white-48 z-20'>
-            <DynamicLink href={'/home'} activeClass='text-white-100'>
+        <div className="fixed w-full bottom-0 py-7 px-9 flex gap-8 justify-between bg-darkgrey-100 text-white-48 z-20">
+            <DynamicLink href={'/home'} activeClass="text-white-100">
                 <i className="fi fi-sr-apps text-2xl"></i>
             </DynamicLink>
-            <DynamicLink href={'/tasks'} activeClass='text-white-100'>
+            <DynamicLink href={'/tasks'} activeClass="text-white-100">
                 <i className="fi fi-br-list-check text-2xl"></i>
             </DynamicLink>
-            <DynamicLink href={'/admin'} activeClass='text-white-100'>
+            <DynamicLink href={'/admin'} activeClass="text-white-100">
                 <i className="fi fi-sr-edit text-2xl"></i>
             </DynamicLink>
-            <DynamicLink href={'/stats'} activeClass='text-white-100'>
+            <DynamicLink href={'/stats'} activeClass="text-white-100">
                 <i className="fi fi-sr-stats text-2xl"></i>
             </DynamicLink>
-            <DynamicLink href={'/files'} activeClass='text-white-100'>
+            <DynamicLink href={'/files'} activeClass="text-white-100">
                 <i className="fi fi-sr-folder text-2xl"></i>
             </DynamicLink>
         </div>

@@ -23,7 +23,8 @@ export const TaskCarousel = () => {
 
     if (!tasks) return <TaskCarouselSkeleton></TaskCarouselSkeleton>;
 
-    return isTaskList(tasks) ? (<div className="flex flex-col gap-1 w-full">
+    return isTaskList(tasks) ? (
+        <div className="flex flex-col gap-1 w-full">
             <div className="flex justify-between items-center px-5 md:px-0">
                 <h1 className="font-bold text-subtitle-sb text-white-100">
                     Vos dernières tâches
@@ -52,7 +53,9 @@ export const TaskCarousel = () => {
                 )}
             </div>
         </div>
-    ) : <TaskCarouselSkeleton></TaskCarouselSkeleton>;
+    ) : (
+        <TaskCarouselSkeleton></TaskCarouselSkeleton>
+    );
 };
 
 export const TaskCarouselSkeleton = () => {

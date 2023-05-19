@@ -29,7 +29,7 @@ export const ProfileCard = (async () => {
                             src={data.avatar_url}
                             alt={`${data.firstname} profile-picture`}
                             fill={true}
-                            sizes='56px'
+                            sizes="56px"
                         ></Image>
                     </span>
                 )}
