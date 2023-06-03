@@ -31,7 +31,7 @@ export const ActivitiesCarousel = () => {
             {ids.length > 0 ? (
                 <ActivitiesRealtime ids={ids}></ActivitiesRealtime>
             ) : (
-                <div className="w-full grid place-items-center bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 md:max-w-[676px]">
+                <div className="w-full grid place-items-center bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 md:max-w-[646px]">
                     <span className="text-body-s text-white-48">
                         Il n&apos;y a pas de travaux pour l&apos;instant
                     </span>
