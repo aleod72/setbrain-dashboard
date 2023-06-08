@@ -1,13 +1,15 @@
-import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
 // eslint-disable-next-line no-duplicate-imports
 import { NextResponse } from 'next/server';
+// eslint-disable-next-line no-duplicate-imports
 import type { NextRequest } from 'next/server';
 import type { Database } from 'types/database';
 
 export async function middleware(req: NextRequest) {
     const res = NextResponse.next();
 
-    const supabase = createMiddlewareSupabaseClient<Database>({ req, res });
+    // @ts-ignore
+    const supabase = createMiddlewareClient<Database>({ req, res });
 
     const {
         data: { session },
