@@ -63,6 +63,26 @@ export interface Database {
                     shared_users: string[];
                 };
             };
+            'chat-messages': {
+                Row: {
+                    id: string;
+                    created_at: string;
+                    message: string;
+                    user_id: string;
+                };
+                Insert: {
+                    id?: string | null;
+                    created_at?: string | null;
+                    message: string;
+                    user_id: string;
+                };
+                Update: {
+                    id: string;
+                    created_at: string;
+                    message: string;
+                    user_id: string;
+                };
+            };
             jobs: {
                 Row: {
                     created_at: string | null;
@@ -271,4 +291,11 @@ export interface Activity {
 
 export interface File extends drive_v3.Schema$File {
     shared_users: string[];
+}
+
+export interface ChatMessage {
+    id?: string | null;
+    created_at?: string | null;
+    message: string;
+    user_id: string;
 }

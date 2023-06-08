@@ -7,6 +7,7 @@ import {
 import { HomeHead } from './home-head';
 import { FileCarousel } from 'files/components/file-carousel';
 import { MobileMenu, MobileMenuSkeleton } from 'auth/components/mobile-menu';
+import { Communication } from 'communication/components/communication';
 
 function HomeProjectPage() {
     return (
@@ -18,10 +19,14 @@ function HomeProjectPage() {
             <Suspense fallback={<TaskCarouselSkeleton />}>
                 <TaskCarousel></TaskCarousel>
             </Suspense>
-            <div className="flex flex-col gap-10">
-                <ActivitiesCarousel></ActivitiesCarousel>
-                <FileCarousel></FileCarousel>
+            <div className='flex gap-6'>
+                <div className="flex flex-col gap-10">
+                    <ActivitiesCarousel></ActivitiesCarousel>
+                    <FileCarousel></FileCarousel>
+                </div>
+                <Communication />
             </div>
+
         </>
     );
 }

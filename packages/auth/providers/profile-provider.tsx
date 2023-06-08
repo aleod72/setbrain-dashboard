@@ -10,7 +10,7 @@ export const profileContext = React.createContext<Profile | undefined>(
     undefined
 );
 
-function isProfile(arg: any): arg is Profile {
+export function isProfile(arg: any): arg is Profile {
     return arg !== undefined;
 }
 
