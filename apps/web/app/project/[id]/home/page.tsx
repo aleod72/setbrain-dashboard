@@ -19,14 +19,13 @@ function HomeProjectPage() {
             <Suspense fallback={<TaskCarouselSkeleton />}>
                 <TaskCarousel></TaskCarousel>
             </Suspense>
-            <div className='flex flex-col gap-6 md:flex-row'>
+            <div className="flex flex-col gap-6 md:flex-row">
                 <div className="flex flex-col gap-10">
                     <ActivitiesCarousel></ActivitiesCarousel>
                     <FileCarousel></FileCarousel>
                 </div>
                 <Communication />
             </div>
-
         </>
     );
 }
