@@ -5,7 +5,7 @@ import { useSupabase } from 'auth/providers/supabase-provider';
 import { sendMessage, getMessages } from 'utils/chat';
 import { profileContext } from 'auth/providers/profile-provider';
 import { ChatMessage } from 'types/database';
-import { ChatItem } from './chat-item';
+import { ChatItem, ChatItemSkeleton } from './chat-item';
 
 function scrollDown(element: HTMLDivElement) {
     element.scrollTo(0, element.scrollHeight);
@@ -115,6 +115,31 @@ export const Chat = () => {
                             setMessage('');
                         }
                     }}
+                />
+            </div>
+        </div>
+    );
+};
+
+export const ChatSkeleton = () => {
+    return (
+        <div className="flex flex-col relative w-full h-full border-2 border-lightgrey-48 bg-grey-100 overflow-hidden rounded-3xl">
+            <div className="w-full h-fit py-4 px-[14px] border-b-2 border-lightgrey-48 rounded-t-3xl">
+                <h1>Chat</h1>
+            </div>
+            <span className="block w-full h-24 absolute top-14 left-0 z-10 bg-gradient-to-b from-[rgba(0,0,0,0.4)] to-transparent"></span>
+            <div
+                className="flex flex-col gap-3 h-44 overflow-y-scroll relative px-2 w-full pb-4"
+            >
+               <ChatItemSkeleton></ChatItemSkeleton>
+               <ChatItemSkeleton></ChatItemSkeleton>
+               <ChatItemSkeleton></ChatItemSkeleton>
+            </div>
+            <div className="flex px-4 py-[14px] border-t-darkgrey-100 border-t-2">
+                <input
+                    type="text"
+                    placeholder="Ecrit quelque chose"
+                    className="bg-transparent focus:outline-none"
                 />
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { getSupportMessages } from "utils/support";
-import { SupportItem } from "./support-item";
+import { SupportItem, SupportItemSkeleton } from "./support-item";
 
 export const Support = (async () => {
     const messages = await getSupportMessages();
@@ -30,3 +30,23 @@ export const Support = (async () => {
         </div>
     );
 }) as unknown as () => JSX.Element;
+
+export const SupportSkeleton = () => {
+    return (
+        <div className="flex flex-col w-full rounded-3xl py-4 px-[14px] h-full justify-between">
+            <div>
+                <div className="w-full h-fit py-4 rounded-t-3xl">
+                    <h1>Support</h1>
+                </div>
+                <div className='flex flex-col gap-6'>
+                    <SupportItemSkeleton />
+                    <SupportItemSkeleton />
+                    <SupportItemSkeleton />
+                </div>
+            </div>
+            <div className='w-full flex justify-center'>
+                <a href='#' className='text-white font-bold text-body-b no-underline cursor-pointer'>Voir plus</a>
+            </div>
+        </div>
+    );
+};

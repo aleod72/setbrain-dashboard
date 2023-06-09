@@ -3,6 +3,7 @@ import { SupportMessage } from "types/database";
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import 'dayjs/locale/fr';
+import Skeleton from 'react-loading-skeleton';
 
 interface SupportItemProps {
     message: SupportMessage;
@@ -20,3 +21,14 @@ export const SupportItem = ({ message }: SupportItemProps) => {
         <i className='fi fi-rr-caret-right text-xl'></i>
     </div>;
 };
+
+// SupportItemSkeleton with react-loading-skeleton
+export const SupportItemSkeleton = () => {
+    return <div className='w-full bg-lightgrey-100 flex rounded-md justify-between items-center py-[6px] px-2 cursor-pointer hover:bg-darkgrey-72'>
+        <div>
+            <Skeleton height={20} width={100} />
+            <Skeleton height={15} width={50} />
+        </div>
+        <i className='fi fi-rr-caret-right text-xl'></i>
+    </div>;
+}
