@@ -83,6 +83,29 @@ export interface Database {
                     user_id: string;
                 };
             };
+            'support-messages': {
+                Row: {
+                    id: string;
+                    created_at: string;
+                    content: string;
+                    parent_id?: string;
+                    subject: string;
+                };
+                Insert: {
+                    id: string;
+                    created_at: string;
+                    content: string;
+                    parent_id?: string;
+                    subject: string;
+                };
+                Update: {
+                    id: string;
+                    created_at: string;
+                    content: string;
+                    parent_id?: string;
+                    subject: string;
+                };
+            };
             jobs: {
                 Row: {
                     created_at: string | null;
@@ -298,4 +321,12 @@ export interface ChatMessage {
     created_at?: string | null;
     message: string;
     user_id: string;
+}
+
+export interface SupportMessage {
+    id: string;
+    created_at: string;
+    content: string;
+    parent_id?: string;
+    subject: string;
 }
