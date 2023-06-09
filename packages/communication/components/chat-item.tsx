@@ -11,7 +11,7 @@ interface MessageProps {
     message: ChatMessage;
 }
 
-export const Message = ({ message }: MessageProps) => {
+export const ChatItem = ({ message }: MessageProps) => {
     const supabase = useSupabase().supabase;
     const loggedProfile = useContext(profileContext);
     const [user, setUser] = React.useState<Profile>();

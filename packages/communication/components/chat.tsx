@@ -5,7 +5,7 @@ import { useSupabase } from 'auth/providers/supabase-provider';
 import { sendMessage, getMessages } from 'utils/chat';
 import { profileContext } from 'auth/providers/profile-provider';
 import { ChatMessage } from 'types/database';
-import { Message } from './Message';
+import { ChatItem } from './chat-item';
 
 function scrollDown(element: HTMLDivElement) {
     element.scrollTo(0, element.scrollHeight);
@@ -86,7 +86,7 @@ export const Chat = () => {
     }, [channel]);
 
     return (
-        <div className="flex flex-col relative w-full h-fit border-2 border-lightgrey-48 bg-grey-100 overflow-hidden rounded-3xl">
+        <div className="flex flex-col relative w-full h-full border-2 border-lightgrey-48 bg-grey-100 overflow-hidden rounded-3xl">
             <div className="w-full h-fit py-4 px-[14px] border-b-2 border-lightgrey-48 rounded-t-3xl">
                 <h1>Chat</h1>
             </div>
@@ -96,7 +96,7 @@ export const Chat = () => {
                 ref={chatRef}
             >
                 {messages.map((message, index) => (
-                    <Message key={index} message={message}></Message>
+                    <ChatItem key={index} message={message}></ChatItem>
                 ))}
             </div>
             <div className="flex px-4 py-[14px] border-t-darkgrey-100 border-t-2">

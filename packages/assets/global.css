@@ -20,7 +20,13 @@
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #6e708e91;
-    opacity: 0;
     transition: 0.5s;
     border-radius: 10px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    ::-webkit-scrollbar-thumb {
+      visibility: hidden;
+    }
   }
