@@ -92,7 +92,7 @@ export const Chat = () => {
             </div>
             <span className="block w-full h-24 absolute top-14 left-0 z-10 bg-gradient-to-b from-[rgba(0,0,0,0.4)] to-transparent"></span>
             <div
-                className="flex flex-col gap-3 h-44 overflow-y-scroll relative pb-4"
+                className="flex flex-col gap-3 h-44 overflow-y-scroll relative px-2 w-full pb-4"
                 ref={chatRef}
             >
                 {messages.map((message, index) => (
