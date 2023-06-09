@@ -20,7 +20,7 @@ function HomeProjectPage() {
                 <TaskCarousel></TaskCarousel>
             </Suspense>
             <div className="flex flex-col gap-6 md:flex-row">
-                <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-10 w-full md:max-w-[646px]">
                     <ActivitiesCarousel></ActivitiesCarousel>
                     <FileCarousel></FileCarousel>
                 </div>

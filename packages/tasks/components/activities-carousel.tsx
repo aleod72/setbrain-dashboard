@@ -24,7 +24,7 @@ export const ActivitiesCarousel = () => {
     }, [id]);
 
     return (
-        <div className="flex flex-col gap-3 px-5 md:px-0">
+        <div className="flex flex-col gap-3 w-full px-5 md:px-0">
             <h1 className="text-subtitle-sb text-white-100 font-bold">
                 Travail en cours
             </h1>
