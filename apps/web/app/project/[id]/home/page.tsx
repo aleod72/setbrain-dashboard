@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import { ActivitiesCarousel } from 'tasks/components/activities-carousel';
 import {
-    TaskCarousel,
-    TaskCarouselSkeleton,
-} from 'tasks/components/task-carousel';
+    HomeTaskCarousel,
+    HomeTaskCarouselSkeleton,
+} from 'tasks/components/home-task-carousel';
 import { HomeHead } from './home-head';
 import { FileCarousel } from 'files/components/file-carousel';
 import { MobileMenu, MobileMenuSkeleton } from 'auth/components/mobile-menu';
@@ -16,8 +16,8 @@ function HomeProjectPage() {
                 <MobileMenu />
             </Suspense>
             <HomeHead></HomeHead>
-            <Suspense fallback={<TaskCarouselSkeleton />}>
-                <TaskCarousel></TaskCarousel>
+            <Suspense fallback={<HomeTaskCarouselSkeleton />}>
+                <HomeTaskCarousel></HomeTaskCarousel>
             </Suspense>
             <div className="flex flex-col gap-6 md:flex-row">
                 <div className="flex flex-col gap-10 w-full md:max-w-[646px]">
