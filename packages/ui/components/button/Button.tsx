@@ -15,17 +15,22 @@ export const button = cva('flex items-center rounded-xl text-white-100 gap-2', {
         },
         small: {
             true: 'py-1 px-2 text-pretitle-s',
-            false: 'py-3 px-4 font-bold text-body',
+            false: 'py-3 px-4 text-body-m',
         },
         disabled: {
             true: 'bg-black-72 border-black-72 cursor-not-allowed text-white-48 hover:bg-black-72 hover:border-black-72 focus:bg-black-72 focus:border-black-72',
         },
+        bold: {
+            true: 'font-bold',
+            false: 'font-normal'
+        }
     },
     defaultVariants: {
         intent: 'primary',
         fullWidth: false,
         disabled: false,
         small: false,
+        bold: false
     },
 });
 
@@ -47,11 +52,14 @@ export function Button(props: ButtonProps) {
         iconRight,
         disabled,
         intent,
+        small,
+        width,
+        height,
         onClick,
     } = props;
 
     const iconStyle =
-        (buttonIcon ? 'text-xl h-6' : 'text-white-72 text-sm h-[18px]') +
+        (buttonIcon ? small ? 'text-base h-2' : 'text-xl h-4' : 'text-white-72 text-sm h-[18px]') +
         (disabled ? ' text-white-24' : '');
     const iconType: 'fi-brands-' | 'fi-rr-' =
         intent === 'social' ? 'fi-brands-' : 'fi-rr-';
@@ -83,7 +91,7 @@ export function Button(props: ButtonProps) {
 
     return (
         <button
-            className={button(props)}
+            className={button(props) + (width ? ` w-${width}` : '') + (height ? ` h-${height}` : '')}
             onClick={onClick}
             data-testid="button"
         >

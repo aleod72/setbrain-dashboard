@@ -7,26 +7,46 @@
     font-family: 'Euclid Circular A', sans-serif; 
 }
 
-/* width */
 ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #18181800;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #6e708e91;
-    transition: 0.5s;
-    border-radius: 10px;
-  }
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #18181800;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6e708e91;
+  transition: 0.5s;
+  border-radius: 10px;
+  visibility: visible;
+}
+
+/* width */
+section::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+section::-webkit-scrollbar-track {
+  background: #18181800;
+}
+
+/* Handle */
+section::-webkit-scrollbar-thumb {
+  background: #6e708e91;
+  transition: 0.5s;
+  border-radius: 10px;
+  visibility: visible;
+}
 
 
-  @media screen and (max-width: 768px) {
-    ::-webkit-scrollbar-thumb {
-      visibility: hidden;
-    }
+
+
+@media screen and (max-width: 768px) {
+  section::-webkit-scrollbar-thumb {
+    visibility: hidden;
   }
+}

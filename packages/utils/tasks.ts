@@ -1,3 +1,4 @@
+import { Task } from 'types/database';
 import { createClient } from './supabase-browser';
 import { cache } from 'react';
 
@@ -40,3 +41,7 @@ export const getColorByUrgency = (
         return 'green';
     }
 };
+
+export function isTaskList(arg: any): arg is Task[] {
+    return arg !== undefined;
+}

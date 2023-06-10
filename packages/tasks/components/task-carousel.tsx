@@ -1,42 +1,31 @@
 'use client';
 
-import { profileContext } from 'auth/providers/profile-provider';
-import Link from 'next/link';
+import React, { use, useContext } from 'react';
 import { projectContext } from 'projects/providers/project-provider';
-import React, { useContext, use } from 'react';
-import { Task } from 'types/database';
-import { getTasksByProjectIdAndUserId } from 'utils/tasks';
-
+import { profileContext } from 'auth/providers/profile-provider';
+import { getTasksByProjectIdAndUserId, isTaskList } from 'utils/tasks';
 import { TaskCard, TaskCardSkeleton } from './task-card';
-
-function isTaskList(arg: any): arg is Task[] {
-    return arg !== undefined;
-}
+import { Button } from 'ui/components/button/Button';
 
 export const TaskCarousel = () => {
     const project = useContext(projectContext);
     const user = useContext(profileContext);
 
-    if (!user || !project) return <TaskCarouselSkeleton></TaskCarouselSkeleton>;
+    if (!user || !project) return <TaskCarouselSkeleton />;
 
     const tasks = use(getTasksByProjectIdAndUserId(project.id, user.id)).data;
 
-    if (!tasks) return <TaskCarouselSkeleton></TaskCarouselSkeleton>;
+    if (!tasks) return <TaskCarouselSkeleton />;
 
     return isTaskList(tasks) ? (
-        <div className="flex flex-col gap-1 w-full">
+        <div className="flex flex-col gap-3 w-full md:w-fit">
             <div className="flex justify-between items-center px-5 md:px-0">
                 <h1 className="font-bold text-subtitle-sb text-white-100">
-                    Vos dernières tâches
+                    Vos tâches
                 </h1>
-                <Link
-                    href="tasks"
-                    className="text-body-b text-white-100 font-bold"
-                >
-                    Voir plus
-                </Link>
+                <Button iconLeft='plus' small={true} bold={true} intent={'primary'}>Ajouter</Button>
             </div>
-            <div className="flex w-full flex-nowrap md:flex-wrap xl:flex-nowrap gap-6 overflow-x-scroll px-5 md:px-0 md:overflow-x-visible">
+            <div className="md:grid md:grid-cols-2 md:w-fit flex flex-col w-full gap-4 overflow-x-scroll px-5 md:px-0">
                 {tasks.length > 0 ? (
                     tasks.map((task) => {
                         return (
@@ -54,29 +43,27 @@ export const TaskCarousel = () => {
             </div>
         </div>
     ) : (
-        <TaskCarouselSkeleton></TaskCarouselSkeleton>
+        <TaskCarouselSkeleton />
     );
 };
 
+
 export const TaskCarouselSkeleton = () => {
     return (
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-3 w-full md:w-fit">
             <div className="flex justify-between items-center px-5 md:px-0">
                 <h1 className="font-bold text-subtitle-sb text-white-100">
-                    Vos dernières tâches
+                    Vos tâches
                 </h1>
-                <Link
-                    href="tasks"
-                    className="text-body-b text-white-100 font-bold"
-                >
-                    Voir plus
-                </Link>
             </div>
-            <div className="flex w-full gap-6 px-5 md:px-0 md:overflow-x-visible">
-                <TaskCardSkeleton></TaskCardSkeleton>
-                <TaskCardSkeleton></TaskCardSkeleton>
-                <TaskCardSkeleton></TaskCardSkeleton>
+            <div className="md:grid md:grid-cols-2 md:w-fit flex flex-col w-full gap-4 overflow-x-scroll px-5 md:px-0">
+                    <TaskCardSkeleton />
+                    <TaskCardSkeleton />
+                    <TaskCardSkeleton />
+                    <TaskCardSkeleton />
+                    <TaskCardSkeleton />
+                    <TaskCardSkeleton />
             </div>
         </div>
     );
-};
+}

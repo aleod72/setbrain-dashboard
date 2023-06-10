@@ -96,13 +96,15 @@ export const ActivityCardSkeleton = () => {
                     <Skeleton
                         width={'100%'}
                         height={'100%'}
+                        baseColor="#5b5b5b"
+                        highlightColor="#6a6a6a"
                         borderRadius={12}
                     ></Skeleton>
                 </span>
                 <div className="flex flex-col">
                     <div className="flex gap-1 items-center">
                         <span className="w-full">
-                            <Skeleton width={100}></Skeleton>
+                            <Skeleton baseColor="#5b5b5b" highlightColor="#6a6a6a" width={100}></Skeleton>
                         </span>
                     </div>
                     <span className="h-4 w-full ml-3">
@@ -111,7 +113,7 @@ export const ActivityCardSkeleton = () => {
                 </div>
             </div>
 
-            <Skeleton width={50} height={'80%'} borderRadius={12}></Skeleton>
+            <Skeleton width={50} height={'80%'} borderRadius={12} baseColor="#5b5b5b" highlightColor="#6a6a6a"></Skeleton>
         </div>
     );
 };
