@@ -14,6 +14,10 @@ export const getTasksByProjectIdAndUserId = cache(
     }
 );
 
+export const getTaskById = cache(async (taskId: string) => {
+    return await supabase.from('tasks').select('*').eq('id', taskId).single();
+});
+
 export const getAllTasksIds = cache(async () => {
     return await supabase.from('tasks').select('id');
 });
@@ -45,3 +49,19 @@ export const getColorByUrgency = (
 export function isTaskList(arg: any): arg is Task[] {
     return arg !== undefined;
 }
+
+export const getJoinedFiles = cache(async (taskId: string) => {
+    const {data} = await supabase.from('tasks').select('joined_files').eq('id', taskId).limit(1);
+
+    if (!data) return [];
+    if (!data[0].joined_files?.length) return [];
+    if(data[0].joined_files?.length < 1) return [];
+
+    console.log(await supabase.auth.getUser());
+
+    const files = await supabase.from('files').select('*').in('id', data[0].joined_files);
+
+    console.log(files);
+
+    return files.data;
+});

@@ -8,12 +8,13 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "assets": "workspace:*",
+    "class-variance-authority": "^0.6.0",
+    "config": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "ui": "workspace:*",
-    "webpack": "^5.76.2",
-    "assets": "workspace:*",
-    "config": "workspace:*"
+    "webpack": "^5.76.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",

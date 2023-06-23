@@ -184,13 +184,13 @@ export interface Database {
                     assigned_users: string[] | null;
                     comments: string[] | null;
                     created_at: string | null;
-                    description: Json | null;
+                    description: string;
                     end_at: string | null;
                     id: string;
                     joined_files: string[] | null;
                     progress: number;
                     project: string;
-                    sub_tasks: Json | null;
+                    sub_tasks: Json[];
                     title: string;
                     type: string | null;
                 };
@@ -199,13 +199,13 @@ export interface Database {
                     assigned_users?: string[] | null;
                     comments?: string[] | null;
                     created_at?: string | null;
-                    description?: Json | null;
+                    description?: string;
                     end_at?: string | null;
                     id?: string;
                     joined_files?: string[] | null;
                     progress: number;
                     project: string;
-                    sub_tasks?: Json | null;
+                    sub_tasks?: Json[];
                     title: string;
                     type?: string | null;
                 };
@@ -214,13 +214,13 @@ export interface Database {
                     assigned_users?: string[] | null;
                     comments?: string[] | null;
                     created_at?: string | null;
-                    description?: Json | null;
+                    description?: string;
                     end_at?: string | null;
                     id?: string;
                     joined_files?: string[] | null;
                     progress?: number;
                     project?: string;
-                    sub_tasks?: Json | null;
+                    sub_tasks?: Json[];
                     title?: string;
                     type?: string | null;
                 };
@@ -329,4 +329,10 @@ export interface SupportMessage {
     content: string;
     parent_id?: string;
     subject: string;
+}
+
+export interface SubTask {
+    title: string;
+    finished: boolean;
+    linkedDocuments: string[];
 }

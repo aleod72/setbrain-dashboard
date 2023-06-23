@@ -16,14 +16,13 @@
     "e2e": "playwright test apps/e2e"
   },
   "devDependencies": {
+    "@testing-library/react": "14.0.0",
     "eslint-config-custom": "workspace:*",
     "prettier": "latest",
-    "turbo": "latest",
-    "@testing-library/react": "14.0.0"
+    "turbo": "^1.10.5"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
   "packageManager": "pnpm@7.27.1"
 }

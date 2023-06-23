@@ -4,12 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "auth": "workspace:*",
+    "config": "workspace:*",
+    "html-react-parser": "^4.0.0",
+    "projects": "workspace:*",
     "types": "workspace:*",
     "ui": "workspace:*",
-    "auth": "workspace:*",
-    "utils": "workspace:*",
-    "projects": "workspace:*",
-    "config": "workspace:*"
+    "files": "workspace:*",
+    "utils": "workspace:*"
   },
   "scripts": {
     "lint": "eslint --ext .ts,.tsx,.js,.jsx,.spec.ts,.spec.tsx . --config ../config/.eslintrc.js"

@@ -30,7 +30,8 @@ export async function middleware(req: NextRequest) {
         url.pathname = `/project/${data[0].id}/home`;
         return NextResponse.redirect(url);
     } else if (url.pathname.startsWith('/project')) {
-        const projectId = url.pathname.slice(9, url.pathname.lastIndexOf('/'));
+        const projectId = url.pathname.slice(9, url.pathname.indexOf('/', 9));
+
         const { error } = await supabase
             .from('projects')
             .select('id')
