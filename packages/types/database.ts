@@ -190,7 +190,7 @@ export interface Database {
                     joined_files: string[] | null;
                     progress: number;
                     project: string;
-                    sub_tasks: Json[];
+                    sub_tasks: JSON[];
                     title: string;
                     type: string | null;
                 };
@@ -205,7 +205,7 @@ export interface Database {
                     joined_files?: string[] | null;
                     progress: number;
                     project: string;
-                    sub_tasks?: Json[];
+                    sub_tasks?: JSON[];
                     title: string;
                     type?: string | null;
                 };
@@ -220,7 +220,7 @@ export interface Database {
                     joined_files?: string[] | null;
                     progress?: number;
                     project?: string;
-                    sub_tasks?: Json[];
+                    sub_tasks?: JSON[];
                     title?: string;
                     type?: string | null;
                 };
