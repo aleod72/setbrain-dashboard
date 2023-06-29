@@ -1,6 +1,6 @@
 import { ProfilePictureList } from 'auth/components/profile-picture-list';
 import React from 'react';
-import { getTaskById } from 'utils/tasks';
+import { getColorByUrgency, getTaskById } from 'utils/tasks';
 import { ProfileTag } from 'auth/components/profile-tag';
 import { TaskSubItem } from './task-sub-item';
 import { SubTask } from 'types/database';
@@ -35,18 +35,18 @@ export const TaskView = (async ({taskId}: TaskViewProps) => {
         </div>
         <span className='text-body-m text-white-48'>Pour le {dayjs(data.end_at).format('DD/MM/YY')}</span>
         <div>
-            {data.description && parser(data.description)}
+            {data.description != '' ? parser(data.description) : 'Aucune description' }
         </div>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2 mt-4'>
             {data.sub_tasks && data.sub_tasks.map((subTask, index) => {
                 const parsedTask = subTask as unknown as SubTask;
 
-                return <TaskSubItem key={index} subTask={parsedTask} />;
+                return <TaskSubItem key={index} taskId={taskId} subTask={parsedTask} />;
             })}
         </div>
-        <div className="flex justify-between items-center">
-            <div className='w-72 mt-5'>
-                <ProgressBar progress={data.progress * 100} max={100}/>
+        <div className="flex justify-between items-center mt-6">
+            <div className='w-72'>
+                <ProgressBar progress={data.progress * 100} max={100} intent={getColorByUrgency(data.end_at || '', data.progress)}/>
             </div>
             <Button iconLeft='pencil'>Modifier</Button>
         </div>
