@@ -41,7 +41,7 @@ export async function middleware(req: NextRequest) {
             const { data } = await supabase.from('projects').select('id');
 
             if (!data) return NextResponse.redirect('/');
-            url.pathname = `/project/${data[0].id}/home`;
+            url.pathname = `/project/${data[0]}/home`;
             return NextResponse.redirect(url);
         }
     }
