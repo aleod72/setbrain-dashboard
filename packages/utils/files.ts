@@ -66,3 +66,18 @@ export const getFileId = cache(async (fileName: string, token: string) => {
 
     return response.id;
 });
+
+export const getFiles = cache(async (fileIds: string[], token: string) => {
+    const response = await fetch(
+        `https://www.googleapis.com/drive/v3/files?id=${fileIds.join(
+            ','
+        )}&fields=*`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    ).then((res) => res.json());
+
+    return response;
+});

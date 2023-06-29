@@ -8,7 +8,7 @@ interface TaskPageProps {
 }
 
 export default function TaskPage ({params: {taskId}}: TaskPageProps){
-    return <div className='flex'>
+    return <div className='flex gap-12'>
         <TaskView taskId={taskId} />
         <TaskFilesView taskId={taskId} />
     </div>;
