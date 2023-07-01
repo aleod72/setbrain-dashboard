@@ -11,7 +11,10 @@ interface ActivitiesRealtimeProps {
     vertical?: boolean;
 }
 
-export const ActivitiesRealtime = ({ ids, vertical = false }: ActivitiesRealtimeProps) => {
+export const ActivitiesRealtime = ({
+    ids,
+    vertical = false,
+}: ActivitiesRealtimeProps) => {
     const [activities, setActivities] = React.useState<number[]>(ids);
     const supabase = useSupabase().supabase;
 
@@ -65,7 +68,13 @@ export const ActivitiesRealtime = ({ ids, vertical = false }: ActivitiesRealtime
     }, [supabase, activities, setActivities, ids]);
 
     return (
-        <div className={`flex flex-col w-full relative ${vertical ? 'max-w-[336px] h-full min-h-[300px]' : 'md:grid md:grid-flow-col md:grid-rows-4 md:grid-cols-3  md:max-w-[646px]'} gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5`}>
+        <div
+            className={`flex flex-col w-full relative ${
+                vertical
+                    ? 'max-w-[336px] h-full min-h-[300px]'
+                    : 'md:grid md:grid-flow-col md:grid-rows-4 md:grid-cols-3  md:max-w-[646px]'
+            } gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5`}
+        >
             {activities.slice(0, 9).map((activity, index) => {
                 return (
                     <ActivityCard
@@ -79,16 +88,30 @@ export const ActivitiesRealtime = ({ ids, vertical = false }: ActivitiesRealtime
                     Il n’y a pas d’autres travaux en cours pour le moment
                 </span>
             )}
-            {vertical && <div className='w-full flex justify-center absolute bottom-0 left-0 py-6 px-5'>
-                <Button iconLeft='plus' width='fit'>Partager mon travail</Button>
-            </div>}
+            {vertical && (
+                <div className="w-full flex justify-center absolute bottom-0 left-0 py-6 px-5">
+                    <Button iconLeft="plus" width="fit">
+                        Partager mon travail
+                    </Button>
+                </div>
+            )}
         </div>
     );
 };
 
-export const ActivitiesRealtimeSkeleton = ({vertical}: {vertical: boolean}) => {
+export const ActivitiesRealtimeSkeleton = ({
+    vertical,
+}: {
+    vertical: boolean;
+}) => {
     return (
-        <div className={`flex flex-col w-full relative ${vertical ? 'max-w-[336px] h-full min-h-[300px]' : 'md:grid md:grid-flow-col md:grid-rows-4 md:grid-cols-3  md:max-w-[646px]'} gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5`}>
+        <div
+            className={`flex flex-col w-full relative ${
+                vertical
+                    ? 'max-w-[336px] h-full min-h-[300px]'
+                    : 'md:grid md:grid-flow-col md:grid-rows-4 md:grid-cols-3  md:max-w-[646px]'
+            } gap-2 bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5`}
+        >
             <ActivityCardSkeleton />
             <ActivityCardSkeleton />
             <ActivityCardSkeleton />

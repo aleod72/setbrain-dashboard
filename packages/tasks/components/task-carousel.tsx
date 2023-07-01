@@ -23,7 +23,14 @@ export const TaskCarousel = () => {
                 <h1 className="font-bold text-subtitle-sb text-white-100">
                     Vos tâches
                 </h1>
-                <Button iconLeft='plus' small={true} bold={true} intent={'primary'}>Ajouter</Button>
+                <Button
+                    iconLeft="plus"
+                    small={true}
+                    bold={true}
+                    intent={'primary'}
+                >
+                    Ajouter
+                </Button>
             </div>
             <div className="md:grid md:grid-cols-2 md:w-fit flex flex-col w-full gap-4 overflow-x-scroll px-5 md:px-0">
                 {tasks.length > 0 ? (
@@ -47,7 +54,6 @@ export const TaskCarousel = () => {
     );
 };
 
-
 export const TaskCarouselSkeleton = () => {
     return (
         <div className="flex flex-col gap-3 w-full md:w-fit">
@@ -57,13 +63,13 @@ export const TaskCarouselSkeleton = () => {
                 </h1>
             </div>
             <div className="md:grid md:grid-cols-2 md:w-fit flex flex-col w-full gap-4 overflow-x-scroll px-5 md:px-0">
-                    <TaskCardSkeleton />
-                    <TaskCardSkeleton />
-                    <TaskCardSkeleton />
-                    <TaskCardSkeleton />
-                    <TaskCardSkeleton />
-                    <TaskCardSkeleton />
+                <TaskCardSkeleton />
+                <TaskCardSkeleton />
+                <TaskCardSkeleton />
+                <TaskCardSkeleton />
+                <TaskCardSkeleton />
+                <TaskCardSkeleton />
             </div>
         </div>
     );
-}
+};

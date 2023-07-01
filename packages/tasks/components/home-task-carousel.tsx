@@ -4,20 +4,20 @@ import { profileContext } from 'auth/providers/profile-provider';
 import Link from 'next/link';
 import { projectContext } from 'projects/providers/project-provider';
 import React, { useContext, use } from 'react';
-import { isTaskList, getTasksByProjectIdAndUserId} from 'utils/tasks';
+import { isTaskList, getTasksByProjectIdAndUserId } from 'utils/tasks';
 import { TaskCard, TaskCardSkeleton } from './task-card';
-
-
 
 export const HomeTaskCarousel = () => {
     const project = useContext(projectContext);
     const user = useContext(profileContext);
 
-    if (!user || !project) return <HomeTaskCarouselSkeleton></HomeTaskCarouselSkeleton>;
+    if (!user || !project)
+        return <HomeTaskCarouselSkeleton></HomeTaskCarouselSkeleton>;
 
     const tasks = use(getTasksByProjectIdAndUserId(project.id, user.id)).data;
 
-    if (!tasks) return <HomeTaskCarouselSkeleton></HomeTaskCarouselSkeleton>;
+    if (!tasks || !isTaskList(tasks))
+        return <HomeTaskCarouselSkeleton></HomeTaskCarouselSkeleton>;
 
     return isTaskList(tasks) ? (
         <div className="flex flex-col gap-1 w-full">

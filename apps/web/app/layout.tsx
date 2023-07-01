@@ -46,6 +46,7 @@ export default async function RootLayout({
                     rel="stylesheet"
                     href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
                 ></link>
+                <title>Setbrain Dashboard</title>
             </head>
             <body className="bg-black-100 text-white-100 h-full md:h-screen w-screen md:flex overflow-x-hidden">
                 <SupabaseProvider>

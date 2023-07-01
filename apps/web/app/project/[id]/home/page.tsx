@@ -7,7 +7,10 @@ import {
 import { HomeHead } from './home-head';
 import { FileCarousel } from 'files/components/file-carousel';
 import { MobileMenu, MobileMenuSkeleton } from 'auth/components/mobile-menu';
-import { Communication, CommunicationSkeleton } from 'communication/components/communication';
+import {
+    Communication,
+    CommunicationSkeleton,
+} from 'communication/components/communication';
 
 function HomeProjectPage() {
     return (

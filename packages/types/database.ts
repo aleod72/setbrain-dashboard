@@ -293,10 +293,7 @@ export interface Task {
     joined_files: string[] | null;
     progress: number;
     project: string;
-    sub_tasks: {
-        name: string;
-        finished: boolean;
-    };
+    sub_tasks: JSON[];
     title: string;
     type: string | null;
 }

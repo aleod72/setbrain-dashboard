@@ -19,6 +19,7 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-progress": "^1.0.2",
-    "config": "workspace:*"
+    "config": "workspace:*",
+    "vitest": "^0.32.2"
   }
 }

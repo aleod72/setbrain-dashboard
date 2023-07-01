@@ -8,7 +8,7 @@ export const Communication = () => {
             <h1 className="text-subtitle-sb text-white-100 font-bold">
                 Communication
             </h1>
-            <div className='bg-darkgrey-100 border-[1px] border-darkgrey-48 rounded-3xl h-full flex flex-col'>
+            <div className="bg-darkgrey-100 border-[1px] border-darkgrey-48 rounded-3xl h-full flex flex-col">
                 <Chat />
                 <Support />
             </div>
@@ -22,7 +22,7 @@ export const CommunicationSkeleton = () => {
             <h1 className="text-subtitle-sb text-white-100 font-bold">
                 Communication
             </h1>
-            <div className='bg-darkgrey-100 border-[1px] border-darkgrey-48 rounded-3xl h-full flex flex-col'>
+            <div className="bg-darkgrey-100 border-[1px] border-darkgrey-48 rounded-3xl h-full flex flex-col">
                 <ChatSkeleton />
                 <SupportSkeleton />
             </div>

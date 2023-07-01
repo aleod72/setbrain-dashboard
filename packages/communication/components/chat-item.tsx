@@ -1,6 +1,9 @@
 'use client';
 
-import { ProfilePicture, ProfilePictureSkeleton } from 'auth/components/profile-picture';
+import {
+    ProfilePicture,
+    ProfilePictureSkeleton,
+} from 'auth/components/profile-picture';
 import { useSupabase } from 'auth/providers/supabase-provider';
 import React, { useContext } from 'react';
 import { ChatMessage, Profile } from 'types/database';

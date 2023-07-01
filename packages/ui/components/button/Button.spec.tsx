@@ -12,7 +12,7 @@ describe('Button component', () => {
         props = {};
     });
 
-    it('should render succesfuly', () => {
+    it('should render susccessfully', () => {
         const { baseElement } = render(<Button />);
 
         expect(baseElement).toBeTruthy();

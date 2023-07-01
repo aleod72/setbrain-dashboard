@@ -4,7 +4,7 @@ import { cache } from 'react';
 
 export const getProfileById = cache(
     async (id: string, supabase: SupabaseClient<Database>) => {
-        return await supabase
+        return supabase
             .from('profiles')
             .select('*')
             .eq('id', id)

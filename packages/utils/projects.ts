@@ -4,9 +4,9 @@ import { cache } from 'react';
 const supabase = createClient();
 
 export const getProjectById = cache(async (id: string) => {
-    return await supabase.from('projects').select('*').eq('id', id).single();
+    return supabase.from('projects').select('*').eq('id', id).single();
 });
 
 export const getAllProjectsIds = cache(async () => {
-    return await supabase.from('projects').select('id');
+    return supabase.from('projects').select('id');
 });

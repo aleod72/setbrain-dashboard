@@ -128,12 +128,10 @@ export const ChatSkeleton = () => {
                 <h1>Chat</h1>
             </div>
             <span className="block w-full h-24 absolute top-14 left-0 z-10 bg-gradient-to-b from-[rgba(0,0,0,0.4)] to-transparent"></span>
-            <div
-                className="flex flex-col gap-3 h-44 overflow-y-scroll relative px-2 w-full pb-4"
-            >
-               <ChatItemSkeleton></ChatItemSkeleton>
-               <ChatItemSkeleton></ChatItemSkeleton>
-               <ChatItemSkeleton></ChatItemSkeleton>
+            <div className="flex flex-col gap-3 h-44 overflow-y-scroll relative px-2 w-full pb-4">
+                <ChatItemSkeleton></ChatItemSkeleton>
+                <ChatItemSkeleton></ChatItemSkeleton>
+                <ChatItemSkeleton></ChatItemSkeleton>
             </div>
             <div className="flex px-4 py-[14px] border-t-darkgrey-100 border-t-2">
                 <input

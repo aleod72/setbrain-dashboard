@@ -20,7 +20,10 @@ export const TaskCard = ({ task }: TaskCardProps) => {
     const pathname = usePathname();
 
     return (
-        <div className="flex flex-col justify-between border-2 rounded-2xl border-darkgrey-48 bg-darkgrey-100 py-3 px-4 w-full min-w-[300px] max-w-[345px] h-[13.5rem] cursor-pointer hover:border-darkgrey-86" onClick={() => router.push(pathname +  '/' + task?.id)}>
+        <div
+            className="flex flex-col justify-between border-2 rounded-2xl border-darkgrey-48 bg-darkgrey-100 py-3 px-4 w-full min-w-[300px] max-w-[345px] h-[13.5rem] cursor-pointer hover:border-darkgrey-86"
+            onClick={() => router.push(pathname + '/' + task?.id)}
+        >
             <div className="flex justify-between items-end">
                 <div className="px-1 py-0.5 bg-white-72 rounded-md w-fit text-pretitle font-medium text-black-100">
                     {task.type && task.type.toUpperCase()}

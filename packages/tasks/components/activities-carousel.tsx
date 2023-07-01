@@ -4,13 +4,16 @@ import { projectContext } from 'projects/providers/project-provider';
 import React from 'react';
 import { getAllActivitiesIdsByProject } from 'utils/activities';
 
-import { ActivitiesRealtime, ActivitiesRealtimeSkeleton } from './activities-realtime';
+import {
+    ActivitiesRealtime,
+    ActivitiesRealtimeSkeleton,
+} from './activities-realtime';
 
 interface ActivitiesCarouselProps {
     vertical?: boolean;
 }
 
-export const ActivitiesCarousel = ({vertical}: ActivitiesCarouselProps) => {
+export const ActivitiesCarousel = ({ vertical }: ActivitiesCarouselProps) => {
     const { id } = React.useContext(projectContext) ?? { id: '' };
     const [ids, setIds] = React.useState<number[]>([]);
 
@@ -27,15 +30,23 @@ export const ActivitiesCarousel = ({vertical}: ActivitiesCarouselProps) => {
         getActivitiesIds();
     }, [id]);
 
-    if(ids.length < 1) return <ActivitiesRealtimeSkeleton vertical={vertical || false} />;
+    if (ids.length < 1)
+        return <ActivitiesRealtimeSkeleton vertical={vertical || false} />;
 
     return (
-        <div className={`flex flex-col gap-3 px-5 md:px-0 h-full ${vertical ? 'w-fit': 'w-full'}`}>
+        <div
+            className={`flex flex-col gap-3 px-5 md:px-0 h-full ${
+                vertical ? 'w-fit' : 'w-full'
+            }`}
+        >
             <h1 className="text-subtitle-sb text-white-100 font-bold">
                 Travail en cours
             </h1>
             {ids.length > 0 ? (
-                <ActivitiesRealtime ids={ids} vertical={vertical}></ActivitiesRealtime>
+                <ActivitiesRealtime
+                    ids={ids}
+                    vertical={vertical}
+                ></ActivitiesRealtime>
             ) : (
                 <div className="w-full grid place-items-center bg-darkgrey-100 border-2 border-grey-72 rounded-3xl py-6 px-5 2xl:max-w-full md:max-w-[646px]">
                     <span className="text-body-s text-white-48">

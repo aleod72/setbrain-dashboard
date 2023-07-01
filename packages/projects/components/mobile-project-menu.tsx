@@ -16,8 +16,7 @@ export const MobileProjectMenu = ({
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const stateStyle = isMenuOpen ? 'translate-x-0' : '-translate-x-full';
     const handlers = useSwipeable({
-        onSwiped: (eventData) =>
-            setIsMenuOpen(eventData.dir === 'Right' ? true : false),
+        onSwiped: (eventData) => setIsMenuOpen(eventData.dir === 'Right'),
     });
 
     if (!project) return <MobileProjectMenuSkeleton />;

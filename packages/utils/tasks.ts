@@ -1,15 +1,13 @@
-import { Database, Task } from 'types/database';
+import {Database, SubTask, Task} from 'types/database';
 import { createClient } from './supabase-browser';
 import { SupabaseClient } from '@supabase/supabase-js';
 import { cache } from 'react';
-import { getFiles } from './files';
-import { drive_v3 } from 'types/drive';
 
 const supabase = createClient();
 
 export const getTasksByProjectIdAndUserId = cache(
     async (projectId: string, userId: string) => {
-        return await supabase
+        return supabase
             .from('tasks')
             .select('*')
             .eq('project', projectId)
@@ -18,11 +16,11 @@ export const getTasksByProjectIdAndUserId = cache(
 );
 
 export const getTaskById = cache(async (taskId: string) => {
-    return await supabase.from('tasks').select('*').eq('id', taskId).single();
+    return supabase.from('tasks').select('*').eq('id', taskId).single();
 });
 
 export const getAllTasksIds = cache(async () => {
-    return await supabase.from('tasks').select('id');
+    return supabase.from('tasks').select('id');
 });
 
 export const getColorByUrgency = (
@@ -55,7 +53,7 @@ export function isTaskList(arg: any): arg is Task[] {
 
 export const getJoinedFiles = cache(async (taskId: string, supabase: SupabaseClient<Database>) => {
     const {data} = await supabase.from('tasks').select('joined_files').eq('id', taskId).limit(1);
-    const defaultReturn = [];
+    const defaultReturn: Array<any> = [];
 
     if (!data || !data[0].joined_files || data[0].joined_files?.length < 1) return defaultReturn;
 
@@ -72,7 +70,11 @@ export const getJoinedFiles = cache(async (taskId: string, supabase: SupabaseCli
     return formattedFileIds;
 });
 
-export const setSubTaskCompleted = cache(async (taskId, title, state) => {
+export const isSubTaskList = (arg: any): arg is SubTask[] => {
+    return arg !== undefined;
+};
+
+export const setSubTaskCompleted = cache(async (taskId: string, title: string, state: boolean) => {
     const {data} = await supabase.from('tasks').select('sub_tasks').eq('id', taskId).limit(1);
 
     if (!data || !data[0].sub_tasks) return;
@@ -83,21 +85,25 @@ export const setSubTaskCompleted = cache(async (taskId, title, state) => {
     if (!subTasks) return;
 
     const modifedSubTasks = subTasks.map((subTask) => {
-        if (subTask['title'] == title && subTask) {
-            subTask['finished'] = state;
+        const parsedSubTask = JSON.parse(JSON.stringify(subTask)) as SubTask;
+
+        if (parsedSubTask['title'] == title && subTask) {
+            parsedSubTask['finished'] = state;
         }
         return subTask;
     });
+
+    if(!isSubTaskList(modifedSubTasks)) return;
 
     await supabase.from('tasks').update({sub_tasks: modifedSubTasks}).eq('id', taskId);
 
     await supabase.from('tasks').update({progress: calculateProgress(modifedSubTasks)}).eq('id', taskId);
 });
 
-export const calculateProgress = (subTasks: any) => {
+export const calculateProgress = (subTasks: SubTask[]) => {
     if (!subTasks) return 0;
 
-    const finishedTasks = subTasks.filter((task) => task['finished'] == true);
+    const finishedTasks = subTasks.filter((subTask) => subTask['finished'] == true);
 
     return finishedTasks.length / subTasks.length;
 };
