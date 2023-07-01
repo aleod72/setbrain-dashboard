@@ -37,7 +37,7 @@ export const ProfileCard = (async () => {
                     <h1 className="text-body-b font-bold">
                         {data.firstname} {data.lastname}
                     </h1>
-                    <Tooltip side="bottom" content={jobsContent}>
+                    <Tooltip side="bottom" tooltipContent={jobsContent}>
                         <span className="text-ellipsis overflow-hidden whitespace-nowrap w-full box-border text-body-r cursor-default">
                             {jobsContent}
                         </span>

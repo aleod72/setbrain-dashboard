@@ -42,7 +42,7 @@ export const FileCard = ({ driveFileId }: FileCardProps) => {
             </div>
             <div className="flex px-[18px] py-2 justify-between items-center">
                 <div className="flex flex-col gap-[6px]">
-                    <Tooltip content={driveFile.name}>
+                    <Tooltip tooltipContent={driveFile.name}>
                         <span className="text-body-m max-w-[238px] text-ellipsis overflow-hidden whitespace-nowrap">
                             {driveFile.name}
                         </span>

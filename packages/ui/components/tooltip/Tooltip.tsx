@@ -6,12 +6,12 @@ import * as React from 'react';
 export interface TooltipProps
     extends TooltipPrimitive.TooltipContentProps {
     children: React.ReactNode;
-    content: React.ReactNode;
+    tooltipContent: React.ReactNode;
 }
 
 export const Tooltip: React.FunctionComponent<TooltipProps> = ({
     children,
-    content,
+    tooltipContent,
     ...props
 }) => {
     return (
@@ -26,7 +26,7 @@ export const Tooltip: React.FunctionComponent<TooltipProps> = ({
                         sideOffset={5}
                         {...props}
                     >
-                        {content}
+                        {tooltipContent}
                     </TooltipPrimitive.Content>
                 </TooltipPrimitive.Portal>
             </TooltipPrimitive.Root>
