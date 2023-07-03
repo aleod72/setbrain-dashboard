@@ -24,10 +24,12 @@ export async function middleware(req: NextRequest) {
         (session && url.pathname === '/') ||
         (session && url.pathname === '/login')
     ) {
-        const { data } = await supabase.from('projects').select('id');
+        const { data } = (await supabase
+            .from('projects')
+            .select('id')) as unknown as { data: { id: string }[] };
 
         if (!data) return NextResponse.redirect('/');
-        url.pathname = `/project/${data[0]}/home`;
+        url.pathname = `/project/${data[0].id}/home`;
         return NextResponse.redirect(url);
     } else if (url.pathname.startsWith('/project')) {
         const projectId = url.pathname.slice(9, url.pathname.indexOf('/', 9));
@@ -38,10 +40,12 @@ export async function middleware(req: NextRequest) {
             .eq('id', projectId);
 
         if (error) {
-            const { data } = await supabase.from('projects').select('id');
+            const { data } = (await supabase
+                .from('projects')
+                .select('id')) as unknown as { data: { id: string }[] };
 
             if (!data) return NextResponse.redirect('/');
-            url.pathname = `/project/${data[0]}/home`;
+            url.pathname = `/project/${data[0].id}/home`;
             return NextResponse.redirect(url);
         }
     }

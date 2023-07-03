@@ -77,5 +77,5 @@ export const TaskView = (async ({ taskId }: TaskViewProps) => {
             </div>
         </div>
     );
-// eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unused-vars
 }) as unknown as (props: TaskViewProps) => JSX.Element;

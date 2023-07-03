@@ -22,15 +22,15 @@ export const button = cva('flex items-center rounded-xl text-white-100 gap-2', {
         },
         bold: {
             true: 'font-bold',
-            false: 'font-normal'
-        }
+            false: 'font-normal',
+        },
     },
     defaultVariants: {
         intent: 'primary',
         fullWidth: false,
         disabled: false,
         small: false,
-        bold: false
+        bold: false,
     },
 });
 
@@ -59,7 +59,11 @@ export function Button(props: ButtonProps) {
     } = props;
 
     const iconStyle =
-        (buttonIcon ? small ? 'text-base h-2' : 'text-xl h-4' : 'text-white-72 text-sm h-[18px]') +
+        (buttonIcon
+            ? small
+                ? 'text-base h-2'
+                : 'text-xl h-4'
+            : 'text-white-72 text-sm h-[18px]') +
         (disabled ? ' text-white-24' : '');
     const iconType: 'fi-brands-' | 'fi-rr-' =
         intent === 'social' ? 'fi-brands-' : 'fi-rr-';
@@ -91,7 +95,11 @@ export function Button(props: ButtonProps) {
 
     return (
         <button
-            className={button(props) + (width ? ` w-${width}` : '') + (height ? ` h-${height}` : '')}
+            className={
+                button(props) +
+                (width ? ` w-${width}` : '') +
+                (height ? ` h-${height}` : '')
+            }
             onClick={onClick}
             data-testid="button"
         >

@@ -3,8 +3,7 @@
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import * as React from 'react';
 
-export interface TooltipProps
-    extends TooltipPrimitive.TooltipContentProps {
+export interface TooltipProps extends TooltipPrimitive.TooltipContentProps {
     children: React.ReactNode;
     tooltipContent: React.ReactNode;
 }

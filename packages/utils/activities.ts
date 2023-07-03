@@ -12,8 +12,5 @@ export const getAllActivitiesIds = cache(async () => {
 });
 
 export const getAllActivitiesIdsByProject = cache(async (projectId: string) => {
-    return supabase
-        .from('activities')
-        .select('id')
-        .eq('project_id', projectId);
+    return supabase.from('activities').select('id').eq('project_id', projectId);
 });

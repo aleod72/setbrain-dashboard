@@ -4,11 +4,7 @@ import { cache } from 'react';
 
 export const getProfileById = cache(
     async (id: string, supabase: SupabaseClient<Database>) => {
-        return supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', id)
-            .single();
+        return supabase.from('profiles').select('*').eq('id', id).single();
     }
 );
 
