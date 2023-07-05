@@ -13,12 +13,14 @@ import { drive_v3 } from 'types/drive';
 import { useSupabase } from 'auth/providers/supabase-provider';
 import { Tooltip } from 'ui/components/tooltip/Tooltip';
 import Skeleton from 'react-loading-skeleton';
+import { Popover } from 'ui/components/popover/Popover';
 
 interface FileCardProps {
     driveFileId: string;
+    menu?: React.ReactNode;
 }
 
-export const FileCard = ({ driveFileId }: FileCardProps) => {
+export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
     const driveToken = useContext(googleDriveContext);
     const supabase = useSupabase().supabase;
 
@@ -30,7 +32,7 @@ export const FileCard = ({ driveFileId }: FileCardProps) => {
     const sharedUsers = use(getFileSharedUsers(driveFileId, supabase));
 
     return (
-        <div className="flex flex-col rounded-3xl overflow-hidden bg-darkgrey-100 border-2 border-darkgrey-48">
+        <div className="flex flex-col rounded-3xl overflow-hidden bg-darkgrey-100 border-2 border-darkgrey-48 w-fit">
             <div className="relative w-[325px] h-[170px] blur-[1px] ">
                 <Image
                     className="opacity-50"
@@ -38,7 +40,14 @@ export const FileCard = ({ driveFileId }: FileCardProps) => {
                     src={driveFile?.thumbnailLink || ''}
                     fill={true}
                 />
-                <i className="fi fi-rr-menu-dots-vertical absolute grid place-items-center top-4 right-4 rounded-full cursor-pointer h-7 w-7 hover:bg-white-24 "></i>
+                <Popover
+                    trigger={
+                        <i className="fi fi-rr-menu-dots-vertical absolute grid place-items-center top-4 right-4 rounded-full cursor-pointer h-7 w-7 hover:bg-white-24"></i>
+                    }
+                    align="end"
+                >
+                    {menu}
+                </Popover>
             </div>
             <div className="flex px-[18px] py-2 justify-between items-center">
                 <div className="flex flex-col gap-[6px]">

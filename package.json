@@ -18,8 +18,9 @@
   "devDependencies": {
     "@testing-library/react": "14.0.0",
     "eslint-config-custom": "workspace:*",
+    "config": "workspace:*",
     "prettier": "latest",
-    "turbo": "^1.10.5"
+    "turbo": "^1.10.7"
   },
   "engines": {
     "node": ">=14.0.0"

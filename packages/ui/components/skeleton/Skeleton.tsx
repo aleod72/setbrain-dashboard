@@ -1,8 +1,6 @@
 import * as ReactLoadingSkeleton from 'react-loading-skeleton';
 
-interface SkeletonProps extends ReactLoadingSkeleton.SkeletonProps {}
-
-export const Skeleton = (props: SkeletonProps) => {
+export const Skeleton = (props: ReactLoadingSkeleton.SkeletonProps) => {
     return (
         <ReactLoadingSkeleton.default
             {...props}

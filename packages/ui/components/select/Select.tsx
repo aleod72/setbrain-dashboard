@@ -32,7 +32,7 @@ export const select = cva(
 );
 
 export interface SelectProps
-    extends React.ComponentProps<typeof SelectPrimitve.Root>,
+    extends SelectPrimitve.SelectProps,
         VariantProps<typeof select> {
     children: React.ReactNode;
     label?: string;
@@ -40,14 +40,12 @@ export interface SelectProps
     fullWidth?: boolean;
 }
 
-export interface SelectItemProps
-    extends React.ComponentProps<typeof SelectPrimitve.Item> {
+export interface SelectItemProps extends SelectPrimitve.SelectItemProps {
     children: React.ReactNode;
     value: string;
 }
 
-export interface SelectGroupProps
-    extends React.ComponentProps<typeof SelectPrimitve.Group> {
+export interface SelectGroupProps extends SelectPrimitve.SelectGroupProps {
     label: string;
     children: React.ReactNode;
 }

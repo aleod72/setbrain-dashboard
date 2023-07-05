@@ -8,15 +8,15 @@
     "lint": "eslint --ext .ts,.tsx,.js,.jsx,.spec.ts,.spec.tsx . --config ../config/.eslintrc.js"
   },
   "devDependencies": {
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "^18.2.13",
+    "@types/react-dom": "^18.2.6",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
-    "react": "^18.2.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.5.2"
   },
   "dependencies": {
+    "react": "^18.2.0",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-progress": "^1.0.2",
     "config": "workspace:*",

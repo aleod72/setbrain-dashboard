@@ -42,8 +42,13 @@ section::-webkit-scrollbar-thumb {
   visibility: visible;
 }
 
+div[contenteditable="true"] {
+  outline: none;
+}
 
-
+::selection {
+  background: #6e708e91;
+}
 
 @media screen and (max-width: 768px) {
   section::-webkit-scrollbar-thumb {

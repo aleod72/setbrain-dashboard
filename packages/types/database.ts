@@ -51,7 +51,7 @@ export interface Database {
                     shared_users: string[];
                 };
                 Insert: {
-                    id: string | null;
+                    id?: string | undefined;
                     drive_id: string;
                     creator: string;
                     shared_users: string[];

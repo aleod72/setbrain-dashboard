@@ -10,7 +10,7 @@ import { ProfilePictureList } from 'auth/components/profile-picture-list';
 interface FileItemProps {
     file: File;
     // eslint-disable-next-line no-unused-vars
-    onDoubleClick?: (fileId: string) => void;
+    onDoubleClick?: (fileId: string, isFolder: boolean) => void;
 }
 
 const FileExtensionToIcon: { [key: string]: string } = {
@@ -61,7 +61,7 @@ export const FileItem = ({ file, onDoubleClick }: FileItemProps) => {
         <div
             className={`flex justify-between rounded-xl py-2 px-4 items-center ${backgroundColor}`}
             onDoubleClick={() =>
-                isFolder && onDoubleClick && onDoubleClick(file.id || '')
+                onDoubleClick && onDoubleClick(file.id || '', isFolder || false)
             }
         >
             <div className="flex gap-4 items-center">

@@ -11,11 +11,11 @@ export const button = cva('flex items-center rounded-xl text-white-100 gap-2', {
             social: 'border-4 bg-blue-100 border-blue-48 hover:bg-blue-72 hover:border-blue-24 focus:bg-blue-86 focus:border-blue-72',
         },
         fullWidth: {
-            true: 'w-full justify-center',
+            true: 'w-full justify-center py-3',
         },
         small: {
             true: 'py-1 px-2 text-pretitle-s',
-            false: 'py-3 px-4 text-body-m',
+            false: 'py-2 px-4 text-body-m',
         },
         disabled: {
             true: 'bg-black-72 border-black-72 cursor-not-allowed text-white-48 hover:bg-black-72 hover:border-black-72 focus:bg-black-72 focus:border-black-72',

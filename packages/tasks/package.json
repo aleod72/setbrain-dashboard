@@ -11,7 +11,8 @@
     "types": "workspace:*",
     "ui": "workspace:*",
     "files": "workspace:*",
-    "utils": "workspace:*"
+    "utils": "workspace:*",
+    "tsconfig": "workspace:*"
   },
   "scripts": {
     "lint": "eslint --ext .ts,.tsx,.js,.jsx,.spec.ts,.spec.tsx . --config ../config/.eslintrc.js"

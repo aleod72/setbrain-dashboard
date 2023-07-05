@@ -20,3 +20,9 @@ export const getProfilePictureLinkById = cache(
         return data.avatar_url;
     }
 );
+
+export const getAllProfiles = cache(
+    async (supabase: SupabaseClient<Database>) => {
+        return supabase.from('profiles').select('*');
+    }
+);

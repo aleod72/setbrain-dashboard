@@ -81,3 +81,17 @@ export const getFiles = cache(async (fileIds: string[], token: string) => {
 
     return response;
 });
+
+export const uploadFile = async (
+    fileDriveId: string,
+    supabase: SupabaseClient<Database>,
+    creatorId: string,
+    shared_user: string[]
+) => {
+    //TODO: Add file to shared drive
+    return supabase.from('files').insert({
+        creator: creatorId,
+        shared_users: shared_user,
+        drive_id: fileDriveId,
+    });
+};
