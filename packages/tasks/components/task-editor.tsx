@@ -49,7 +49,10 @@ export const TaskEditor = (async ({ taskId }: TaskEditorProps) => {
                     taskId={taskId}
                 />
             </div>
-            <TaskFileEdit taskId={taskId} />
+            <TaskFileEdit
+                taskId={taskId}
+                sharedUsers={data.assigned_users || []}
+            />
         </div>
     );
 }) as unknown as React.FC<TaskEditorProps>;

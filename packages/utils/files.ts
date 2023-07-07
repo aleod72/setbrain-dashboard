@@ -89,9 +89,33 @@ export const uploadFile = async (
     shared_user: string[]
 ) => {
     //TODO: Add file to shared drive
-    return supabase.from('files').insert({
-        creator: creatorId,
-        shared_users: shared_user,
-        drive_id: fileDriveId,
-    });
+    const { data, error } = await supabase
+        .from('files')
+        .select('*')
+        .eq('drive_id', fileDriveId);
+
+    if (error) {
+        console.log('Error fetching data:', error.message);
+        return;
+    }
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (data.length > 0) {
+        return supabase
+            .from('files')
+            .select()
+            .eq('drive_id', fileDriveId)
+            .single();
+    } else {
+        return supabase
+            .from('files')
+            .insert({
+                creator: creatorId,
+                shared_users: shared_user,
+                drive_id: fileDriveId,
+            })
+            .select()
+            .single();
+    }
 };

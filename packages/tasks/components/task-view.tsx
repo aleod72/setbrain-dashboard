@@ -8,6 +8,7 @@ import parser from 'html-react-parser';
 import dayjs from 'dayjs';
 import { ProgressBar } from 'ui/components/progress-bar/ProgressBar';
 import { Button } from 'ui/components/button/Button';
+import Link from 'next/link';
 
 interface TaskViewProps {
     taskId: string;
@@ -73,7 +74,9 @@ export const TaskView = (async ({ taskId }: TaskViewProps) => {
                         )}
                     />
                 </div>
-                <Button iconLeft="pencil">Modifier</Button>
+                <Link href={taskId + '/edit'}>
+                    <Button iconLeft="pencil">Modifier</Button>
+                </Link>
             </div>
         </div>
     );

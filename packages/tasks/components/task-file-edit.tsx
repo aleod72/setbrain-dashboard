@@ -6,12 +6,17 @@ import { getJoinedFiles } from 'utils/tasks';
 import { useSupabase } from 'auth/providers/supabase-provider';
 import { Button } from 'ui/components/button/Button';
 import { FileSourceChoiceDialog } from 'files/components/file-source-choice-dialog';
+import { UploadFromDriveDialog } from 'files/components/upload-from-drive-dialog';
+import { FileUploadDialog } from 'files/components/file-upload-dialog';
+import { uploadFile } from 'utils/files';
+import { profileContext } from 'auth/providers/profile-provider';
 
 interface TaskFileEditProps {
     taskId: string;
+    sharedUsers: string[];
 }
 
-export const TaskFileEdit = ({ taskId }: TaskFileEditProps) => {
+export const TaskFileEdit = ({ taskId, sharedUsers }: TaskFileEditProps) => {
     const supabase = useSupabase().supabase;
     const fileIds = use(getJoinedFiles(taskId, supabase));
     const [currentFiles, setCurrentFiles] = React.useState<
@@ -20,19 +25,78 @@ export const TaskFileEdit = ({ taskId }: TaskFileEditProps) => {
             fileId: string;
         }[]
     >(fileIds);
-    const handleDelete = async (fileId: string) => {
+    const profile = React.useContext(profileContext);
+    const [currentUploadFileId, setCurrentUploadFileId] = React.useState<
+        string | undefined
+    >(undefined);
+    const driveFileUploadDialogButtonRef =
+        React.useRef<HTMLButtonElement>(null);
+    const fileUploadDialogButtonRef = React.useRef<HTMLButtonElement>(null);
+    const handleDelete = async (driveFileId: string) => {
         setCurrentFiles((prev) =>
-            prev.filter((file) => file.fileId !== fileId)
+            prev.filter((file) => file.fileId !== driveFileId)
         );
-        await supabase.from('files').delete().match({ id: fileId });
+        await supabase.from('files').delete().match({ drive_id: driveFileId });
     };
-    const fileCardMenu = (fileId: string) => (
+
+    const handleUpload = async (
+        driveFileId: string,
+        updatedSharedUsers: string[]
+    ) => {
+        if (!profile?.id) return;
+
+        const file = await uploadFile(
+            driveFileId,
+            supabase,
+            profile.id,
+            updatedSharedUsers
+        );
+
+        if (!file) return;
+        if (file.error) throw file.error;
+        if (!file.data || !file.data.id) return;
+
+        console.log(file);
+
+        await setCurrentFiles((prev) => [
+            ...prev,
+            {
+                driveFileId: driveFileId,
+                fileId: file.data.id,
+            },
+        ]);
+        await supabase
+            .from('tasks')
+            .update({
+                joined_files: [
+                    ...currentFiles,
+                    {
+                        driveFileId: driveFileId,
+                        fileId: file.data.id,
+                    },
+                ].map((file) => file.fileId),
+            })
+            .match({ id: taskId });
+    };
+
+    const handleSourceChoice = (source: string) => {
+        if (source === 'drive') {
+            driveFileUploadDialogButtonRef.current?.click();
+        }
+    };
+
+    const handleFileSelect = (fileDriveId: string) => {
+        setCurrentUploadFileId(fileDriveId);
+        fileUploadDialogButtonRef.current?.click();
+    };
+
+    const fileCardMenu = (driveFileId: string) => (
         <div>
             <button className="px-6 py-1 hover:bg-lightgrey-86 flex items-center gap-2 outline-0">
                 <i className="fi fi-rr-trash text-red-100 h-4 w-4 relative before:absolute before:top-0 before:left-0"></i>
                 <span
                     className="text-red-100 text-sm"
-                    onClick={() => handleDelete(fileId)}
+                    onClick={() => handleDelete(driveFileId)}
                 >
                     Supprimer
                 </span>
@@ -56,11 +120,24 @@ export const TaskFileEdit = ({ taskId }: TaskFileEditProps) => {
                         menu={fileCardMenu(file.fileId)}
                     ></FileCard>
                 ))}
+
+                {currentFiles.length === 0 && (
+                    <p>Il n&apos;y a pas de pièce jointe pour le moment</p>
+                )}
             </div>
-            <FileSourceChoiceDialog
-                onClose={() => {}}
-                trigger={<Button fullWidth={true}>Uploader un fichier</Button>}
-            />
+            <FileSourceChoiceDialog onClose={handleSourceChoice}>
+                <Button fullWidth={true}>Uploader un fichier</Button>
+            </FileSourceChoiceDialog>
+            <UploadFromDriveDialog onSubmit={handleFileSelect}>
+                <button ref={driveFileUploadDialogButtonRef}></button>
+            </UploadFromDriveDialog>
+            <FileUploadDialog
+                onSubmit={handleUpload}
+                driveFileId={currentUploadFileId || ''}
+                defaultSharedUsers={sharedUsers}
+            >
+                <button ref={fileUploadDialogButtonRef}></button>
+            </FileUploadDialog>
         </div>
     );
 };

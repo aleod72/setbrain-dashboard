@@ -57,10 +57,10 @@ export interface Database {
                     shared_users: string[];
                 };
                 Update: {
-                    id: string | null;
-                    drive_id: string;
-                    creator: string;
-                    shared_users: string[];
+                    id?: string | null;
+                    drive_id?: string;
+                    creator?: string;
+                    shared_users?: string[];
                 };
             };
             'chat-messages': {
@@ -77,10 +77,10 @@ export interface Database {
                     user_id: string;
                 };
                 Update: {
-                    id: string;
-                    created_at: string;
-                    message: string;
-                    user_id: string;
+                    id?: string;
+                    created_at?: string;
+                    message?: string;
+                    user_id?: string;
                 };
             };
             'support-messages': {
@@ -99,11 +99,11 @@ export interface Database {
                     subject: string;
                 };
                 Update: {
-                    id: string;
-                    created_at: string;
-                    content: string;
+                    id?: string;
+                    created_at?: string;
+                    content?: string;
                     parent_id?: string;
-                    subject: string;
+                    subject?: string;
                 };
             };
             jobs: {

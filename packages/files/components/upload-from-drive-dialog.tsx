@@ -9,26 +9,25 @@ import { uploadFile } from 'utils/files';
 import { FileUploadDialog } from './file-upload-dialog';
 
 interface UploadFromDriveDialogProps {
-    trigger: React.ReactNode;
+    children: React.ReactNode;
+    onSubmit: (driveFileId: string) => void;
 }
 
 export const UploadFromDriveDialog = ({
-    trigger,
+    children,
+    onSubmit,
 }: UploadFromDriveDialogProps) => {
     const closeButtonRef = React.useRef<HTMLButtonElement>(null);
-    const openButtonRef = React.useRef<HTMLButtonElement>(null);
-    const [fileId, setFileId] = React.useState<string | undefined>(undefined);
     const profile = React.useContext(profileContext);
-    const supabase = useSupabase().supabase;
-    const handleSeletion = async (fileId: string) => {
+    const handleSeletion = async (driveFileId: string) => {
         if (!profile?.id) return;
-        await uploadFile(fileId, supabase, profile?.id, []);
-        setFileId(fileId);
-        openButtonRef.current?.click();
+
+        onSubmit(driveFileId || '');
+        closeButtonRef.current?.click();
     };
 
     return (
-        <Dialog trigger={trigger}>
+        <Dialog trigger={children}>
             <div className="w-[40vw] h-[40vh] overflow-scroll overflow-x-hidden px-[22px] py-5 bg-darkgrey-100 rounded-3xl border border-darkgrey-48 flex flex-col gap-4">
                 <h1 className="text-white-100 text-subtitle-sb font-bold">
                     Selectionnez le fichier
@@ -42,9 +41,6 @@ export const UploadFromDriveDialog = ({
             <DialogClose>
                 <button ref={closeButtonRef}></button>
             </DialogClose>
-            <FileUploadDialog fileId={fileId || ''}>
-                <button ref={openButtonRef}></button>
-            </FileUploadDialog>
         </Dialog>
     );
 };

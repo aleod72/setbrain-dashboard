@@ -31,6 +31,8 @@ export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
     ) as drive_v3.Schema$File;
     const sharedUsers = use(getFileSharedUsers(driveFileId, supabase));
 
+    console.log(sharedUsers);
+
     return (
         <div className="flex flex-col rounded-3xl overflow-hidden bg-darkgrey-100 border-2 border-darkgrey-48 w-fit">
             <div className="relative w-[325px] h-[170px] blur-[1px] ">
@@ -39,6 +41,7 @@ export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
                     alt={driveFile.name || ''}
                     src={driveFile?.thumbnailLink || ''}
                     fill={true}
+                    style={{ objectFit: 'cover', objectPosition: 'top' }}
                 />
                 <Popover
                     trigger={
@@ -56,9 +59,17 @@ export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
                             {driveFile.name}
                         </span>
                     </Tooltip>
-                    <div className="flex h-6 w-fit pl-[11px] gap-6">
-                        <ProfilePictureList ids={sharedUsers} />
-                        <span className="min-w-[84px]">
+                    <div
+                        className={`flex h-6 w-fit ${
+                            sharedUsers.length > 0 ? 'pl-[11px]' : ''
+                        } gap-2`}
+                    >
+                        {sharedUsers.length > 0 && (
+                            <span className="h-6">
+                                <ProfilePictureList ids={sharedUsers} />
+                            </span>
+                        )}
+                        <span className="min-w-[84px] text-white-72">
                             {!Number.isNaN(driveFile.size) &&
                                 driveFile.size &&
                                 prettyBytes(Number.parseInt(driveFile.size))}
