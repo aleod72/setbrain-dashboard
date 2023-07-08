@@ -203,10 +203,10 @@ export interface Database {
                     end_at?: string | null;
                     id?: string;
                     joined_files?: string[] | null;
-                    progress: number;
+                    progress?: number;
                     project: string;
                     sub_tasks?: JSON[];
-                    title: string;
+                    title?: string;
                     type?: string | null;
                 };
                 Update: {

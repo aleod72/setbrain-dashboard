@@ -17,6 +17,10 @@ export const button = cva('flex items-center rounded-xl text-white-100 gap-2', {
             true: 'py-1 px-2 text-pretitle-s',
             false: 'py-2 px-4 text-body-m',
         },
+        buttonIcon: {
+            true: 'grid px-0 py-0 place-items-center h-11 w-11',
+            false: 'py-2 px-4',
+        },
         disabled: {
             true: 'bg-black-72 border-black-72 cursor-not-allowed text-white-48 hover:bg-black-72 hover:border-black-72 focus:bg-black-72 focus:border-black-72',
         },
@@ -36,18 +40,19 @@ export const button = cva('flex items-center rounded-xl text-white-100 gap-2', {
 
 export interface ButtonProps extends VariantProps<typeof button> {
     children?: React.ReactNode;
-    buttonIcon?: string;
     iconLeft?: string;
     iconRight?: string;
     onClick?: Partial<ComponentPropsWithoutRef<'button'>>['onClick'];
     width?: string;
     height?: string;
+    iconButton?: string;
 }
 
 export function Button(props: ButtonProps) {
     const {
         children,
         buttonIcon,
+        iconButton,
         iconLeft,
         iconRight,
         disabled,
@@ -62,7 +67,7 @@ export function Button(props: ButtonProps) {
         (buttonIcon
             ? small
                 ? 'text-base h-2'
-                : 'text-xl h-4'
+                : 'text-base h-4 w-4 relative before:top-0 before:left-0 before:absolute'
             : 'text-white-72 text-sm h-[18px]') +
         (disabled ? ' text-white-24' : '');
     const iconType: 'fi-brands-' | 'fi-rr-' =
@@ -78,7 +83,7 @@ export function Button(props: ButtonProps) {
             )}
             {buttonIcon ? (
                 <i
-                    className={`fi fi-rr-${buttonIcon} ${iconStyle}`}
+                    className={`fi fi-rr-${iconButton} ${iconStyle}`}
                     data-testid="icon"
                 ></i>
             ) : (
@@ -97,8 +102,8 @@ export function Button(props: ButtonProps) {
         <button
             className={
                 button(props) +
-                (width ? ` w-${width}` : '') +
-                (height ? ` h-${height}` : '')
+                (width ? ` w-[${width}]` : '') +
+                (height ? ` h-[${height}]` : '')
             }
             onClick={onClick}
             data-testid="button"

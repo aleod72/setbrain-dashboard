@@ -6,7 +6,7 @@ import { useSupabase } from 'auth/providers/supabase-provider';
 
 interface TagSelectorProps {
     taskId: string;
-    defaultTag: string;
+    defaultTag: string | undefined;
 }
 
 export const TagSelector = ({ taskId, defaultTag }: TagSelectorProps) => {

@@ -14,6 +14,7 @@ export const TaskDatePicker = ({
 }: TaskDatePickerProps) => {
     const supabase = useSupabase().supabase;
     const handleDateChange = async (date: Date) => {
+        console.log(date);
         await supabase
             .from('tasks')
             .update({ end_at: date.toDateString() })

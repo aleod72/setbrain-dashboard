@@ -22,7 +22,10 @@ export const TaskEditor = (async ({ taskId }: TaskEditorProps) => {
         <div className="flex gap-12">
             <div className="flex-col flex w-[592px]">
                 <div className="flex gap-3">
-                    <TagSelector taskId={taskId} defaultTag={data.type || ''} />
+                    <TagSelector
+                        taskId={taskId}
+                        defaultTag={data.type || undefined}
+                    />
                     <TaskDatePicker
                         taskId={taskId}
                         defaultDate={new Date(data.end_at || '')}
@@ -41,11 +44,11 @@ export const TaskEditor = (async ({ taskId }: TaskEditorProps) => {
                     </span>
                     <TaskUserAssignement
                         taskId={taskId}
-                        assignedProfile={data.assigned_check?.[0] || ''}
+                        assignedProfile={data.assigned_check?.[0]}
                     ></TaskUserAssignement>
                 </div>
                 <TaskDescriptionEditor
-                    desription={data.description}
+                    description={data.description}
                     taskId={taskId}
                 />
             </div>

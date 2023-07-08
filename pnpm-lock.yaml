@@ -15,7 +15,7 @@ importers:
         version: link:packages/eslint-config-custom
       prettier:
         specifier: latest
-        version: 2.8.8
+        version: 3.0.0
       turbo:
         specifier: ^1.10.7
         version: 1.10.7
@@ -104,6 +104,9 @@ importers:
       '@supabase/supabase-js':
         specifier: ^2.26.0
         version: 2.26.0(encoding@0.1.13)
+      '@tiptap/extension-placeholder':
+        specifier: ^2.0.3
+        version: 2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3)
       '@tiptap/pm':
         specifier: ^2.0.3
         version: 2.0.3(@tiptap/core@2.0.3)
@@ -146,6 +149,9 @@ importers:
       googleapis-common:
         specifier: ^6.0.4
         version: 6.0.4(encoding@0.1.13)
+      install:
+        specifier: ^0.13.0
+        version: 0.13.0
       js-cookie:
         specifier: ^3.0.5
         version: 3.0.5
@@ -155,6 +161,9 @@ importers:
       next:
         specifier: ^13.4.7
         version: 13.4.7(@babel/core@7.22.5)(react-dom@18.2.0)(react@18.2.0)
+      npm:
+        specifier: ^9.8.0
+        version: 9.8.0
       pretty-bytes:
         specifier: ^6.1.0
         version: 6.1.0
@@ -215,7 +224,7 @@ importers:
         version: link:../../packages/eslint-config-custom
       eslint-plugin-prettier:
         specifier: ^4.0.0
-        version: 4.2.1(eslint@8.43.0)(prettier@2.8.8)
+        version: 4.2.1(eslint@8.43.0)(prettier@3.0.0)
       tailwindcss:
         specifier: ^3.3.2
         version: 3.3.2
@@ -6288,6 +6297,16 @@ packages:
       '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
     dev: false
 
+  /@tiptap/extension-placeholder@2.0.3(@tiptap/core@2.0.3)(@tiptap/pm@2.0.3):
+    resolution: {integrity: sha512-Z42jo0termRAf0S0L8oxrts94IWX5waU4isS2CUw8xCUigYyCFslkhQXkWATO1qRbjNFLKN2C9qvCgGf4UeBrw==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0
+      '@tiptap/pm': ^2.0.0
+    dependencies:
+      '@tiptap/core': 2.0.3(@tiptap/pm@2.0.3)
+      '@tiptap/pm': 2.0.3(@tiptap/core@2.0.3)
+    dev: false
+
   /@tiptap/extension-strike@2.0.3(@tiptap/core@2.0.3):
     resolution: {integrity: sha512-RO4/EYe2iPD6ifDHORT8fF6O9tfdtnzxLGwZIKZXnEgtweH+MgoqevEzXYdS+54Wraq4TUQGNcsYhe49pv7Rlw==}
     peerDependencies:
@@ -9171,7 +9190,7 @@ packages:
       prettier-linter-helpers: 1.0.0
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint@8.43.0)(prettier@2.8.8):
+  /eslint-plugin-prettier@4.2.1(eslint@8.43.0)(prettier@3.0.0):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -9183,7 +9202,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.43.0
-      prettier: 2.8.8
+      prettier: 3.0.0
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -10418,6 +10437,11 @@ packages:
     resolution: {integrity: sha512-7NXolsK4CAS5+xvdj5OMMbI962hU/wvwoxk+LWR9Ek9bVtyuuYScDN6eS0rUm6TxApFpw7CX1o4uJzcd4AyD3Q==}
     dev: false
 
+  /install@0.13.0:
+    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
+    engines: {node: '>= 0.10'}
+    dev: false
+
   /internal-slot@1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
     engines: {node: '>= 0.4'}
@@ -11634,6 +11658,79 @@ packages:
       path-key: 4.0.0
     dev: false
 
+  /npm@9.8.0:
+    resolution: {integrity: sha512-AXeiBAdfM5K2jvBwA7EGLKeYyt0VnhmJRnlq4k2+M0Ao9v7yKJBqF8xFPzQL8kAybzwlfpTPCZwM4uTIszb3xA==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+    hasBin: true
+    dev: false
+    bundledDependencies:
+      - '@isaacs/string-locale-compare'
+      - '@npmcli/arborist'
+      - '@npmcli/config'
+      - '@npmcli/map-workspaces'
+      - '@npmcli/package-json'
+      - '@npmcli/run-script'
+      - abbrev
+      - archy
+      - cacache
+      - chalk
+      - ci-info
+      - cli-columns
+      - cli-table3
+      - columnify
+      - fastest-levenshtein
+      - fs-minipass
+      - glob
+      - graceful-fs
+      - hosted-git-info
+      - ini
+      - init-package-json
+      - is-cidr
+      - json-parse-even-better-errors
+      - libnpmaccess
+      - libnpmdiff
+      - libnpmexec
+      - libnpmfund
+      - libnpmhook
+      - libnpmorg
+      - libnpmpack
+      - libnpmpublish
+      - libnpmsearch
+      - libnpmteam
+      - libnpmversion
+      - make-fetch-happen
+      - minimatch
+      - minipass
+      - minipass-pipeline
+      - ms
+      - node-gyp
+      - nopt
+      - npm-audit-report
+      - npm-install-checks
+      - npm-package-arg
+      - npm-pick-manifest
+      - npm-profile
+      - npm-registry-fetch
+      - npm-user-validate
+      - npmlog
+      - p-map
+      - pacote
+      - parse-conflict-json
+      - proc-log
+      - qrcode-terminal
+      - read
+      - semver
+      - sigstore
+      - ssri
+      - supports-color
+      - tar
+      - text-table
+      - tiny-relative-date
+      - treeverse
+      - validate-npm-package-name
+      - which
+      - write-file-atomic
+
   /npmlog@5.0.1:
     resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==}
     dependencies:
@@ -12111,6 +12208,12 @@ packages:
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /prettier@3.0.0:
+    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 

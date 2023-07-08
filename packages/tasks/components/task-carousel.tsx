@@ -3,17 +3,31 @@
 import React, { use, useContext } from 'react';
 import { projectContext } from 'projects/providers/project-provider';
 import { profileContext } from 'auth/providers/profile-provider';
-import { getTasksByProjectIdAndUserId, isTaskList } from 'utils/tasks';
+import {
+    createTask,
+    getTasksByProjectIdAndUserId,
+    isTaskList,
+} from 'utils/tasks';
 import { TaskCard, TaskCardSkeleton } from './task-card';
 import { Button } from 'ui/components/button/Button';
+import { useRouter } from 'next/navigation';
 
 export const TaskCarousel = () => {
     const project = useContext(projectContext);
+    const profile = useContext(profileContext);
     const user = useContext(profileContext);
+    const router = useRouter();
 
     if (!user || !project) return <TaskCarouselSkeleton />;
 
     const tasks = use(getTasksByProjectIdAndUserId(project.id, user.id)).data;
+    const handleCreateNewTask = async () => {
+        const newTask = await createTask(project.id, user.id);
+
+        console.log(newTask);
+
+        router.push(`/project/${project.id}/tasks/${newTask.id}/edit`);
+    };
 
     if (!tasks) return <TaskCarouselSkeleton />;
 
@@ -28,6 +42,7 @@ export const TaskCarousel = () => {
                     small={true}
                     bold={true}
                     intent={'primary'}
+                    onClick={handleCreateNewTask}
                 >
                     Ajouter
                 </Button>

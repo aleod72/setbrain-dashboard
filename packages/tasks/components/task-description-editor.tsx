@@ -6,12 +6,12 @@ import { useSupabase } from 'auth/providers/supabase-provider';
 
 interface TaskDescriptionEditorProps {
     taskId: string;
-    desription: string;
+    description: string;
 }
 
 export const TaskDescriptionEditor = ({
     taskId,
-    desription,
+    description,
 }: TaskDescriptionEditorProps) => {
     const supabase = useSupabase().supabase;
     const handleBlur = async (content: string) => {
@@ -23,7 +23,8 @@ export const TaskDescriptionEditor = ({
 
     return (
         <Editor
-            content={desription}
+            content={description}
+            placeholder="Ajoutez la description de la tâche"
             className="mt-8"
             onBlur={(props) => handleBlur(props.editor.getHTML())}
         />

@@ -135,3 +135,18 @@ export const calculateProgress = (subTasks: SubTask[]) => {
 
     return finishedTasks.length / subTasks.length;
 };
+
+export const createTask = async (
+    project: string,
+    user: string
+): Promise<Task> => {
+    const { data, error } = await supabase
+        .from('tasks')
+        .insert({ project, progress: 0, assigned_users: [user] })
+        .select()
+        .single();
+
+    if (error) throw new Error(error.message);
+
+    return data;
+};

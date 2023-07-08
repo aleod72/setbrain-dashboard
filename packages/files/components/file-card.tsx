@@ -31,8 +31,6 @@ export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
     ) as drive_v3.Schema$File;
     const sharedUsers = use(getFileSharedUsers(driveFileId, supabase));
 
-    console.log(sharedUsers);
-
     return (
         <div className="flex flex-col rounded-3xl overflow-hidden bg-darkgrey-100 border-2 border-darkgrey-48 w-fit">
             <div className="relative w-[325px] h-[170px] blur-[1px] ">

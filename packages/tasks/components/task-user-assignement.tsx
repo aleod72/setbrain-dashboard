@@ -7,15 +7,16 @@ import { useSupabase } from 'auth/providers/supabase-provider';
 
 interface TaskUserAssignementProps {
     taskId: string;
-    assignedProfile: string;
+    assignedProfile: string | undefined;
 }
 
 export const TaskUserAssignement = ({
     taskId,
     assignedProfile,
 }: TaskUserAssignementProps) => {
-    const [selectedProfile, setSelectedProfile] =
-        React.useState<string>(assignedProfile);
+    const [selectedProfile, setSelectedProfile] = React.useState<
+        string | undefined
+    >(assignedProfile);
     const supabase = useSupabase().supabase;
     const handleSubmit = async (profileIds: string[]) => {
         setSelectedProfile(profileIds[0]);
@@ -27,12 +28,18 @@ export const TaskUserAssignement = ({
 
     return (
         <UserSharingDialog
-            selectedProfileIds={[selectedProfile]}
+            selectedProfileIds={selectedProfile ? [selectedProfile] : []}
             singleSelect={true}
             onSubmit={handleSubmit}
         >
             <button className="w-fit">
-                <ProfileTag id={selectedProfile}></ProfileTag>
+                {selectedProfile ? (
+                    <ProfileTag id={selectedProfile}></ProfileTag>
+                ) : (
+                    <span className="text-white p-2 border-2 border-white-24 rounded-xl">
+                        Selectionner un utilisateur
+                    </span>
+                )}
             </button>
         </UserSharingDialog>
     );

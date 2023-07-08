@@ -35,7 +35,7 @@ export const DatePicker = ({
     );
     const handleDateChange = (date: Date) => {
         setSelectedDate(date);
-        selectedDate && onDateChange(date);
+        onDateChange(date);
     };
 
     return (

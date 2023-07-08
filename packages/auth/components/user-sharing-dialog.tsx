@@ -28,13 +28,19 @@ export const UserSharingDialog = ({
         React.useState<string[]>(selectedProfileIds);
 
     const handleProfileClick = (profileId: string) => {
-        if (profileId === loggedUser?.id && !singleSelect) return;
+        if (
+            profileId === loggedUser?.id &&
+            singleSelect &&
+            selectedProfileIds.length > 0
+        ) {
+            return;
+        }
         if (finalSelectedProfiles.includes(profileId)) {
             setFinalSelectedProfiles(
                 finalSelectedProfiles?.filter((id) => id !== profileId)
             );
         } else {
-            if (singleSelect && finalSelectedProfiles.length >= 1) return;
+            if (singleSelect && finalSelectedProfiles.length > 0) return;
             setFinalSelectedProfiles([...finalSelectedProfiles, profileId]);
         }
     };
