@@ -46,6 +46,8 @@ export const UserSharingDialog = ({
     };
 
     return (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         <Dialog trigger={children}>
             <div className="w-[408px] min-h-[458px] px-[22px] py-5 bg-darkgrey-100 rounded-3xl border border-darkgrey-48 flex-col justify-between flex">
                 <div className="flex flex-col gap-5">

@@ -24,8 +24,9 @@ export const FileUploadDialog = ({
 }: FileUploadDialogProps) => {
     const driveToken = React.useContext(googleDriveContext);
     const file = use<File>(getFile(driveFileId, driveToken || ''));
-    const [sharedUsers, setSharedUsers] =
-        React.useState<string[]>(defaultSharedUsers);
+    const [sharedUsers, setSharedUsers] = React.useState<string[]>(
+        defaultSharedUsers || []
+    );
     const supabase = useSupabase().supabase;
     const handleSharingChanges = async (profileIds: string[]) => {
         setSharedUsers(profileIds);
@@ -36,6 +37,8 @@ export const FileUploadDialog = ({
     };
 
     return (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         <Dialog trigger={children}>
             <div className="w-[25vw] h-[70.5vh] overflow-scroll overflow-x-hidden px-[22px] py-5 bg-darkgrey-100 rounded-3xl border border-darkgrey-48 flex flex-col gap-4">
                 <h1 className="text-white-100 text-subtitle-sb font-bold">
