@@ -10,6 +10,7 @@ import { UploadFromDriveDialog } from 'files/components/upload-from-drive-dialog
 import { FileUploadDialog } from 'files/components/file-upload-dialog';
 import { uploadFile } from 'utils/files';
 import { profileContext } from 'auth/providers/profile-provider';
+import { googleDriveContext } from 'files/providers/google-drive-provider';
 
 interface TaskFileEditProps {
     taskId: string;
@@ -18,6 +19,7 @@ interface TaskFileEditProps {
 
 export const TaskFileEdit = ({ taskId, sharedUsers }: TaskFileEditProps) => {
     const supabase = useSupabase().supabase;
+    const driveToken = React.useContext(googleDriveContext) || '';
     const fileIds = use(getJoinedFiles(taskId, supabase));
     const [currentFiles, setCurrentFiles] = React.useState<
         {
@@ -32,11 +34,21 @@ export const TaskFileEdit = ({ taskId, sharedUsers }: TaskFileEditProps) => {
     const driveFileUploadDialogButtonRef =
         React.useRef<HTMLButtonElement>(null);
     const fileUploadDialogButtonRef = React.useRef<HTMLButtonElement>(null);
-    const handleDelete = async (driveFileId: string) => {
+    const handleDelete = async (fileId: string) => {
         setCurrentFiles((prev) =>
-            prev.filter((file) => file.fileId !== driveFileId)
+            prev.filter((file) => file.fileId !== fileId)
         );
-        await supabase.from('files').delete().match({ drive_id: driveFileId });
+
+        const currentFilesId = currentFiles
+            .filter((file) => file.fileId !== fileId)
+            .map((f) => f.fileId);
+
+        await supabase
+            .from('tasks')
+            .update({ joined_files: currentFilesId })
+            .match({
+                id: taskId,
+            });
     };
 
     const handleUpload = async (
@@ -49,14 +61,14 @@ export const TaskFileEdit = ({ taskId, sharedUsers }: TaskFileEditProps) => {
             driveFileId,
             supabase,
             profile.id,
-            updatedSharedUsers
+            updatedSharedUsers,
+            driveToken,
+            taskId
         );
 
         if (!file) return;
         if (file.error) throw file.error;
         if (!file.data || !file.data.id) return;
-
-        console.log(file);
 
         await setCurrentFiles((prev) => [
             ...prev,

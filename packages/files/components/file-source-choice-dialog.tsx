@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dialog, DialogClose } from 'ui/components/dialog/Dialog';
-import { UploadFromDriveDialog } from './upload-from-drive-dialog';
 
 interface FileUploadDialogProps {
     onClose: (source: string) => void;
@@ -12,6 +11,8 @@ export const FileSourceChoiceDialog = ({
     children,
 }: FileUploadDialogProps) => {
     return (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         <Dialog trigger={children}>
             <div className="w-[408px] px-[22px] py-5 bg-darkgrey-100 rounded-3xl border border-darkgrey-48 flex flex-col gap-4">
                 <h1 className="text-white-100 text-subtitle-sb font-bold">

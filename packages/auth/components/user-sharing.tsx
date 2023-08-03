@@ -4,7 +4,6 @@ import { ProfilePictureList } from './profile-picture-list';
 import { UserSharingDialog } from './user-sharing-dialog';
 import { Button } from 'ui/components/button/Button';
 import React from 'react';
-import { useSupabase } from '../providers/supabase-provider';
 
 interface UserSharingProps {
     profileIds: string[];

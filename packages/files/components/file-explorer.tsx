@@ -36,7 +36,7 @@ export const FileExplorer = ({
         if (!token) return;
 
         getFilesIn(currentFolder, token).then((res) =>
-            setFiles([...files, ...res.files])
+            setFiles([...files, ...res.files.filter((f: File) => !f.trashed)])
         );
 
         if (currentFolder == rootFolder || currentFolder == 'root') {

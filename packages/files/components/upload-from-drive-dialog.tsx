@@ -4,9 +4,6 @@ import React from 'react';
 import { Dialog, DialogClose } from 'ui/components/dialog/Dialog';
 import { FileExplorer } from './file-explorer';
 import { profileContext } from 'auth/providers/profile-provider';
-import { useSupabase } from 'auth/providers/supabase-provider';
-import { uploadFile } from 'utils/files';
-import { FileUploadDialog } from './file-upload-dialog';
 
 interface UploadFromDriveDialogProps {
     children: React.ReactNode;
@@ -27,6 +24,8 @@ export const UploadFromDriveDialog = ({
     };
 
     return (
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         <Dialog trigger={children}>
             <div className="w-[40vw] h-[40vh] overflow-scroll overflow-x-hidden px-[22px] py-5 bg-darkgrey-100 rounded-3xl border border-darkgrey-48 flex flex-col gap-4">
                 <h1 className="text-white-100 text-subtitle-sb font-bold">

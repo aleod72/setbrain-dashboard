@@ -18,7 +18,7 @@ export const button = cva('flex items-center rounded-xl text-white-100 gap-2', {
             false: 'py-2 px-4 text-body-m',
         },
         buttonIcon: {
-            true: 'grid px-0 py-0 place-items-center h-11 w-11',
+            true: 'grid !px-0 !py-0 place-items-center h-11 w-11',
             false: 'py-2 px-4',
         },
         disabled: {

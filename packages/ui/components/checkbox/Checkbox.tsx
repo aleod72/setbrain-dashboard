@@ -4,7 +4,7 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { CheckIcon } from '@radix-ui/react-icons';
 import React from 'react';
 
-interface CheckBoxProps extends CheckboxPrimitive.CheckboxProps {}
+type CheckBoxProps = CheckboxPrimitive.CheckboxProps;
 
 export const Checkbox = (props: CheckBoxProps) => {
     const [checked, setChecked] = React.useState(false);

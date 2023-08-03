@@ -1,10 +1,7 @@
 'use client';
 
-import React, { use, useContext } from 'react';
-import { ProfilePictureList } from 'auth/components/profile-picture-list';
-import { Button } from 'ui/components/button/Button';
+import React from 'react';
 import { useSupabase } from 'auth/providers/supabase-provider';
-import { UserSharingDialog } from 'auth/components/user-sharing-dialog';
 import { UserSharing } from 'auth/components/user-sharing';
 
 interface TaskUserSharingProps {

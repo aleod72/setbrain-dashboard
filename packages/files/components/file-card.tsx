@@ -1,7 +1,7 @@
 'use client';
 
 import React, { use, useContext } from 'react';
-import { getFile, getFileSharedUsers } from 'utils/files';
+import { getFile, getFileSharedUsers, getShorcutsDetails } from 'utils/files';
 import { googleDriveContext } from '../providers/google-drive-provider';
 import Image from 'next/image';
 import {
@@ -23,13 +23,34 @@ interface FileCardProps {
 export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
     const driveToken = useContext(googleDriveContext);
     const supabase = useSupabase().supabase;
-
-    if (!driveToken) return <FileCardSkeleton />;
+    const [thumbnailLink, setThumbnailLink] = React.useState<string>('');
+    const [size, setSize] = React.useState<string>('');
 
     const driveFile = use(
-        getFile(driveFileId, driveToken)
+        getFile(driveFileId, driveToken || '')
     ) as drive_v3.Schema$File;
     const sharedUsers = use(getFileSharedUsers(driveFileId, supabase));
+
+    React.useEffect(() => {
+        if (!driveToken) return;
+
+        if (
+            driveFile.hasThumbnail === true &&
+            driveFile.shortcutDetails?.targetId &&
+            driveFile.thumbnailLink
+        ) {
+            setThumbnailLink(driveFile.thumbnailLink);
+            setSize(driveFile.size || '');
+        } else {
+            getShorcutsDetails(
+                driveFile.shortcutDetails?.targetId || '',
+                driveToken
+            ).then((res) => {
+                setThumbnailLink(res.thumbnailLink);
+                setSize(res.size);
+            });
+        }
+    }, [driveFile, driveToken]);
 
     return (
         <div className="flex flex-col rounded-3xl overflow-hidden bg-darkgrey-100 border-2 border-darkgrey-48 w-fit">
@@ -37,7 +58,7 @@ export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
                 <Image
                     className="opacity-50"
                     alt={driveFile.name || ''}
-                    src={driveFile?.thumbnailLink || ''}
+                    src={thumbnailLink}
                     fill={true}
                     style={{ objectFit: 'cover', objectPosition: 'top' }}
                 />
@@ -68,9 +89,7 @@ export const FileCard = ({ driveFileId, menu }: FileCardProps) => {
                             </span>
                         )}
                         <span className="min-w-[84px] text-white-72">
-                            {!Number.isNaN(driveFile.size) &&
-                                driveFile.size &&
-                                prettyBytes(Number.parseInt(driveFile.size))}
+                            {size && prettyBytes(Number.parseInt(size))}
                         </span>
                     </div>
                 </div>
