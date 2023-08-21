@@ -21,27 +21,29 @@ export const TaskView = (async ({ taskId }: TaskViewProps) => {
     if (!data) return <div>Loading...</div>;
 
     return (
-        <div className="flex flex-col gap-2 max-w-2xl">
+        <div className="flex flex-col gap-2 w-full md:max-w-2xl">
             <div className="px-1 py-0.5 bg-white-72 rounded-md w-fit text-pretitle font-medium text-black-100">
                 {data.type && data.type.toUpperCase()}
             </div>
-            <h1 className="text-title-h3 font-bold font-body">{data.title}</h1>
-            <div className="flex items-center gap-3">
-                <div className="h-10 pl-3">
+            <h1 className="text-title-h3 w-full font-bold font-body">
+                {data.title}
+            </h1>
+            <div className="flex flex-col md:flex-row md:items-center gap-3">
+                <div className="h-10 pl-0 md:pl-3">
                     <ProfilePictureList ids={data.assigned_users || []} />
                 </div>
                 {data.assigned_users && (
-                    <>
-                        <div className="h-5 w-[1px] bg-white-100"></div>
+                    <div className="flex items-center gap-3">
+                        <div className="h-5 w-[1px] bg-white-100 hidden md:visible"></div>
                         <span className="text-body-lm text-white-48">
                             {' '}
                             Vérification :
                         </span>
                         <ProfileTag id={data.assigned_users[0]} />
-                    </>
+                    </div>
                 )}
             </div>
-            <span className="text-body-m text-white-48">
+            <span className="text-body-m text-white-48 mt-3 md:mt-0">
                 Pour le {dayjs(data.end_at).format('DD/MM/YY')}
             </span>
             <div>
@@ -64,7 +66,7 @@ export const TaskView = (async ({ taskId }: TaskViewProps) => {
                     })}
             </div>
             <div className="flex justify-between items-center mt-6">
-                <div className="w-72">
+                <div className="w-full md:w-72">
                     <ProgressBar
                         progress={data.progress * 100}
                         max={100}
@@ -74,7 +76,7 @@ export const TaskView = (async ({ taskId }: TaskViewProps) => {
                         )}
                     />
                 </div>
-                <Link href={taskId + '/edit'}>
+                <Link href={taskId + '/edit'} className="hidden md:visible">
                     <Button iconLeft="pencil">Modifier</Button>
                 </Link>
             </div>

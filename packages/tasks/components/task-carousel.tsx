@@ -14,7 +14,6 @@ import { useRouter } from 'next/navigation';
 
 export const TaskCarousel = () => {
     const project = useContext(projectContext);
-    const profile = useContext(profileContext);
     const user = useContext(profileContext);
     const router = useRouter();
 

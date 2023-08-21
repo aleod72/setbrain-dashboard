@@ -19,9 +19,9 @@ export const TaskEditor = (async ({ taskId }: TaskEditorProps) => {
     if (!data) return <div>Loading...</div>;
 
     return (
-        <div className="flex gap-12">
-            <div className="flex-col flex w-[592px]">
-                <div className="flex gap-3">
+        <div className="flex gap-12 md:flex-row flex-col">
+            <div className="flex-col flex md:w-[592px] w-full">
+                <div className="flex gap-3 flex-col md:flex-row">
                     <TagSelector
                         taskId={taskId}
                         defaultTag={data.type || undefined}
@@ -32,12 +32,12 @@ export const TaskEditor = (async ({ taskId }: TaskEditorProps) => {
                     />
                 </div>
                 <TaskEditableTitle taskId={taskId} defaultTile={data.title} />
-                <div className="flex items-center gap-3">
+                <div className="flex md:items-center gap-3 flex-col">
                     <TaskUserSharing
                         taskId={taskId}
                         profileIds={data.assigned_users || []}
                     ></TaskUserSharing>
-                    <div className="h-5 w-[1px] bg-white-72"></div>
+                    <div className="md:visible hidden h-5 w-[1px] bg-white-72"></div>
                     <span className="text-body-lm text-white-48">
                         {' '}
                         Vérification :

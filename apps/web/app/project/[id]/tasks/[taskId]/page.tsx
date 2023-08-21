@@ -10,9 +10,9 @@ interface TaskPageProps {
 
 export default function TaskPage({ params: { taskId } }: TaskPageProps) {
     return (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 p-8 md:p-0">
             <BackHead />
-            <div className="flex gap-12">
+            <div className="flex flex-col md:flex-row gap-12">
                 <TaskView taskId={taskId} />
                 <TaskFilesView taskId={taskId} />
             </div>

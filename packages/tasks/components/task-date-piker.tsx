@@ -2,6 +2,7 @@
 
 import { DatePicker } from 'ui/components/date-picker/DatePicker';
 import { useSupabase } from 'auth/providers/supabase-provider';
+import React from 'react';
 
 interface TaskDatePickerProps {
     taskId: string;

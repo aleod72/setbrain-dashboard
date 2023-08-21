@@ -12,7 +12,7 @@ function HomeProjectPage() {
                 </Suspense>
                 <TaskHead />
             </div>
-            <div className="flex gap-6 flex-col md:flex-row">
+            <div className="flex gap-6 flex-col pb-28 md:flex-row md-:pb-0">
                 <TaskCarousel />
                 <ActivitiesCarousel vertical={true} />
             </div>

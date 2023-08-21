@@ -26,7 +26,7 @@ export const TaskEditableTitle = ({
             onBlur={handleBlur}
             value={title}
             placeholder="Ajoutez le titre pour la tâche"
-            className="text-title-h3 font-bold font-body bg-transparent border-none outline-none w-full resize-none placeholder:text-white-48"
+            className="text-title-h3 font-bold font-body bg-transparent border-none outline-none p-2 md:p-0 w-full md:h-fit h-[234px] resize-none placeholder:text-white-48"
         ></textarea>
     );
 };

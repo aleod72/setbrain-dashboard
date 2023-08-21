@@ -18,7 +18,7 @@ export const ProfileTag = ({ id }: ProfileTagProps) => {
     if (!data) return <ProfileTagSkeleton />;
 
     return (
-        <div className="flex items-center gap-2 px-2 py-[6px] border-2 border-lightgrey-24 rounded-xl">
+        <div className="flex w-fit items-center gap-2 px-2 py-[6px] border-2 border-lightgrey-24 rounded-xl">
             <div className="w-fit h-fit rounded-full overflow-hidden">
                 <Image
                     src={data.avatar_url || ''}

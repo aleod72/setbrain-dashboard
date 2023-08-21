@@ -10,7 +10,7 @@ interface TaskEditorPageProps {
 
 export default function Page({ params: { taskId } }: TaskEditorPageProps) {
     return (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 p-8 md:p-0">
             <BackHead />
             <TaskEditor taskId={taskId} />
         </div>
