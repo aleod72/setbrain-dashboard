@@ -224,3 +224,38 @@ export const createFolderIfNotExist = async (
         return response.id;
     }
 };
+
+export const getFilesOfProject = async (
+    projetId: string,
+    supabase: SupabaseClient<Database>
+) => {
+    console.log(projetId);
+    const joinedFiles = await supabase
+        .from('tasks')
+        .select('joined_files')
+        .eq('project', projetId);
+
+    const processedJoinedFiles = joinedFiles.data
+        ?.filter((file) => {
+            return file.joined_files;
+        })
+        .map((file) => {
+            return file.joined_files;
+        })
+        .flat();
+
+    if (!processedJoinedFiles) return;
+
+    const files = await supabase
+        .from('files')
+        .select('drive_id')
+        .in('id', processedJoinedFiles);
+
+    const processedFiles = files.data?.map((file) => {
+        return file.drive_id;
+    });
+
+    console.log(processedFiles);
+
+    return processedFiles;
+};
