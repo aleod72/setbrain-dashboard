@@ -18,5 +18,5 @@ export const getMessages = cache(async () => {
     if (error) {
         throw error;
     }
-    return data;
+    return data as unknown as ChatMessage[];
 });

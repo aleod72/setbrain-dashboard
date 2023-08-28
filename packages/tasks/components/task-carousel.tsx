@@ -23,8 +23,6 @@ export const TaskCarousel = () => {
     const handleCreateNewTask = async () => {
         const newTask = await createTask(project.id, user.id);
 
-        console.log(newTask);
-
         router.push(`/project/${project.id}/tasks/${newTask.id}/edit`);
     };
 

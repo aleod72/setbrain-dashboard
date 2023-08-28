@@ -28,7 +28,7 @@ export const MobileProjectMenu = ({
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
                 <Image
-                    src={project.project_icon_url}
+                    src={project.project_icon_url || ''}
                     alt={project?.name + ' icone'}
                     fill={true}
                 ></Image>
