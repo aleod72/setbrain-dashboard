@@ -21,6 +21,7 @@ export const ArticleContentEditor = ({
         commandMap: {},
     });
     const handleBlur = async () => {
+        console.log(content.toString().includes('\n'));
         await supabase
             .from('articles')
             .update({ content: content })
@@ -35,7 +36,6 @@ export const ArticleContentEditor = ({
                     content: (
                         <textarea
                             placeholder="Commencez à rédiger votre article"
-                            ref={ref}
                             value={content}
                             defaultValue={initialContent}
                             onChange={(e) =>
@@ -45,7 +45,7 @@ export const ArticleContentEditor = ({
                                 )
                             }
                             onBlur={handleBlur}
-                            className="bg-transparent w-full h-full outline-none resize-none"
+                            className="bg-transparent w-full h-full outline-none resize-none whitespace-pre"
                         ></textarea>
                     ),
                 },

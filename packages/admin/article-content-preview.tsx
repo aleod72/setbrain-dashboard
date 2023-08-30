@@ -8,5 +8,9 @@ interface ArticleContentPreviewProps {
 export const ArticleContentPreview = ({
     content,
 }: ArticleContentPreviewProps) => {
-    return <ReactMarkdown>{content}</ReactMarkdown>;
+    return (
+        <div className="flex flex-col gap-5">
+            <ReactMarkdown>{content}</ReactMarkdown>
+        </div>
+    );
 };

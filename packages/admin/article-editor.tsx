@@ -17,7 +17,7 @@ export const ArticleEditor = (async ({ articleId }: ArticleEditorProps) => {
     if (!data) return <div>Loading...</div>;
 
     return (
-        <div className="flex gap-12 flex-col h-full">
+        <div className="flex gap-2 flex-col h-full">
             <ArticleEditableTitle
                 articleId={articleId}
                 defaultTile={data.title}

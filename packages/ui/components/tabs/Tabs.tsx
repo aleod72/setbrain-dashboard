@@ -11,7 +11,10 @@ interface TabsProps {
 
 export const Tabs = ({ tabs, defaultTab }: TabsProps) => {
     return (
-        <PrimitiveTabs.Root className="h-full" defaultValue={defaultTab}>
+        <PrimitiveTabs.Root
+            className="h-full flex flex-col gap-8"
+            defaultValue={defaultTab}
+        >
             <PrimitiveTabs.List>
                 {tabs.map((tab, index) => (
                     <PrimitiveTabs.Trigger
