@@ -1,5 +1,6 @@
 import { SupabaseClient } from '@supabase/supabase-js';
 import { Database } from 'types/database';
+import { cache } from 'react';
 
 export const createArticle = (
     projectId: string,
@@ -18,3 +19,7 @@ export const getArticleById = (
 ) => {
     return supabase.from('articles').select('*').eq('id', articleId).single();
 };
+
+export const getArticles = cache((supabase: SupabaseClient<Database>) => {
+    return supabase.from('articles').select('*');
+});

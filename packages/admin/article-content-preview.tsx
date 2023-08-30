@@ -9,7 +9,7 @@ export const ArticleContentPreview = ({
     content,
 }: ArticleContentPreviewProps) => {
     return (
-        <div className="flex flex-col gap-5">
+        <div className="preview flex flex-col gap-5">
             <ReactMarkdown>{content}</ReactMarkdown>
         </div>
     );

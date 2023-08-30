@@ -511,9 +511,9 @@ export interface SubTask {
 export interface Article {
     id: string;
     created_at: string;
-    edited_at: string;
+    edited_at: string | null;
     title: string;
-    content: string;
-    project_id: string;
-    published: boolean;
+    content: string | null;
+    project_id: string | null;
+    published: boolean | null;
 }

@@ -1,10 +1,11 @@
 'use client';
 
 import { Button } from 'ui/components/button/Button';
-import { createArticle } from '../utils/articles';
+import { createArticle, getArticles } from '../utils/articles';
 import { useSupabase } from 'auth/providers/supabase-provider';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { use } from 'react';
+import { ArticleCard } from './article-card';
 
 interface ArticlesViewProps {
     projectId: string;
@@ -13,6 +14,7 @@ interface ArticlesViewProps {
 export const ArticlesView = ({ projectId }: ArticlesViewProps) => {
     const supabase = useSupabase().supabase;
     const router = useRouter();
+    const { data } = use(getArticles(supabase));
 
     const handleCreateNewArticle = async () => {
         const { data } = await createArticle(projectId, supabase);
@@ -27,10 +29,15 @@ export const ArticlesView = ({ projectId }: ArticlesViewProps) => {
     };
 
     return (
-        <div className="flex h-full flex-wrap gap-5 px-5">
-            <Button iconLeft="plus" onClick={handleCreateNewArticle}>
-                Ajouter
-            </Button>
+        <div className="flex flex-col gap-3 h-full">
+            <div className="flex w-full items-center justify-between">
+                <h1 className="text-subtitle-sb">Articles</h1>
+
+                <Button iconLeft="plus" onClick={handleCreateNewArticle}>
+                    Ajouter
+                </Button>
+            </div>
+            {data?.map((article) => <ArticleCard article={article} />)}
         </div>
     );
 };
