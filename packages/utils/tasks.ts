@@ -1,4 +1,4 @@
-import { Database, SubTask, Task } from 'types/database';
+import { Database, Json, SubTask, Task } from 'types/database';
 import { createClient } from './supabase-browser';
 import { SupabaseClient } from '@supabase/supabase-js';
 import { cache } from 'react';
@@ -84,7 +84,7 @@ export const getJoinedFiles = cache(
 );
 
 export const isSubTaskList = (arg: any): arg is SubTask[] => {
-    return arg !== undefined;
+    return (arg as SubTask[])[0].title !== undefined;
 };
 
 export const setSubTaskCompleted = cache(
@@ -101,27 +101,28 @@ export const setSubTaskCompleted = cache(
 
         if (!subTasks) return;
 
-        const modifedSubTasks = subTasks.map((subTask) => {
+        const modifiedSubTasks = subTasks.map((subTask) => {
             const parsedSubTask = JSON.parse(
                 JSON.stringify(subTask)
             ) as SubTask;
-
-            if (parsedSubTask['title'] == title && subTask) {
+            console.log(parsedSubTask)
+            if (parsedSubTask['title'] === title) {
                 parsedSubTask['finished'] = state;
             }
-            return subTask;
+            console.log(parsedSubTask)
+            return parsedSubTask;
         });
 
-        if (!isSubTaskList(modifedSubTasks)) return;
-
+        if (!isSubTaskList(modifiedSubTasks)) return;
+        console.log(modifiedSubTasks)
         await supabase
             .from('tasks')
-            .update({ sub_tasks: modifedSubTasks })
+            .update({ sub_tasks: modifiedSubTasks as unknown as Json[] })
             .eq('id', taskId);
 
         await supabase
             .from('tasks')
-            .update({ progress: calculateProgress(modifedSubTasks) })
+            .update({ progress: calculateProgress(modifiedSubTasks) })
             .eq('id', taskId);
     }
 );

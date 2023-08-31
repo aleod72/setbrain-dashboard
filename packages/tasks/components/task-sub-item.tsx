@@ -14,6 +14,9 @@ export const TaskSubItem = ({ subTask, taskId }: TaskSubItemProps) => {
     const [checked, setChecked] = React.useState(subTask.finished);
 
     React.useEffect(() => {
+        if (checked === subTask.finished) {
+            return
+        }
         setSubTaskCompleted(taskId, subTask.title, checked);
     }, [checked, subTask, taskId]);
 
